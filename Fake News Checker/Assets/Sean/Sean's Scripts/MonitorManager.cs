@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem; // Added for the New Input System
+using UnityEngine.EventSystems; // 1. MANDATORY IMPORT FOR UI INTERACTIONS
+using System.Collections.Generic; // Added for list tracking
 using TMPro;
 
 public class MonitorManager : MonoBehaviour
 {
     [Header("Camera & Zoom Settings")]
     public Camera mainCamera;
-    public float defaultOrthographicSize = 7f; // Zoom size out (sees everything)
-    public float zoomedOrthographicSize = 3f;    // Zoom size in (close up)
+    public float defaultOrthographicSize = 8f; // Zoom size out (sees everything)
+    public float zoomedOrthographicSize = 5f;    // Zoom size in (close up)
     public float zoomSpeed = 5f;
 
     [Header("Monitors and Positions")]
@@ -61,11 +63,60 @@ public class MonitorManager : MonoBehaviour
         }
     }
 
+    //void HandleMouseClick()
+    //{
+    //    // Don't register monitor clicks if the player is actively typing in the notepad
+    //    if (notesInputField != null && notesInputField.isFocused) return;
+
+    //    // New Input System: Get mouse position safely
+    //    Vector2 mousePosition = Mouse.current.position.ReadValue();
+    //    Vector2 worldMousePos = mainCamera.ScreenToWorldPoint(mousePosition);
+    //    RaycastHit2D hit = Physics2D.Raycast(worldMousePos, Vector2.zero);
+
+    //    if (hit.collider != null)
+    //    {
+    //        Transform clickedObject = hit.transform;
+
+    //        if (clickedObject == monitorLeft) ZoomIn(monitorLeft.position);
+    //        else if (clickedObject == monitorCenter) ZoomIn(monitorCenter.position);
+    //        else if (clickedObject == monitorRight) ZoomIn(monitorRight.position);
+    //    }
+    //}
+
     void HandleMouseClick()
     {
-        // Don't register monitor clicks if the player is actively typing in the notepad
+        // Don't register monitor clicks if the player is typing
         if (notesInputField != null && notesInputField.isFocused) return;
 
+        //// 2. FIX: If the mouse is over a ScrollView or Button, let the UI handle it and exit early!
+        //if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        //{
+        //    return;
+        //}
+
+        // FIX: Check exactly WHAT UI element the mouse is hovering over
+        if (EventSystem.current != null)
+        {
+            PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+            eventDataCurrentPosition.position = Mouse.current.position.ReadValue();
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+
+            foreach (RaycastResult result in results)
+            {
+                // If the cursor is over an interactive Button, Scrollbar, or Text Input, 
+                // LET THE UI HANDLE IT and completely stop the zoom raycast.
+                if (result.gameObject.GetComponentInParent<UnityEngine.UI.Button>() != null ||
+                    result.gameObject.GetComponentInParent<UnityEngine.UI.Scrollbar>() != null ||
+                    result.gameObject.GetComponentInParent<TMP_InputField>() != null)
+                {
+                    return;
+                }
+            }
+        }
+
+        // --- Physical Monitor Raycast (Runs safely if you aren't clicking a button/scrollbar) ---
         // New Input System: Get mouse position safely
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         Vector2 worldMousePos = mainCamera.ScreenToWorldPoint(mousePosition);
@@ -81,7 +132,7 @@ public class MonitorManager : MonoBehaviour
         }
     }
 
-    void ZoomIn(Vector3 monitorPosition)
+        void ZoomIn(Vector3 monitorPosition)
     {
         targetCameraPosition = new Vector3(monitorPosition.x, monitorPosition.y, startingCameraPosition.z);
         targetCameraSize = zoomedOrthographicSize;

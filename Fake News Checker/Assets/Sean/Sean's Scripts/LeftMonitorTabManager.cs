@@ -9,6 +9,11 @@ public class LeftMonitorTabManager : MonoBehaviour
         public Button tabButton;       // The sidebar document button
         public GameObject popUpWindow; // The matching central window pop-up
         public Button closeButton;     // The "X" button inside that pop-up
+
+        public ScrollRect associatedScrollRect; // OPTIONAL: Drag the Scroll View here to reset scroll position on click
+
+        public DialogueData dialogueToLoad;     // OPTIONAL: Dialogue Asset to load if this is a chatroom link
+
     }
 
     [Header("Tab & Window Configuration")]
@@ -18,22 +23,22 @@ public class LeftMonitorTabManager : MonoBehaviour
 
     void Start()
     {
-        // Set up button listeners automatically
         foreach (var pair in tabs)
         {
             if (pair.tabButton != null && pair.popUpWindow != null)
             {
-                // Watch for when a sidebar tab is clicked
-                pair.tabButton.onClick.AddListener(() => OpenWindow(pair.popUpWindow));
+                // Watch for when a left sidebar tab is clicked
+                //pair.tabButton.onClick.AddListener(() => OpenWindow(pair.popUpWindow, pair.associatedScrollRect));
+                pair.tabButton.onClick.AddListener(() => OpenWindow(pair.popUpWindow, pair.associatedScrollRect, pair.dialogueToLoad));
+
             }
 
             if (pair.closeButton != null && pair.popUpWindow != null)
             {
-                // Watch for when the X button is clicked
+                // Watch for when the X button on the center monitor is clicked
                 pair.closeButton.onClick.AddListener(() => CloseActiveWindow());
             }
 
-            // Double check everything starts cleanly hidden
             if (pair.popUpWindow != null)
             {
                 pair.popUpWindow.SetActive(false);
@@ -41,20 +46,37 @@ public class LeftMonitorTabManager : MonoBehaviour
         }
     }
 
-    public void OpenWindow(GameObject targetWindow)
+    public void OpenWindow(GameObject targetWindow, ScrollRect targetScrollRect, DialogueData dialogueData)
     {
-        // If the clicked window is already open, do nothing
         if (activeWindow == targetWindow) return;
 
-        // Rule: Safely close the previously opened tab window first
         CloseActiveWindow();
 
-        // Rule: Open the tab where the assigned button points to
         if (targetWindow != null)
         {
             targetWindow.SetActive(true);
             activeWindow = targetWindow;
+
+            if (targetScrollRect != null) targetScrollRect.verticalNormalizedPosition = 1f;
+
+            // Automatically check if the window contains an operational Dialogue Engine
+            DialogueManager dialogueEngine = targetWindow.GetComponent<DialogueManager>();
+            if (dialogueEngine != null && dialogueData != null)
+            {
+                dialogueEngine.StartDialogue(dialogueData);
+            }
         }
+        //if (targetWindow != null)
+        //{
+        //    targetWindow.SetActive(true);
+        //    activeWindow = targetWindow;
+
+        //    // Automatically scroll back to the top of the text/list when opened
+        //    if (targetScrollRect != null)
+        //    {
+        //        targetScrollRect.verticalNormalizedPosition = 1f;
+        //    }
+        //}
     }
 
     public void CloseActiveWindow()
