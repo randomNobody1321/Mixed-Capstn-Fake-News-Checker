@@ -3501,10 +3501,10 @@ MonoBehaviour:
   - {fileID: 1592219625}
   - {fileID: 1429962523}
   messagePrefab: {fileID: 4910997406148999168, guid: 776cc83e553fc594b9e848c66a977a4d, type: 3}
-  npcAvatarSprite: {fileID: -2110939876893112140, guid: a01a0375872e737468120ebe74cfade6, type: 3}
-  playerAvatarSprite: {fileID: -2350115688653503353, guid: accc61cd5d1ac7544b9f36e23b58b2b0, type: 3}
+  npcAvatarSprite: {fileID: -2350115688653503353, guid: accc61cd5d1ac7544b9f36e23b58b2b0, type: 3}
+  playerAvatarSprite: {fileID: -2110939876893112140, guid: a01a0375872e737468120ebe74cfade6, type: 3}
   npcBubbleColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-  playerBubbleColor: {r: 0.1, g: 0.5, b: 0.9, a: 1}
+  playerBubbleColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &901240493
 GameObject:
   m_ObjectHideFlags: 0
@@ -4176,12 +4176,12 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 1
+  m_ChildAlignment: 0
   m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -6231,7 +6231,7 @@ RectTransform:
   m_GameObject: {fileID: 1360388732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3333334, y: 0.6666667, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2060037165}
@@ -6242,7 +6242,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 270, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1360388734
 MonoBehaviour:
@@ -8007,7 +8007,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1365384299}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9809,6 +9809,7 @@ GameObject:
   - component: {fileID: 2060037168}
   - component: {fileID: 2060037167}
   - component: {fileID: 2060037166}
+  - component: {fileID: 2060037169}
   m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
@@ -9887,6 +9888,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060037164}
   m_CullTransparentMesh: 1
+--- !u!114 &2060037169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060037164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &2113930291
 GameObject:
   m_ObjectHideFlags: 0
