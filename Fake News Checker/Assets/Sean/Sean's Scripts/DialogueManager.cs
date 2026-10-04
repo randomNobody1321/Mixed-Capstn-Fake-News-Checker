@@ -263,11 +263,6 @@ public class DialogueManager : MonoBehaviour
         // 4. Handle Visual Alignment, Avatars, and Bubble Colors dynamically
         if (horizontalGroup != null)
         {
-
-            // FIX: Changed name to horizontalRowRect to stop the naming conflict!
-            RectTransform horizontalRowRect = horizontalGroup.GetComponent<RectTransform>();
-
-
             // HARD CLAMP THE BUBBLE GRAPHIC WIDTH SO IT CANNOT INFLATE
             if (bubbleImage != null)
             {
@@ -276,91 +271,39 @@ public class DialogueManager : MonoBehaviour
                 {
                     bubbleLayout = bubbleImage.gameObject.AddComponent<LayoutElement>();
                 }
-                // Stop the bubble background from expanding horizontally past 220 pixels
                 bubbleLayout.preferredWidth = 220f;
                 bubbleLayout.flexibleWidth = 0f;
             }
 
+            // UNIFIED ROW ALIGNMENT: Everyone is locked to UpperLeft to prevent monitor-wide stretching
+            horizontalGroup.childAlignment = TextAnchor.UpperLeft;
+            horizontalGroup.spacing = 10f; // Standard clean spacing between avatar and text bubble
+
             if (isPlayer)
             {
-                horizontalGroup.childAlignment = TextAnchor.UpperRight;
                 if (avatarImage != null) avatarImage.sprite = playerAvatarSprite;
                 if (bubbleImage != null) bubbleImage.color = playerBubbleColor;
-                if (avatarImage != null) avatarImage.transform.SetAsLastSibling();
 
-                // Mirror the bubble graphic horizontally for the player
-                if (bubbleImage != null)
-                {
-                    bubbleImage.transform.localScale = new Vector3(-1f, 1f, 1f);
-                }
+                // NORMAL PLACEMENT: Keep the player avatar locked cleanly as the first child on the left
+                if (avatarImage != null) avatarImage.transform.SetAsFirstSibling();
 
-                // Un-mirror the text inside the bubble so the letters aren't backwards
-                if (textComp != null)
-                {
-                    textComp.transform.localScale = new Vector3(-1f, 1f, 1f);
-                }
-
-                // FIX: Force the player's row box width to stay compact so the avatar sits right next to the bubble
-                if (horizontalRowRect != null)
-                {
-                    horizontalRowRect.pivot = new Vector2(1f, 1f); // Anchor the pivot to the upper-right corner
-                }
+                // ENSURE NORMAL SCALE: Stop any mirror flips from altering layout tracking
+                if (bubbleImage != null) bubbleImage.transform.localScale = Vector3.one;
+                if (textComp != null) textComp.transform.localScale = Vector3.one;
             }
             else
             {
-                horizontalGroup.childAlignment = TextAnchor.UpperLeft;
                 if (avatarImage != null) avatarImage.sprite = npcAvatarSprite;
                 if (bubbleImage != null) bubbleImage.color = npcBubbleColor;
+                
+                // NORMAL PLACEMENT: Keep the Guard avatar locked cleanly as the first child on the left
                 if (avatarImage != null) avatarImage.transform.SetAsFirstSibling();
 
-                // Reset the bubble graphic to normal direction for the NPC
-                if (bubbleImage != null)
-                {
-                    bubbleImage.transform.localScale = new Vector3(1f, 1f, 1f);
-                }
-
-                // Reset text scale to normal for the NPC
-                if (textComp != null)
-                {
-                    textComp.transform.localScale = new Vector3(1f, 1f, 1f);
-                }
-
-                if (horizontalRowRect != null)
-                {
-                    horizontalRowRect.pivot = new Vector2(0f, 1f); // Anchor the pivot to the upper-left corner for the guard
-                }
-
-                //// ==========================================
-                //// FORCE THE ENTIRE MESSAGE ROW TO STAY COMPACT
-                //// This forces the parent Content container to respect a strict row width cap!
-                //LayoutElement rowLayout = horizontalGroup.gameObject.GetComponent<LayoutElement>();
-                //if (rowLayout == null)
-                //{
-                //    rowLayout = horizontalGroup.gameObject.AddComponent<LayoutElement>();
-                //}
-
-                //// Hard clamp the row width so it matches your narrow window space (e.g., 260 pixels)
-                //// This strips away Unity's ability to stretch the row and separate your avatar!
-                //rowLayout.preferredWidth = 260f;
-                //rowLayout.flexibleWidth = 0f;
-                //// ==========================================
-                // ==========================================
-                // ULTIMATE CLAMP: FORCE THE ENTIRE MASTER PREFAB TO STAY NARROW
-                // This forces the parent Content container to stop stretching the message shell!
-                LayoutElement masterShellLayout = newMsgRow.GetComponent<LayoutElement>();
-                if (masterShellLayout == null)
-                {
-                    masterShellLayout = newMsgRow.AddComponent<LayoutElement>();
-                }
-
-                // Hard clamp the entire prefab shell width so it matches your narrow window space
-                // This leaves absolutely zero empty padding space for your player avatar to drift into!
-                masterShellLayout.preferredWidth = 260f;
-                masterShellLayout.flexibleWidth = 0f;
-                // ==========================================
-
+                if (bubbleImage != null) bubbleImage.transform.localScale = Vector3.one;
+                if (textComp != null) textComp.transform.localScale = Vector3.one;
             }
         }
+
 
 
         // 5. Force UI refresh cycle to snap our scroll position down instantly
@@ -388,3 +331,135 @@ public class DialogueManager : MonoBehaviour
         //chatUI.HideChoices();
     }
 }
+
+//old code, back when I tried to have player icon appear on the write with the text image of bubble background flip when on player dialogue since it/player icon is on the right
+//// 4. Handle Visual Alignment, Avatars, and Bubble Colors dynamically
+//if (horizontalGroup != null)
+//{
+
+//    // FIX: Changed name to horizontalRowRect to stop the naming conflict!
+//    RectTransform horizontalRowRect = horizontalGroup.GetComponent<RectTransform>();
+
+
+//    // HARD CLAMP THE BUBBLE GRAPHIC WIDTH SO IT CANNOT INFLATE
+//    if (bubbleImage != null)
+//    {
+//        LayoutElement bubbleLayout = bubbleImage.gameObject.GetComponent<LayoutElement>();
+//        if (bubbleLayout == null)
+//        {
+//            bubbleLayout = bubbleImage.gameObject.AddComponent<LayoutElement>();
+//        }
+//        // Stop the bubble background from expanding horizontally past 220 pixels
+//        bubbleLayout.preferredWidth = 220f;
+//        bubbleLayout.flexibleWidth = 0f;
+//    }
+
+//    if (isPlayer)
+//    {
+//        // 1. SET TO NORMAL: Keep the row aligned left just like the NPC
+//        horizontalGroup.childAlignment = TextAnchor.UpperLeft;
+
+//        if (avatarImage != null) avatarImage.sprite = playerAvatarSprite;
+//        if (bubbleImage != null) bubbleImage.color = playerBubbleColor;
+
+//        // 2. SET TO NORMAL: Keep the avatar icon as the very first item on the left side
+//        if (avatarImage != null) avatarImage.transform.SetAsFirstSibling();
+
+//        //horizontalGroup.childAlignment = TextAnchor.UpperRight;
+
+//        //if (avatarImage != null) avatarImage.sprite = playerAvatarSprite;
+//        //if (bubbleImage != null) bubbleImage.color = playerBubbleColor;
+
+//        //if (avatarImage != null) avatarImage.transform.SetAsLastSibling();
+
+//        // 1. THIS CONTROLS SPANS/LOCATION ORDER:
+//        // SetAsLastSibling() moves the avatar to the RIGHT of the chat bubble.
+//        // SetAsFirstSibling() will force the avatar to spawn on the LEFT of the player bubble instead.
+//        if (avatarImage != null) avatarImage.transform.SetAsLastSibling();
+
+//        // 2. THIS CONTROLS INDEPENDENT OFFSET/DISTANCE VIA CODE:
+//        // If you want to manually nudge or force a tight gap between the avatar and the bubble,
+//        // you can adjust the layout spacing value programmatically right here:
+//        horizontalGroup.spacing = 10f; // Lower this number (e.g., 5f or 8f) to pull them tighter together
+
+//        // 3. OPTIONAL HARD OVERRIDE FOR LOCATION:
+//        // If you want to force the Player Avatar to ignore the layout completely and sit at a custom position:
+//        LayoutElement avatarLayout = avatarImage.gameObject.GetComponent<LayoutElement>();
+//        if (avatarLayout == null) avatarLayout = avatarImage.gameObject.AddComponent<LayoutElement>();
+
+//        // Changing this to true lets you manually position it anywhere inside the row
+//        avatarLayout.ignoreLayout = false;
+
+//        // Mirror the bubble graphic horizontally for the player
+//        if (bubbleImage != null)
+//        {
+//            bubbleImage.transform.localScale = new Vector3(1f, 1f, 1f);
+//        }
+
+//        // Un-mirror the text inside the bubble so the letters aren't backwards
+//        if (textComp != null)
+//        {
+//            textComp.transform.localScale = new Vector3(1f, 1f, 1f);
+//        }
+
+//        // FIX: Force the player's row box width to stay compact so the avatar sits right next to the bubble
+//        if (horizontalRowRect != null)
+//        {
+//            horizontalRowRect.pivot = new Vector2(1f, 1f); // Anchor the pivot to the upper-right corner
+//        }
+//    }
+//    else
+//    {
+//        horizontalGroup.childAlignment = TextAnchor.UpperLeft;
+//        if (avatarImage != null) avatarImage.sprite = npcAvatarSprite;
+//        if (bubbleImage != null) bubbleImage.color = npcBubbleColor;
+//        if (avatarImage != null) avatarImage.transform.SetAsFirstSibling();
+
+//        // Reset the bubble graphic to normal direction for the NPC
+//        if (bubbleImage != null)
+//        {
+//            bubbleImage.transform.localScale = new Vector3(-1f, 1f, 1f);
+//        }
+
+//        // Reset text scale to normal for the NPC
+//        if (textComp != null)
+//        {
+//            textComp.transform.localScale = new Vector3(-1f, 1f, 1f);
+//        }
+
+//        if (horizontalRowRect != null)
+//        {
+//            horizontalRowRect.pivot = new Vector2(0f, 1f); // Anchor the pivot to the upper-left corner for the guard
+//        }
+
+//        //// ==========================================
+//        //// FORCE THE ENTIRE MESSAGE ROW TO STAY COMPACT
+//        //// This forces the parent Content container to respect a strict row width cap!
+//        //LayoutElement rowLayout = horizontalGroup.gameObject.GetComponent<LayoutElement>();
+//        //if (rowLayout == null)
+//        //{
+//        //    rowLayout = horizontalGroup.gameObject.AddComponent<LayoutElement>();
+//        //}
+
+//        //// Hard clamp the row width so it matches your narrow window space (e.g., 260 pixels)
+//        //// This strips away Unity's ability to stretch the row and separate your avatar!
+//        //rowLayout.preferredWidth = 260f;
+//        //rowLayout.flexibleWidth = 0f;
+//        //// ==========================================
+//        // ==========================================
+//        // ULTIMATE CLAMP: FORCE THE ENTIRE MASTER PREFAB TO STAY NARROW
+//        // This forces the parent Content container to stop stretching the message shell!
+//        LayoutElement masterShellLayout = newMsgRow.GetComponent<LayoutElement>();
+//        if (masterShellLayout == null)
+//        {
+//            masterShellLayout = newMsgRow.AddComponent<LayoutElement>();
+//        }
+
+//        // Hard clamp the entire prefab shell width so it matches your narrow window space
+//        // This leaves absolutely zero empty padding space for your player avatar to drift into!
+//        masterShellLayout.preferredWidth = 260f;
+//        masterShellLayout.flexibleWidth = 0f;
+//        // ==========================================
+
+//    }
+//}
