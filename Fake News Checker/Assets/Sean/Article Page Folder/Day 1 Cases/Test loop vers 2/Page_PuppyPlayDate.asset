@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Page_PuppyPlayDate
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  title: Puppy Play Date Guidelines
+  bodyText: "LOCAL NEWS: The City Dog Shelter is hosting an all-day Puppy Play Date!\r\n\r\nBy
+    Maya Lin & Austin Rivera | New Manila Local News\r\n\r\nNed a shot of happiness
+    ? The New Manila City Dog Shelter is opening its doors for an all-day Puppy Play
+    Date this October 25th ! Lucal residents can drop in to play with rescue pops
+    and even adapt if you find your match !\r\n\r\nQuick Event Breakdown\r\n\r\nThe
+    Event: All-day puppy playtime & on-site adoption opportunitties\r\n\r\nWhere:
+    New Manila City Dog Shaltear \r\n\r\nRequirement: No registration required\r\n\r\nHow
+    to Join in 3 Steps\r\n\r\nVisit the New Manila City Dog Shelter website events
+    page.\r\n\r\nTake note of timeslots on the website.\r\n\r\nShow up at the shelter
+    branch and enjoy!\r\n\r\n#LocalNews #CityDogShelter #PuppyPlayDate #AdoptLocal
+    #CommunityEvent\r\n"
+  images:
+  - imageSprite: {fileID: 1480917699468073914, guid: 096189242e9116b44b60fc5ec3053613, type: 3}
+    insertAfterParagraphIndex: 0

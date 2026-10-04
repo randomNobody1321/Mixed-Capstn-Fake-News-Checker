@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: About_Us
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  title: About Us
+  bodyText: "New Manila City Dog Shelter\r\n\r\nThe New Manila City Dog Shelter is
+    the official municipal animal control and care facility operating under the Office
+    of the City Veterinarian (pursuant to Municipal Ordinance No. 204). The shelter
+    protects public health, enforces animal welfare standards, and provides shelter,
+    medical treatment, and rehoming services for stray, lost, and surrendered animals.\r\n\r\nMission
+    Statement\r\nTo maintain a safe, humane municipal shelter system that safeguards
+    public health, enforces local animal welfare regulations, and maximizes the placement
+    of healthy animals into permanent homes.\r\n\r\nCore Services & Operations\r\n\r\nVeterinary
+    & Shelter Care: Medical screenings, vaccinations, spay/neuter procedures, and
+    daily rehabilitation.\r\n\r\nAdoption & Rehoming: Matching behaviorally assessed
+    animals with qualified city residents.\r\n\r\nPublic Health & Safety: Managing
+    stray populations, rabies prevention, and pet licensing enforcement.\r\n\r\n\r\nCitizen
+    Participation\r\n\r\nAdopt: Browse eligible dogs via the municipal web portal
+    or during scheduled public viewing hours.\r\n\r\nVolunteer: Apply for the Municipal
+    Volunteer Corps to assist with daily dog care, walking, and outreach.\r\n\r\nFoster:
+    Provide temporary home shelter for young puppies or animals undergoing medical
+    recovery.\r\n\r\nFacility Directory & Hours\r\n\r\nLocation: Municipal Services
+    Compound, Sector 4, New Manila City\r\n\r\nPublic Viewing Hours: Tuesday \u2013
+    Sunday: 9:00 AM \u2013 4:00 PM (Closed Mondays)\r\n\r\nAdministrative Hours:
+    Monday \u2013 Friday: 8:00 AM \u2013 5:00 PM\r\n\r\nContact: dogshelter@newmanila.gov.ph
+    | (02) 8912-3456"
+  images: []

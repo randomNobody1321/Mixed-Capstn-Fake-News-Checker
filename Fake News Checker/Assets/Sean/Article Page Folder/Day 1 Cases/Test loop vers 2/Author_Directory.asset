@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Author_Directory
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  title: Author Directory
+  bodyText: "DIRECTORY\r\n\r\nMichael Horris\r\nT.J Juckson\r\nEthan Taylor\r\nAlexander
+    Miller\r\nRoderick Long \r\nOphelia Johnson\r\nJenny De la Cruz\r\nChristopher
+    Davis\r\nJames Anderson\r\nDavid Wilson\r\nBenjamin Dover \r\nAnita Glover\r\nJay
+    Quellin\r\nIbrahim Moizoos\r\nMaya Lin\r\n\r\n________________________________________________________________\r\n\r\nHingle
+    Mcringleberry\r\nA.A Ron Balakay\r\nGarry Manning\r\nThomas Wright\r\nSamuel
+    Roberts\r\n Daniel White\r\nJoseph Clark\r\nTitus Canby \r\nNigel Solomon\r\nIvana
+    Krakowski\r\nAnthony Harris\r\nLester Anne\r\nAndrew Martin\r\nClint Torres\r\nMatthew
+    Jackson\r\n\r\n________________________________________________________________\r\n\r\nDixon
+    Norman\r\nJoshua Thompson\r\nFrank Hurtz\r\nRyan Martinez\r\nPiper Hoffman\r\nNicholas
+    Robinson\r\nDuncan Dorris\r\nEmily Brown\r\nLadennifer Jadaniston \r\nSam Rivera\r\nDawn
+    Umbar\r\nRachel Smith\r\nWayne Kerrigan \r\nAmanda Williams\r\nHolden Heathcliff\r\n\r\n________________________________________________________________\r\n\r\nDee
+    Nice\r\nOlivia Rodriguez\r\nLauren Hernandez\r\nHannah Garcia\r\nLegume Duprix\r\nSean
+    Offerman\r\nVictoria Gonzalez\r\nMegan Lopez\r\nSarah Johnson\r\nPhil Riche \r\nJonathan
+    Hope\r\nJeremy Austin"
+  images: []

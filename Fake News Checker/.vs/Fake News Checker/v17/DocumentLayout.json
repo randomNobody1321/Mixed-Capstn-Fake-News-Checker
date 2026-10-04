@@ -3,28 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|c:\\users\\sean\\mixed-capstn-fake-news-checker\\fake news checker\\assets\\sean\\sean\u0027s scripts\\dialoguemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|c:\\users\\sean\\mixed-capstn-fake-news-checker\\fake news checker\\assets\\sean\\sean\u0027s scripts\\directorytesthook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\directorytesthook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|c:\\users\\sean\\mixed-capstn-fake-news-checker\\fake news checker\\assets\\sean\\sean\u0027s scripts\\articlepagedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\articlepagedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\assets\\sean\\sean\u0027s scripts\\centerdocumentviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\centerdocumentviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\assets\\sean\\sean\u0027s scripts\\casetopicdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\casetopicdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\assets\\sean\\sean\u0027s scripts\\leftmonitordirectorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\leftmonitordirectorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\assets\\sean\\sean\u0027s scripts\\dialoguemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\dialoguemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\assets\\sean\\sean\u0027s scripts\\chatui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\chatui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\assets\\sean\\sean\u0027s scripts\\choicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\choicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\assets\\sean\\sean\u0027s scripts\\dialoguedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\dialoguedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\assets\\sean\\sean\u0027s scripts\\leftmonitortabmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\leftmonitortabmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\assets\\sean\\sean\u0027s scripts\\monitormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\monitormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|c:\\users\\sean\\mixed-capstn-fake-news-checker\\fake news checker\\assets\\sean\\sean\u0027s scripts\\chatui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\chatui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|c:\\users\\sean\\mixed-capstn-fake-news-checker\\fake news checker\\assets\\sean\\sean\u0027s scripts\\choicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\choicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|c:\\users\\sean\\mixed-capstn-fake-news-checker\\fake news checker\\assets\\sean\\sean\u0027s scripts\\dialoguedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\dialoguedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|c:\\users\\sean\\mixed-capstn-fake-news-checker\\fake news checker\\assets\\sean\\sean\u0027s scripts\\leftmonitortabmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88AA5368-4A33-B127-C2A8-93A5E50584FF}|Assembly-CSharp.csproj|solutionrelative:assets\\sean\\sean\u0027s scripts\\leftmonitortabmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +54,73 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
+              "Title": "DirectoryTestHook.cs",
+              "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\DirectoryTestHook.cs",
+              "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\DirectoryTestHook.cs",
+              "ToolTip": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\DirectoryTestHook.cs",
+              "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\DirectoryTestHook.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T20:59:51.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CaseTopicData.cs",
+              "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\CaseTopicData.cs",
+              "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\CaseTopicData.cs",
+              "ToolTip": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\CaseTopicData.cs",
+              "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\CaseTopicData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAowAwAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T17:57:16.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CenterDocumentViewer.cs",
+              "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\CenterDocumentViewer.cs",
+              "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\CenterDocumentViewer.cs",
+              "ToolTip": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\CenterDocumentViewer.cs",
+              "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\CenterDocumentViewer.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAowBUAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T17:55:17.946Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LeftMonitorDirectoryManager.cs",
+              "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\LeftMonitorDirectoryManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\LeftMonitorDirectoryManager.cs",
+              "ToolTip": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\LeftMonitorDirectoryManager.cs",
+              "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\LeftMonitorDirectoryManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T17:54:41.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ArticlePageData.cs",
+              "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\ArticlePageData.cs",
+              "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\ArticlePageData.cs",
+              "ToolTip": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\ArticlePageData.cs",
+              "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\ArticlePageData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T17:54:12.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "LeftMonitorTabManager.cs",
               "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\LeftMonitorTabManager.cs",
               "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\LeftMonitorTabManager.cs",
@@ -46,12 +128,11 @@
               "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\LeftMonitorTabManager.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAswB4AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T22:29:47.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T22:29:47.004Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "DialogueData.cs",
               "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\DialogueData.cs",
               "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\DialogueData.cs",
@@ -59,12 +140,11 @@
               "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\DialogueData.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T22:29:42.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T22:29:42.986Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "ChoiceChatManager.cs",
               "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\ChoiceChatManager.cs",
               "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\ChoiceChatManager.cs",
@@ -72,12 +152,11 @@
               "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\ChoiceChatManager.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T22:29:41.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T22:29:41.649Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "ChatUI.cs",
               "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\ChatUI.cs",
               "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\ChatUI.cs",
@@ -85,25 +164,23 @@
               "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\ChatUI.cs",
               "ViewState": "AQIAAEMAAAAAAAAAAAAkwA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T22:29:40.481Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T22:29:40.481Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "DialogueManager.cs",
               "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\DialogueManager.cs",
               "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\DialogueManager.cs",
               "ToolTip": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\DialogueManager.cs",
               "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\DialogueManager.cs",
-              "ViewState": "AQIAAO8AAAAAAAAAAADwv/wAAAAAAAAA",
+              "ViewState": "AQIAAEMBAAAAAAAAAAA8wE0BAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T22:19:28.42Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T22:19:28.42Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "MonitorManager.cs",
               "DocumentMoniker": "C:\\Users\\Sean\\Mixed-Capstn-Fake-News-Checker\\Fake News Checker\\Assets\\Sean\\Sean\u0027s Scripts\\MonitorManager.cs",
               "RelativeDocumentMoniker": "Assets\\Sean\\Sean\u0027s Scripts\\MonitorManager.cs",
@@ -111,8 +188,7 @@
               "RelativeToolTip": "Assets\\Sean\\Sean\u0027s Scripts\\MonitorManager.cs",
               "ViewState": "AQIAAHsAAAAAAAAAAAAwwIMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T22:19:08.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T22:19:08.876Z"
             }
           ]
         }

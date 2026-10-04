@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Events
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  title: Events
+  bodyText: "Municipal Event Briefing: Citywide All-Day Puppy Play Date & Adoption
+    Fair\r\n\r\nThe New Manila City Dog Shelter invites local residents to participate
+    in our quarterly All-Day Puppy Play Date. This municipal initiative promotes
+    early canine behavioral socialization, public education on humane pet ownership,
+    and rehoming opportunities for eligible rescue puppies.\r\n\r\nKey Event Details\r\nInformation
+    Field\r\nOfficial Event Details\r\nDate & Time\r\nSaturday, October 24, 2026
+    | 9:00 AM \u2013 4:30 PM\r\nLocation\r\n New Manila City Dog Shelter\r\nAdmission
+    Fee\r\nFree (Mandatory online pre-registration required)\r\nPortal Link\r\nwww.newmanila.gov.ph/services/dogshelter/events\r\n\r\n\r\nSession
+    Schedule & Timetable\r\n\r\nSession 1 (Morning Block): 9:00 AM \u2013 10:30 AM\r\n\r\nSession
+    2 (Midday Block): 11:00 AM \u2013 12:30 PM\r\n\r\nSanitization Intermission:
+    12:30 PM \u2013 1:30 PM (Facility closed for cleaning and feeding)\r\n\r\nSession
+    3 (Afternoon Block): 1:30 PM \u2013 3:00 PM\r\n\r\nSession 4 (Final Block): 3:30
+    PM \u2013 4:30 PM (Open interaction & final adoption interviews)"
+  images: []
