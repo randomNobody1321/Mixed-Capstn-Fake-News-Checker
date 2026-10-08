@@ -3205,7 +3205,7 @@ GameObject:
   - component: {fileID: 609749736}
   - component: {fileID: 609749735}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Exit Button 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4320,7 +4320,7 @@ GameObject:
   - component: {fileID: 901240496}
   - component: {fileID: 901240495}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Exit Button 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7082,10 +7082,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddab14d2acf148f4ba8c83266f7ab3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeftMonitorDirectoryManager
-  mainTopicButtonContainer: {fileID: 2210342}
+  mainTopicButtonContainer: {fileID: 2104990942}
   dynamicDirectoryContainer: {fileID: 1699281166}
   directoryButtonPrefab: {fileID: 4790284630003210774, guid: 038edab2c50fb1c44aa34b473297a208, type: 3}
   centerDocumentViewer: {fileID: 2104990943}
+  tabManager: {fileID: 1320172507}
 --- !u!1 &1323104956
 GameObject:
   m_ObjectHideFlags: 0
@@ -7099,7 +7100,7 @@ GameObject:
   - component: {fileID: 1323104959}
   - component: {fileID: 1323104958}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Exit Button 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9027,7 +9028,7 @@ GameObject:
   - component: {fileID: 1580114281}
   - component: {fileID: 1580114280}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Exit Button 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

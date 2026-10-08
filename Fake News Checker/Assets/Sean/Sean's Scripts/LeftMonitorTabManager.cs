@@ -57,6 +57,10 @@ public class LeftMonitorTabManager : MonoBehaviour
             targetWindow.SetActive(true);
             activeWindow = targetWindow;
 
+            // --- ADD THIS LINE BELOW TO FIX THE ORDERING ---
+            //targetWindow.transform.SetAsLastSibling();
+            // -----------------------------------------------
+
             if (targetScrollRect != null) targetScrollRect.verticalNormalizedPosition = 1f;
 
             // Automatically check if the window contains an operational Dialogue Engine

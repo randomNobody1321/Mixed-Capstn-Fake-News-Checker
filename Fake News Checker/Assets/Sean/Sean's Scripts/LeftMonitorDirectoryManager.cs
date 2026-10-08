@@ -15,6 +15,10 @@ public class LeftMonitorDirectoryManager : MonoBehaviour
     [Header("Center Screen Router")]
     public CenterDocumentViewer centerDocumentViewer; // Links directly to the center screen engine
 
+    // --- ADD THIS NEW REFERENCE LINE ---
+    public LeftMonitorTabManager tabManager;
+    // -----------------------------------
+
     public void LoadCaseTopic(CaseTopicData caseData)
     {
         if (caseData == null) return;
@@ -65,8 +69,24 @@ public class LeftMonitorDirectoryManager : MonoBehaviour
             }
         }
 
+        //btn.onClick.AddListener(() => {
+        //    // Action 1: If it has sub-buttons, toggle their visibility frame (Accordion drop-down effect)
+        //    if (node.childNodes != null && node.childNodes.Count > 0)
+        //    {
+        //        childPanel.SetActive(!childPanel.activeSelf);
+        //        LayoutRebuilder.ForceRebuildLayoutImmediate(dynamicDirectoryContainer.GetComponent<RectTransform>());
+        //    }
+
+        //    // Action 2: If it has an article assigned, instantly stream it into the middle screen frame
+        //    if (node.centerArticleToLoad != null && centerDocumentViewer != null)
+        //    {
+        //        centerDocumentViewer.DisplayArticle(node.centerArticleToLoad);
+        //    }
+        //});
+
+        // Inside your SpawnDirectoryButton method, locate the btn.onClick block at the bottom:
         btn.onClick.AddListener(() => {
-            // Action 1: If it has sub-buttons, toggle their visibility frame (Accordion drop-down effect)
+            // Action 1: If it has sub-buttons, toggle their visibility frame
             if (node.childNodes != null && node.childNodes.Count > 0)
             {
                 childPanel.SetActive(!childPanel.activeSelf);
@@ -77,6 +97,17 @@ public class LeftMonitorDirectoryManager : MonoBehaviour
             if (node.centerArticleToLoad != null && centerDocumentViewer != null)
             {
                 centerDocumentViewer.DisplayArticle(node.centerArticleToLoad);
+
+                // --- ADD THESE LINES TO AUTOMATICALLY SHOW THE WINDOW ---
+                if (tabManager != null)
+                {
+                    // Find the window object that houses your CenterDocumentViewer
+                    GameObject targetWindow = centerDocumentViewer.gameObject;
+
+                    // Pass it to your existing TabManager to activate it cleanly!
+                    tabManager.OpenWindow(targetWindow, centerDocumentViewer.articleScrollRect, null);
+                }
+                // --------------------------------------------------------
             }
         });
     }
