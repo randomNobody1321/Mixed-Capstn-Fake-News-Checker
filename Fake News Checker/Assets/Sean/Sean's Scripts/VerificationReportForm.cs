@@ -72,10 +72,12 @@ public class VerificationReportForm : MonoBehaviour
         if (selectedArticle == null) return;
 
         ArticleCheatSheet sheet = selectedArticle.cheatSheet;
+
+        // 1. Core Structural Matching
         bool isCorrectSector = GetSelectedSector() == sheet.correctSector;
         bool isCorrectDecision = toggleApprove.isOn == sheet.approveAndPublish;
 
-        // Verify if player checked the exact discrepancies noted on the cheat sheet
+        // 2. Strict Checklist Verification
         bool discrepanciesMatch =
             (toggleUnverifiedAuthor.isOn == sheet.unverifiedAuthor) &&
             (toggleFalsifiedCredentials.isOn == sheet.falsifiedCredentials) &&
@@ -86,23 +88,75 @@ public class VerificationReportForm : MonoBehaviour
             (toggleUncitedClaims.isOn == sheet.uncitedClaims) &&
             (toggleTypos.isOn == sheet.typos);
 
-        // Grading Outcome Branch
+        // 3. HARD TRIGGER: If it's a flawed article but the player checks absolutely nothing, force a penalty!
+        bool isBlankSubmission = !toggleUnverifiedAuthor.isOn && !toggleFalsifiedCredentials.isOn &&
+                                 !toggleImageManipulation.isOn && !toggleOutOfContextMedia.isOn &&
+                                 !toggleInaccurateStats.isOn && !toggleFalseTimeline.isOn &&
+                                 !toggleUncitedClaims.isOn && !toggleTypos.isOn;
+
+        bool missedFakeNews = sheet.isFlawed && isBlankSubmission && toggleApprove.isOn;
+
+        // 4. Run the Ultimate Evaluation Matrix
         string loggingStatus = "";
-        if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
+
+        if (missedFakeNews)
+        {
+            currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+            loggingStatus = $"{selectedArticle.articleID}: Missed Fake News! Penalty applied. -10 Trust.";
+        }
+        else if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
         {
             currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
-            loggingStatus = $"{selectedArticle.articleID}: Verified Successfully. +10 Trust.";
+            loggingStatus = $"{selectedArticle.articleID}: Perfect Verification! +10 Trust.";
         }
         else
         {
             currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
-            loggingStatus = $"{selectedArticle.articleID}: Audit Discrepancy Flagged. -10 Trust.";
+            loggingStatus = $"{selectedArticle.articleID}: Inaccurate Audit Report! -10 Trust.";
         }
 
         shiftLogReport.Add(loggingStatus);
         Debug.Log($"[SHIFT AUDIT LOG] {loggingStatus} Current Global Trust: {currentTrustScore}");
+
         ClearFormFields();
     }
+
+    //public void EvaluatePlayerSubmission()
+    //{
+    //    if (selectedArticle == null) return;
+
+    //    ArticleCheatSheet sheet = selectedArticle.cheatSheet;
+    //    bool isCorrectSector = GetSelectedSector() == sheet.correctSector;
+    //    bool isCorrectDecision = toggleApprove.isOn == sheet.approveAndPublish;
+
+    //    // Verify if player checked the exact discrepancies noted on the cheat sheet
+    //    bool discrepanciesMatch =
+    //        (toggleUnverifiedAuthor.isOn == sheet.unverifiedAuthor) &&
+    //        (toggleFalsifiedCredentials.isOn == sheet.falsifiedCredentials) &&
+    //        (toggleImageManipulation.isOn == sheet.imageManipulation) &&
+    //        (toggleOutOfContextMedia.isOn == sheet.outOfContextMedia) &&
+    //        (toggleInaccurateStats.isOn == sheet.inaccurateStats) &&
+    //        (toggleFalseTimeline.isOn == sheet.falseTimeline) &&
+    //        (toggleUncitedClaims.isOn == sheet.uncitedClaims) &&
+    //        (toggleTypos.isOn == sheet.typos);
+
+    //    // Grading Outcome Branch
+    //    string loggingStatus = "";
+    //    if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
+    //    {
+    //        currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
+    //        loggingStatus = $"{selectedArticle.articleID}: Verified Successfully. +10 Trust.";
+    //    }
+    //    else
+    //    {
+    //        currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+    //        loggingStatus = $"{selectedArticle.articleID}: Audit Discrepancy Flagged. -10 Trust.";
+    //    }
+
+    //    shiftLogReport.Add(loggingStatus);
+    //    Debug.Log($"[SHIFT AUDIT LOG] {loggingStatus} Current Global Trust: {currentTrustScore}");
+    //    ClearFormFields();
+    //}
 
     SectorType GetSelectedSector()
     {
