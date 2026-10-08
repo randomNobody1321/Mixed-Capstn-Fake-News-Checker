@@ -28,30 +28,69 @@ public class CenterDocumentViewer : MonoBehaviour
         // 2. Loop through every paragraph line and weave images in elegantly
         for (int i = 0; i < paragraphs.Length; i++)
         {
+            // --- MOVE THE IMAGE CHECK TO THE TOP OF THE LOOP ---
+            // Check if any image is set to spawn BEFORE this paragraph 
+            // (If i == 0 and insertAfterParagraphIndex == -1, it spawns at the very top!)
+            foreach (var imgData in data.images)
+            {
+                if ((i == 0 && imgData.insertAfterParagraphIndex == -1) ||
+                    (imgData.insertAfterParagraphIndex == i - 1 && i > 0))
+                {
+                    SpawnImage(imgData);
+                }
+            }
+
             // Spawn Text
             GameObject txtObj = Instantiate(textParagraphPrefab, articleContentContainer);
             TMP_Text pText = txtObj.GetComponent<TMP_Text>();
             if (pText != null) pText.text = paragraphs[i];
 
-            // Check if any image data packet matches this precise index step
-            foreach (var imgData in data.images)
+            // Check if any image is set to spawn after the final paragraph
+            if (i == paragraphs.Length - 1)
             {
-                if (imgData.insertAfterParagraphIndex == i && imgData.imageSprite != null)
+                foreach (var imgData in data.images)
                 {
-                    // Spawn Image Box right below that block line
-                    GameObject imgObj = Instantiate(imageEmbedPrefab, articleContentContainer);
-                    Image imageWidget = imgObj.GetComponent<Image>();
-                    if (imageWidget != null)
+                    if (imgData.insertAfterParagraphIndex == i)
                     {
-                        imageWidget.sprite = imgData.imageSprite;
-                        imageWidget.preserveAspect = true;
+                        SpawnImage(imgData);
                     }
                 }
             }
+
+            //// Check if any image data packet matches this precise index step
+            //foreach (var imgData in data.images)
+            //{
+            //    if (imgData.insertAfterParagraphIndex == i && imgData.imageSprite != null)
+            //    {
+            //        // Spawn Image Box right below that block line
+            //        GameObject imgObj = Instantiate(imageEmbedPrefab, articleContentContainer);
+            //        Image imageWidget = imgObj.GetComponent<Image>();
+            //        if (imageWidget != null)
+            //        {
+            //            imageWidget.sprite = imgData.imageSprite;
+            //            imageWidget.preserveAspect = true;
+            //        }
+            //    }
+            //}
         }
 
         // 3. Reset document scroll focus lane cleanly back to the roof line
         Canvas.ForceUpdateCanvases();
         if (articleScrollRect != null) articleScrollRect.verticalNormalizedPosition = 1f;
+    }
+
+    // Helper method to keep your code clean
+    private void SpawnImage(ArticlePageData.EmbeddedImage imgData)
+    {
+        if (imgData.imageSprite != null)
+        {
+            GameObject imgObj = Instantiate(imageEmbedPrefab, articleContentContainer);
+            Image imageWidget = imgObj.GetComponent<Image>();
+            if (imageWidget != null)
+            {
+                imageWidget.sprite = imgData.imageSprite;
+                imageWidget.preserveAspect = true;
+            }
+        }
     }
 }

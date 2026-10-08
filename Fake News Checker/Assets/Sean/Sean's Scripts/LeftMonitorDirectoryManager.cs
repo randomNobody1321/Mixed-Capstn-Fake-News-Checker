@@ -58,6 +58,14 @@ public class LeftMonitorDirectoryManager : MonoBehaviour
         //vGroup.childControlWidth = true; vGroup.childControlHeight = false;
         vGroup.childControlWidth = false; vGroup.childControlHeight = false;
         vGroup.childForceExpandWidth = false; vGroup.childForceExpandHeight = false;
+
+        // --- ADD THIS NEW BLOCK BELOW TO SOLVE THE STRETCHING ---
+        // Add a Layout Element component so the parent layout engine tracks its height precisely
+        //LayoutElement layoutElement = childPanel.AddComponent<LayoutElement>();
+        //layoutElement.flexibleHeight = 0f;  // Prevent it from eating up extra vertical space
+        //layoutElement.preferredHeight = -1f; // Force it to size naturally to its child buttons only
+                                             // --------------------------------------------------------
+
         childPanel.SetActive(false);
 
         // Recursively build children buttons inside that hidden panel

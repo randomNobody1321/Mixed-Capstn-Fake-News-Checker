@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7233878296063869809}
   - component: {fileID: 2765313519537370317}
   - component: {fileID: 6029000591356596503}
+  - component: {fileID: 3759066263948380623}
   m_Layer: 5
   m_Name: TextParagraphPrefab
   m_TagString: Untagged
@@ -137,3 +138,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3759066263948380623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2781302236415598560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db12604f01b04a438fb35ac89404df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextHighlightSelector
