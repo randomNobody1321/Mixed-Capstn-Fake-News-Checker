@@ -4,6 +4,7 @@ using TMPro;
 
 public class LeftMonitorDirectoryManager : MonoBehaviour
 {
+    //the purpose of this script seems to be making pop up buttons without usage of prefabs or in hierarchy game objects?
     [Header("UI Containers")]
     public Transform mainTopicButtonContainer; // Horizontal or Vertical layout group for Topic/Case buttons
     public Transform dynamicDirectoryContainer; // Vertical layout group where Category Zones load
@@ -50,7 +51,8 @@ public class LeftMonitorDirectoryManager : MonoBehaviour
 
         // Match settings to fit the parent container lane cleanly
         VerticalLayoutGroup vGroup = childPanel.GetComponent<VerticalLayoutGroup>();
-        vGroup.childControlWidth = true; vGroup.childControlHeight = false;
+        //vGroup.childControlWidth = true; vGroup.childControlHeight = false;
+        vGroup.childControlWidth = false; vGroup.childControlHeight = false;
         vGroup.childForceExpandWidth = false; vGroup.childForceExpandHeight = false;
         childPanel.SetActive(false);
 
