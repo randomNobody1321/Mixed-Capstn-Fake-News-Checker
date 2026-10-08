@@ -77,6 +77,18 @@ public class VerificationReportForm : MonoBehaviour
         bool isCorrectSector = GetSelectedSector() == sheet.correctSector;
         bool isCorrectDecision = toggleApprove.isOn == sheet.approveAndPublish;
 
+        // Detailed Diagnostic Print-outs to find why it is failing
+        Debug.Log($"[DIAGNOSTIC] Sector Correct? {isCorrectSector} | Decision Correct? {isCorrectDecision}");
+        Debug.Log($"[DIAGNOSTIC] Author Match: {toggleUnverifiedAuthor.isOn == sheet.unverifiedAuthor} (UI: {toggleUnverifiedAuthor.isOn} | Asset: {sheet.unverifiedAuthor})");
+        Debug.Log($"[DIAGNOSTIC] Credentials Match: {toggleFalsifiedCredentials.isOn == sheet.falsifiedCredentials} (UI: {toggleFalsifiedCredentials.isOn} | Asset: {sheet.falsifiedCredentials})");
+        Debug.Log($"[DIAGNOSTIC] Image Match: {toggleImageManipulation.isOn == sheet.imageManipulation} (UI: {toggleImageManipulation.isOn} | Asset: {sheet.imageManipulation})");
+        Debug.Log($"[DIAGNOSTIC] Context Match: {toggleOutOfContextMedia.isOn == sheet.outOfContextMedia} (UI: {toggleOutOfContextMedia.isOn} | Asset: {sheet.outOfContextMedia})");
+        Debug.Log($"[DIAGNOSTIC] Stats Match: {toggleInaccurateStats.isOn == sheet.inaccurateStats} (UI: {toggleInaccurateStats.isOn} | Asset: {sheet.inaccurateStats})");
+        Debug.Log($"[DIAGNOSTIC] Timeline Match: {toggleFalseTimeline.isOn == sheet.falseTimeline} (UI: {toggleFalseTimeline.isOn} | Asset: {sheet.falseTimeline})");
+        Debug.Log($"[DIAGNOSTIC] Citation Match: {toggleUncitedClaims.isOn == sheet.uncitedClaims} (UI: {toggleUncitedClaims.isOn} | Asset: {sheet.uncitedClaims})");
+        Debug.Log($"[DIAGNOSTIC] Typos Match: {toggleTypos.isOn == sheet.typos} (UI: {toggleTypos.isOn} | Asset: {sheet.typos})");
+
+
         // 2. Strict Checklist Verification
         bool discrepanciesMatch =
             (toggleUnverifiedAuthor.isOn == sheet.unverifiedAuthor) &&
@@ -97,14 +109,8 @@ public class VerificationReportForm : MonoBehaviour
         bool missedFakeNews = sheet.isFlawed && isBlankSubmission && toggleApprove.isOn;
 
         // 4. Run the Ultimate Evaluation Matrix
-        string loggingStatus = "";
-
-        if (missedFakeNews)
-        {
-            currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
-            loggingStatus = $"{selectedArticle.articleID}: Missed Fake News! Penalty applied. -10 Trust.";
-        }
-        else if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
+        string loggingStatus = ""; //currently only good or bad result only
+        if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
         {
             currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
             loggingStatus = $"{selectedArticle.articleID}: Perfect Verification! +10 Trust.";
@@ -115,10 +121,59 @@ public class VerificationReportForm : MonoBehaviour
             loggingStatus = $"{selectedArticle.articleID}: Inaccurate Audit Report! -10 Trust.";
         }
 
+        //// 4. Run the Ultimate Evaluation Matrix
+        //string loggingStatus = "";
+        //if (missedFakeNews)
+        //{
+        //    // Total Blind Spot: Player completely missed the fact that it was fake news
+        //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+        //    loggingStatus = $"{selectedArticle.articleID}: Missed Fake News! Penalty applied. -10 Trust.";
+        //}
+        //else if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
+        //{
+        //    // Flawless Verification Matrix Match
+        //    currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
+        //    loggingStatus = $"{selectedArticle.articleID}: Perfect Verification! +10 Trust.";
+        //}
+        //else if (isCorrectDecision && isCorrectSector && !discrepanciesMatch)
+        //{
+        //    // --- NEW MIXED CONDITION: PARTIAL ERROR (-5 TRUST) ---
+        //    // Player correctly caught that the article was Flawed and Rejected it, 
+        //    // but their checked evidence boxes didn't line up perfectly with the sheet.
+        //    currentTrustScore = Mathf.Clamp(currentTrustScore - 5, -100, 100);
+        //    loggingStatus = $"{selectedArticle.articleID}: Mixed Audit! Correct Decision, but Wrong/Missing Evidence. -5 Trust.";
+        //}
+        //else
+        //{
+        //    // Critical System Mismatch (Wrong Sector or Wrong Approval Action entirely)
+        //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+        //    loggingStatus = $"{selectedArticle.articleID}: Inaccurate Audit Action! -10 Trust.";
+        //}
+
         shiftLogReport.Add(loggingStatus);
         Debug.Log($"[SHIFT AUDIT LOG] {loggingStatus} Current Global Trust: {currentTrustScore}");
-
         ClearFormFields();
+
+        //if (missedFakeNews)
+        //{
+        //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+        //    loggingStatus = $"{selectedArticle.articleID}: Missed Fake News! Penalty applied. -10 Trust.";
+        //}
+        //else if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
+        //{
+        //    currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
+        //    loggingStatus = $"{selectedArticle.articleID}: Perfect Verification! +10 Trust.";
+        //}
+        //else
+        //{
+        //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+        //    loggingStatus = $"{selectedArticle.articleID}: Inaccurate Audit Report! -10 Trust.";
+        //}
+
+        //shiftLogReport.Add(loggingStatus);
+        //Debug.Log($"[SHIFT AUDIT LOG] {loggingStatus} Current Global Trust: {currentTrustScore}");
+
+        //ClearFormFields();
     }
 
     //public void EvaluatePlayerSubmission()
