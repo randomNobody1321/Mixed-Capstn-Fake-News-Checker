@@ -37,6 +37,10 @@ public class VerificationReportForm : MonoBehaviour
     private ArticlePageData selectedArticle;
     private List<string> shiftLogReport = new List<string>();
 
+    [Header("Time Synchronization Link")]
+    public ShiftTimeManager timeManager; // --- ADD THIS NEW REFERENCE LINE ---
+
+
     void Start()
     {
         if (submitButton != null) submitButton.onClick.AddListener(EvaluatePlayerSubmission);
@@ -154,6 +158,14 @@ public class VerificationReportForm : MonoBehaviour
         Debug.Log($"[SHIFT AUDIT LOG] {loggingStatus} Current Global Trust: {currentTrustScore}");
         ClearFormFields();
 
+        // --- ADD THIS CHECK BELOW AT THE END OF THE SUBMISSION METHOD ---
+        // If you want this specific submission to trigger the end of the shift day early:
+        if (timeManager != null)
+        {
+            timeManager.TriggerEndOfDay();
+        }
+        // ----------------------------------------------------------------
+
         //if (missedFakeNews)
         //{
         //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
@@ -232,4 +244,16 @@ public class VerificationReportForm : MonoBehaviour
         toggleUncitedClaims.isOn = false; toggleTypos.isOn = false;
         toggleApprove.isOn = false; toggleReject.isOn = false;
     }
-}
+
+    // --- ACCESSIBILITY METHODS FOR SHIFT TIME MANAGER ---
+    public int GetCurrentTrust()
+    {
+        return currentTrustScore;
+    }
+
+    public System.Collections.Generic.List<string> GetShiftLogReport()
+    {
+        return shiftLogReport;
+    }
+} // <-- This is the absolute final bracket closing the class!
+
