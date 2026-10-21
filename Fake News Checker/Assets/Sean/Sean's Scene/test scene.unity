@@ -8603,7 +8603,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878393178}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39425edc395135d4eb77f73ec6f4e3c9, type: 3}
   m_Name: 
@@ -10511,7 +10511,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 2.7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -13329,7 +13329,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320172504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77c3ae7d9b21b55498b01cbf4ebd97b0, type: 3}
   m_Name: 
@@ -13374,7 +13374,7 @@ MonoBehaviour:
     popUpWindow: {fileID: 878393178}
     closeButton: {fileID: 1648192605}
     associatedScrollRect: {fileID: 1360388734}
-    dialogueToLoad: {fileID: 11400000, guid: 242e4016b3c7efc468cd51b49840ac70, type: 2}
+    dialogueToLoad: {fileID: 0}
   - tabButton: {fileID: 1189568730}
     popUpWindow: {fileID: 1171611508}
     closeButton: {fileID: 1323104958}
@@ -13588,7 +13588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1323236500
 SpriteRenderer:
   serializedVersion: 2
@@ -18708,7 +18708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1735215906
 SpriteRenderer:
   serializedVersion: 2
