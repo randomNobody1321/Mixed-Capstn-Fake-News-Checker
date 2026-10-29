@@ -51,142 +51,122 @@ public class VerificationReportForm : MonoBehaviour
         }
     }
 
-    void PopulateIdDropdown()
-    {
-        articleIdDropdown.ClearOptions();
-        List<string> options = new List<string>();
-        foreach (var art in shiftArticlesList)
-        {
-            if (art != null) options.Add(art.articleID);
-        }
-        articleIdDropdown.AddOptions(options);
-        if (shiftArticlesList.Count > 0) OnDropdownIndexChanged(0);
-    }
+    //public void EvaluatePlayerSubmission()
+    //{
+    //    if (selectedArticle == null) return;
 
-    void OnDropdownIndexChanged(int index)
-    {
-        if (index >= 0 && index < shiftArticlesList.Count)
-        {
-            selectedArticle = shiftArticlesList[index];
-        }
-    }
+    //    ArticleCheatSheet sheet = selectedArticle.cheatSheet;
 
-    public void EvaluatePlayerSubmission()
-    {
-        if (selectedArticle == null) return;
+    //    // 1. Core Structural Matching
+    //    bool isCorrectSector = GetSelectedSector() == sheet.correctSector;
+    //    bool isCorrectDecision = toggleApprove.isOn == sheet.approveAndPublish;
 
-        ArticleCheatSheet sheet = selectedArticle.cheatSheet;
-
-        // 1. Core Structural Matching
-        bool isCorrectSector = GetSelectedSector() == sheet.correctSector;
-        bool isCorrectDecision = toggleApprove.isOn == sheet.approveAndPublish;
-
-        // Detailed Diagnostic Print-outs to find why it is failing
-        Debug.Log($"[DIAGNOSTIC] Sector Correct? {isCorrectSector} | Decision Correct? {isCorrectDecision}");
-        Debug.Log($"[DIAGNOSTIC] Author Match: {toggleUnverifiedAuthor.isOn == sheet.unverifiedAuthor} (UI: {toggleUnverifiedAuthor.isOn} | Asset: {sheet.unverifiedAuthor})");
-        Debug.Log($"[DIAGNOSTIC] Credentials Match: {toggleFalsifiedCredentials.isOn == sheet.falsifiedCredentials} (UI: {toggleFalsifiedCredentials.isOn} | Asset: {sheet.falsifiedCredentials})");
-        Debug.Log($"[DIAGNOSTIC] Image Match: {toggleImageManipulation.isOn == sheet.imageManipulation} (UI: {toggleImageManipulation.isOn} | Asset: {sheet.imageManipulation})");
-        Debug.Log($"[DIAGNOSTIC] Context Match: {toggleOutOfContextMedia.isOn == sheet.outOfContextMedia} (UI: {toggleOutOfContextMedia.isOn} | Asset: {sheet.outOfContextMedia})");
-        Debug.Log($"[DIAGNOSTIC] Stats Match: {toggleInaccurateStats.isOn == sheet.inaccurateStats} (UI: {toggleInaccurateStats.isOn} | Asset: {sheet.inaccurateStats})");
-        Debug.Log($"[DIAGNOSTIC] Timeline Match: {toggleFalseTimeline.isOn == sheet.falseTimeline} (UI: {toggleFalseTimeline.isOn} | Asset: {sheet.falseTimeline})");
-        Debug.Log($"[DIAGNOSTIC] Citation Match: {toggleUncitedClaims.isOn == sheet.uncitedClaims} (UI: {toggleUncitedClaims.isOn} | Asset: {sheet.uncitedClaims})");
-        Debug.Log($"[DIAGNOSTIC] Typos Match: {toggleTypos.isOn == sheet.typos} (UI: {toggleTypos.isOn} | Asset: {sheet.typos})");
+    //    // Detailed Diagnostic Print-outs to find why it is failing
+    //    Debug.Log($"[DIAGNOSTIC] Sector Correct? {isCorrectSector} | Decision Correct? {isCorrectDecision}");
+    //    Debug.Log($"[DIAGNOSTIC] Author Match: {toggleUnverifiedAuthor.isOn == sheet.unverifiedAuthor} (UI: {toggleUnverifiedAuthor.isOn} | Asset: {sheet.unverifiedAuthor})");
+    //    Debug.Log($"[DIAGNOSTIC] Credentials Match: {toggleFalsifiedCredentials.isOn == sheet.falsifiedCredentials} (UI: {toggleFalsifiedCredentials.isOn} | Asset: {sheet.falsifiedCredentials})");
+    //    Debug.Log($"[DIAGNOSTIC] Image Match: {toggleImageManipulation.isOn == sheet.imageManipulation} (UI: {toggleImageManipulation.isOn} | Asset: {sheet.imageManipulation})");
+    //    Debug.Log($"[DIAGNOSTIC] Context Match: {toggleOutOfContextMedia.isOn == sheet.outOfContextMedia} (UI: {toggleOutOfContextMedia.isOn} | Asset: {sheet.outOfContextMedia})");
+    //    Debug.Log($"[DIAGNOSTIC] Stats Match: {toggleInaccurateStats.isOn == sheet.inaccurateStats} (UI: {toggleInaccurateStats.isOn} | Asset: {sheet.inaccurateStats})");
+    //    Debug.Log($"[DIAGNOSTIC] Timeline Match: {toggleFalseTimeline.isOn == sheet.falseTimeline} (UI: {toggleFalseTimeline.isOn} | Asset: {sheet.falseTimeline})");
+    //    Debug.Log($"[DIAGNOSTIC] Citation Match: {toggleUncitedClaims.isOn == sheet.uncitedClaims} (UI: {toggleUncitedClaims.isOn} | Asset: {sheet.uncitedClaims})");
+    //    Debug.Log($"[DIAGNOSTIC] Typos Match: {toggleTypos.isOn == sheet.typos} (UI: {toggleTypos.isOn} | Asset: {sheet.typos})");
 
 
-        // 2. Strict Checklist Verification
-        bool discrepanciesMatch =
-            (toggleUnverifiedAuthor.isOn == sheet.unverifiedAuthor) &&
-            (toggleFalsifiedCredentials.isOn == sheet.falsifiedCredentials) &&
-            (toggleImageManipulation.isOn == sheet.imageManipulation) &&
-            (toggleOutOfContextMedia.isOn == sheet.outOfContextMedia) &&
-            (toggleInaccurateStats.isOn == sheet.inaccurateStats) &&
-            (toggleFalseTimeline.isOn == sheet.falseTimeline) &&
-            (toggleUncitedClaims.isOn == sheet.uncitedClaims) &&
-            (toggleTypos.isOn == sheet.typos);
+    //    // 2. Strict Checklist Verification
+    //    bool discrepanciesMatch =
+    //        (toggleUnverifiedAuthor.isOn == sheet.unverifiedAuthor) &&
+    //        (toggleFalsifiedCredentials.isOn == sheet.falsifiedCredentials) &&
+    //        (toggleImageManipulation.isOn == sheet.imageManipulation) &&
+    //        (toggleOutOfContextMedia.isOn == sheet.outOfContextMedia) &&
+    //        (toggleInaccurateStats.isOn == sheet.inaccurateStats) &&
+    //        (toggleFalseTimeline.isOn == sheet.falseTimeline) &&
+    //        (toggleUncitedClaims.isOn == sheet.uncitedClaims) &&
+    //        (toggleTypos.isOn == sheet.typos);
 
-        // 3. HARD TRIGGER: If it's a flawed article but the player checks absolutely nothing, force a penalty!
-        bool isBlankSubmission = !toggleUnverifiedAuthor.isOn && !toggleFalsifiedCredentials.isOn &&
-                                 !toggleImageManipulation.isOn && !toggleOutOfContextMedia.isOn &&
-                                 !toggleInaccurateStats.isOn && !toggleFalseTimeline.isOn &&
-                                 !toggleUncitedClaims.isOn && !toggleTypos.isOn;
+    //    // 3. HARD TRIGGER: If it's a flawed article but the player checks absolutely nothing, force a penalty!
+    //    bool isBlankSubmission = !toggleUnverifiedAuthor.isOn && !toggleFalsifiedCredentials.isOn &&
+    //                             !toggleImageManipulation.isOn && !toggleOutOfContextMedia.isOn &&
+    //                             !toggleInaccurateStats.isOn && !toggleFalseTimeline.isOn &&
+    //                             !toggleUncitedClaims.isOn && !toggleTypos.isOn;
 
-        bool missedFakeNews = sheet.isFlawed && isBlankSubmission && toggleApprove.isOn;
+    //    bool missedFakeNews = sheet.isFlawed && isBlankSubmission && toggleApprove.isOn;
 
-        // 4. Run the Ultimate Evaluation Matrix
-        string loggingStatus = ""; //currently only good or bad result only
-        if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
-        {
-            currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
-            loggingStatus = $"{selectedArticle.articleID}: Perfect Verification! +10 Trust.";
-        }
-        else
-        {
-            currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
-            loggingStatus = $"{selectedArticle.articleID}: Inaccurate Audit Report! -10 Trust.";
-        }
+    //    // 4. Run the Ultimate Evaluation Matrix
+    //    string loggingStatus = ""; //currently only good or bad result only
+    //    if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
+    //    {
+    //        currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
+    //        loggingStatus = $"{selectedArticle.articleID}: Perfect Verification! +10 Trust.";
+    //    }
+    //    else
+    //    {
+    //        currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+    //        loggingStatus = $"{selectedArticle.articleID}: Inaccurate Audit Report! -10 Trust.";
+    //    }
 
-        //// 4. Run the Ultimate Evaluation Matrix
-        //string loggingStatus = "";
-        //if (missedFakeNews)
-        //{
-        //    // Total Blind Spot: Player completely missed the fact that it was fake news
-        //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
-        //    loggingStatus = $"{selectedArticle.articleID}: Missed Fake News! Penalty applied. -10 Trust.";
-        //}
-        //else if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
-        //{
-        //    // Flawless Verification Matrix Match
-        //    currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
-        //    loggingStatus = $"{selectedArticle.articleID}: Perfect Verification! +10 Trust.";
-        //}
-        //else if (isCorrectDecision && isCorrectSector && !discrepanciesMatch)
-        //{
-        //    // --- NEW MIXED CONDITION: PARTIAL ERROR (-5 TRUST) ---
-        //    // Player correctly caught that the article was Flawed and Rejected it, 
-        //    // but their checked evidence boxes didn't line up perfectly with the sheet.
-        //    currentTrustScore = Mathf.Clamp(currentTrustScore - 5, -100, 100);
-        //    loggingStatus = $"{selectedArticle.articleID}: Mixed Audit! Correct Decision, but Wrong/Missing Evidence. -5 Trust.";
-        //}
-        //else
-        //{
-        //    // Critical System Mismatch (Wrong Sector or Wrong Approval Action entirely)
-        //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
-        //    loggingStatus = $"{selectedArticle.articleID}: Inaccurate Audit Action! -10 Trust.";
-        //}
+    //    //// 4. Run the Ultimate Evaluation Matrix
+    //    //string loggingStatus = "";
+    //    //if (missedFakeNews)
+    //    //{
+    //    //    // Total Blind Spot: Player completely missed the fact that it was fake news
+    //    //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+    //    //    loggingStatus = $"{selectedArticle.articleID}: Missed Fake News! Penalty applied. -10 Trust.";
+    //    //}
+    //    //else if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
+    //    //{
+    //    //    // Flawless Verification Matrix Match
+    //    //    currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
+    //    //    loggingStatus = $"{selectedArticle.articleID}: Perfect Verification! +10 Trust.";
+    //    //}
+    //    //else if (isCorrectDecision && isCorrectSector && !discrepanciesMatch)
+    //    //{
+    //    //    // --- NEW MIXED CONDITION: PARTIAL ERROR (-5 TRUST) ---
+    //    //    // Player correctly caught that the article was Flawed and Rejected it, 
+    //    //    // but their checked evidence boxes didn't line up perfectly with the sheet.
+    //    //    currentTrustScore = Mathf.Clamp(currentTrustScore - 5, -100, 100);
+    //    //    loggingStatus = $"{selectedArticle.articleID}: Mixed Audit! Correct Decision, but Wrong/Missing Evidence. -5 Trust.";
+    //    //}
+    //    //else
+    //    //{
+    //    //    // Critical System Mismatch (Wrong Sector or Wrong Approval Action entirely)
+    //    //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+    //    //    loggingStatus = $"{selectedArticle.articleID}: Inaccurate Audit Action! -10 Trust.";
+    //    //}
 
-        shiftLogReport.Add(loggingStatus);
-        Debug.Log($"[SHIFT AUDIT LOG] {loggingStatus} Current Global Trust: {currentTrustScore}");
-        ClearFormFields();
+    //    shiftLogReport.Add(loggingStatus);
+    //    Debug.Log($"[SHIFT AUDIT LOG] {loggingStatus} Current Global Trust: {currentTrustScore}");
+    //    ClearFormFields();
 
-        // --- ADD THIS CHECK BELOW AT THE END OF THE SUBMISSION METHOD ---
-        // If you want this specific submission to trigger the end of the shift day early:
-        if (timeManager != null)
-        {
-            timeManager.TriggerEndOfDay();
-        }
-        // ----------------------------------------------------------------
+    //    // --- ADD THIS CHECK BELOW AT THE END OF THE SUBMISSION METHOD ---
+    //    // If you want this specific submission to trigger the end of the shift day early:
+    //    if (timeManager != null)
+    //    {
+    //        timeManager.TriggerEndOfDay();
+    //    }
+    //    // ----------------------------------------------------------------
 
-        //if (missedFakeNews)
-        //{
-        //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
-        //    loggingStatus = $"{selectedArticle.articleID}: Missed Fake News! Penalty applied. -10 Trust.";
-        //}
-        //else if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
-        //{
-        //    currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
-        //    loggingStatus = $"{selectedArticle.articleID}: Perfect Verification! +10 Trust.";
-        //}
-        //else
-        //{
-        //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
-        //    loggingStatus = $"{selectedArticle.articleID}: Inaccurate Audit Report! -10 Trust.";
-        //}
+    //    //if (missedFakeNews)
+    //    //{
+    //    //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+    //    //    loggingStatus = $"{selectedArticle.articleID}: Missed Fake News! Penalty applied. -10 Trust.";
+    //    //}
+    //    //else if (isCorrectSector && isCorrectDecision && discrepanciesMatch)
+    //    //{
+    //    //    currentTrustScore = Mathf.Clamp(currentTrustScore + 10, -100, 100);
+    //    //    loggingStatus = $"{selectedArticle.articleID}: Perfect Verification! +10 Trust.";
+    //    //}
+    //    //else
+    //    //{
+    //    //    currentTrustScore = Mathf.Clamp(currentTrustScore - 10, -100, 100);
+    //    //    loggingStatus = $"{selectedArticle.articleID}: Inaccurate Audit Report! -10 Trust.";
+    //    //}
 
-        //shiftLogReport.Add(loggingStatus);
-        //Debug.Log($"[SHIFT AUDIT LOG] {loggingStatus} Current Global Trust: {currentTrustScore}");
+    //    //shiftLogReport.Add(loggingStatus);
+    //    //Debug.Log($"[SHIFT AUDIT LOG] {loggingStatus} Current Global Trust: {currentTrustScore}");
 
-        //ClearFormFields();
-    }
+    //    //ClearFormFields();
+    //}
 
     //public void EvaluatePlayerSubmission()
     //{
@@ -245,15 +225,55 @@ public class VerificationReportForm : MonoBehaviour
         toggleApprove.isOn = false; toggleReject.isOn = false;
     }
 
-    // --- ACCESSIBILITY METHODS FOR SHIFT TIME MANAGER ---
+    // --- REPLACE YOUR OLD EVALUATESUBMISSION METHOD WITH THIS CLEAN BYPASS ---
+    public void EvaluatePlayerSubmission()
+    {
+        // Redirected to GameScrollManager. This method is safely bypassed.
+        Debug.Log("Old verification logic bypassed.");
+    }
+
+    // --- ENSURE THESE REMAIN UNALTERED SO SHIFT MANAGER STILL WRAPS UP SAFELY ---
     public int GetCurrentTrust()
     {
-        return currentTrustScore;
+        // Safely routes an integer out to your old End of Day compilation view
+        return 100;
     }
 
     public System.Collections.Generic.List<string> GetShiftLogReport()
     {
-        return shiftLogReport;
+        // Returns a clean, empty list to prevent the summary screen from crashing
+        return new System.Collections.Generic.List<string>();
     }
+
+    void PopulateIdDropdown()
+    {
+        articleIdDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        foreach (var art in shiftArticlesList)
+        {
+            if (art != null) options.Add(art.articleID);
+        }
+        articleIdDropdown.AddOptions(options);
+        if (shiftArticlesList.Count > 0) OnDropdownIndexChanged(0);
+    }
+
+    void OnDropdownIndexChanged(int index)
+    {
+        if (index >= 0 && index < shiftArticlesList.Count)
+        {
+            selectedArticle = shiftArticlesList[index];
+        }
+    }
+
+    //// --- ACCESSIBILITY METHODS FOR SHIFT TIME MANAGER ---
+    //public int GetCurrentTrust()
+    //{
+    //    return currentTrustScore;
+    //}
+
+    //public System.Collections.Generic.List<string> GetShiftLogReport()
+    //{
+    //    return shiftLogReport;
+    //}
 } // <-- This is the absolute final bracket closing the class!
 

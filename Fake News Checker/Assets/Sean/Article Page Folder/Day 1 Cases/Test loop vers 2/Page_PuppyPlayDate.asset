@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
   m_Name: Page_PuppyPlayDate
   m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  articleID: 
   title: Puppy Play Date Guidelines
   bodyText: "LOCAL NEWS: The City Dog Shelter is hosting an all-day Puppy Play Date!\r\n\r\nBy
     Maya Lin & Austin Rivera | New Manila Local News\r\n\r\nNed a shot of happiness
@@ -24,6 +25,20 @@ MonoBehaviour:
     page.\r\n\r\nTake note of timeslots on the website.\r\n\r\nShow up at the shelter
     branch and enjoy!\r\n\r\n#LocalNews #CityDogShelter #PuppyPlayDate #AdoptLocal
     #CommunityEvent\r\n"
+  hasExternalLink: 0
+  customComments: []
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
   images:
   - imageSprite: {fileID: 1480917699468073914, guid: 096189242e9116b44b60fc5ec3053613, type: 3}
-    insertAfterParagraphIndex: -1
+    insertAfterParagraphIndex: 0

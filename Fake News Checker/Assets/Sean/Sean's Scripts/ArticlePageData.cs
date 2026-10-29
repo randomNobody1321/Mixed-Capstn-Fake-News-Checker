@@ -16,6 +16,7 @@
 //    public EmbeddedImage[] images;
 //}
 
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum SectorType { LocalNews, PopCulture, Finance, HealthScience, BreakingNews }
@@ -38,18 +39,62 @@ public class ArticleCheatSheet
     public bool typos;
 }
 
+//[CreateAssetMenu(fileName = "NewArticlePage", menuName = "Case System/Article Page")]
+//public class ArticlePageData : ScriptableObject
+//{
+//    [Header("ID Configuration")]
+//    [Tooltip("Format: DESK_DAY_NUMBER (e.g. LOC_D1_01)")]
+//    public string articleID;
+
+//    public string title;
+//    [TextArea(15, 30)] public string bodyText;
+
+//    [Header("Verification Cheat Sheet")]
+//    public ArticleCheatSheet cheatSheet;
+
+//    [System.Serializable]
+//    public class EmbeddedImage
+//    {
+//        public Sprite imageSprite;
+//        [Tooltip("The text block index after which this image should appear.")]
+//        public int insertAfterParagraphIndex;
+//    }
+//    public EmbeddedImage[] images;
+//}
+
+// Keep all your original code at the top exactly the same...
 [CreateAssetMenu(fileName = "NewArticlePage", menuName = "Case System/Article Page")]
 public class ArticlePageData : ScriptableObject
 {
     [Header("ID Configuration")]
-    [Tooltip("Format: DESK_DAY_NUMBER (e.g. LOC_D1_01)")]
     public string articleID;
-
     public string title;
     [TextArea(15, 30)] public string bodyText;
 
+    // --- ADD THESE TWO NEW FIELDS HERE ---
+    [Header("New Feed Additions")]
+    [Tooltip("Check this if this specific post features an external website link simulation")]
+    public bool hasExternalLink;
+
+    [TextArea(3, 5)]
+    [Tooltip("Add comments for this post here. Leave empty if this post has no comments.")]
+    public List<string> customComments;
+    // -------------------------------------
+
     [Header("Verification Cheat Sheet")]
     public ArticleCheatSheet cheatSheet;
+
+    // Leave the rest of your original EmbeddedImage arrays exactly as they were...
+
+    //    [Header("ID Configuration")]
+    //    [Tooltip("Format: DESK_DAY_NUMBER (e.g. LOC_D1_01)")]
+    //    public string articleID;
+
+    //    public string title;
+    //    [TextArea(15, 30)] public string bodyText;
+
+    //    [Header("Verification Cheat Sheet")]
+    //    public ArticleCheatSheet cheatSheet;
 
     [System.Serializable]
     public class EmbeddedImage
@@ -60,4 +105,3 @@ public class ArticlePageData : ScriptableObject
     }
     public EmbeddedImage[] images;
 }
-

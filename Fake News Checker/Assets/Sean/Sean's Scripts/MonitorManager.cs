@@ -85,6 +85,18 @@ public class MonitorManager : MonoBehaviour
 
     void HandleMouseClick()
     {
+
+        // --- FORCE AN IMMEDIATE EXIT AT THE TOP OF THE METHOD ---
+        return;
+        // --------------------------------------------------------
+
+        // Your old raycasting and EventSystem checking code can stay below untouched.
+        // The compiler will ignore it, keeping your system completely safe.
+        if (notesInputField != null && notesInputField.isFocused) return;
+        // ... rest of your old raycast click handling ...
+
+        //===
+
         // Don't register monitor clicks if the player is typing
         if (notesInputField != null && notesInputField.isFocused) return;
 
