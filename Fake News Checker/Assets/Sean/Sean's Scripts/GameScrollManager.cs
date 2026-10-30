@@ -1,4 +1,4 @@
-//using UnityEngine;
+﻿//using UnityEngine;
 //using UnityEngine.UI;
 //using System.Collections.Generic;
 //using TMPro;
@@ -325,7 +325,61 @@ public class GameScrollManager : MonoBehaviour
     public List<ArticlePageData> day2ArticlesPool;
     public List<ArticlePageData> day3ArticlesPool;
 
-    private void Awake()
+    private bool helperUsedOnCurrentArticle = false;
+
+    [Header("Image Asset Displays")]
+    public Image fullPostArticleImageComponent;
+    public Image externalWebsiteImageComponent;
+
+    [Header("Desktop System Startup Links")]
+    public GameObject appWindowPanelObject; // Drag your 'AppWindowPanel' here
+
+    [Header("HUD Overlay Toggles")]
+    public GameObject grandmaProfilePanelObject; // Drag GrandmaProfilePanel here
+    public GameObject helperLifelineWidgetObject; // Drag HelperLifelineWidget here
+
+
+    public void LaunchApplicationFromDesktop()
+    {
+        if (appWindowPanelObject != null)
+        {
+            // 1. Reveal your main 90% application window workspace
+            appWindowPanelObject.SetActive(true);
+
+            // 2. Dynamically reveal HUD widgets only when the app boots up
+            if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
+            if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
+
+            // 3. Start your daily articles pool loading system
+            InitializeDayLoadout(1);
+
+            // 4. Kick off your 7-bar segmented countdown timer clock loop
+            if (BatteryTimeManager.Instance != null)
+            {
+                BatteryTimeManager.Instance.LaunchTimerEngine();
+            }
+        }
+    }
+        //public void LaunchApplicationFromDesktop()
+        //{
+        //    if (appWindowPanelObject != null)
+        //    {
+        //        // 1. Reveal your main 90% application window
+        //        appWindowPanelObject.SetActive(true);
+
+        //        // 2. Start your daily articles pool loading system
+        //        InitializeDayLoadout(1);
+
+        //        // 3. Kick off your 7-bar segmented countdown timer clock loop
+        //        if (BatteryTimeManager.Instance != null)
+        //        {
+        //            BatteryTimeManager.Instance.LaunchTimerEngine();
+        //            Debug.Log("[DESKTOP] Application started successfully. Battery timer is ticking!");
+        //        }
+        //    }
+        //}
+
+        private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
@@ -333,8 +387,29 @@ public class GameScrollManager : MonoBehaviour
 
     private void Start()
     {
+        // Clean out memory leaks across all three asset pool tables on level startup
+        ResetAllArticleMemoryStates(day1ArticlesPool);
+        ResetAllArticleMemoryStates(day2ArticlesPool);
+        ResetAllArticleMemoryStates(day3ArticlesPool);
+
         InitializeDayLoadout(currentDay);
         UpdateScoreboardDisplay();
+
+        InitializeDayLoadout(currentDay);
+        UpdateScoreboardDisplay();
+    }
+
+    private void ResetAllArticleMemoryStates(List<ArticlePageData> articlePoolToClean)
+    {
+        if (articlePoolToClean == null) return;
+        foreach (var article in articlePoolToClean)
+        {
+            if (article != null)
+            {
+                article.playerLikedThisTemporaryState = false;
+                article.playerDislikedThisTemporaryState = false;
+            }
+        }
     }
 
     private void Update()
@@ -376,19 +451,60 @@ public class GameScrollManager : MonoBehaviour
     {
         openArticleContext = data;
         currentActiveFeedRowInstance = sourceRowInstance;
+        helperUsedOnCurrentArticle = false;
+
+        // --- PASTE THESE TWO EXTRA SAFETIES DIRECTLY IN THIS METHOD LOOP ---
+        // Safely forces the current state markers back to clean default settings every time you choose a new row header
+        if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+        if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+        // -------------------------------------------------------------------
 
         fullPostTitleText.text = data.title;
         fullPostContentBody.text = data.bodyText;
 
+        //appWindowPanelObject.gameObject.SetActive(false); //turns appwindow off
+
+        // Continue running your existing code downwards from here...
+        fullPostPopupPanel.gameObject.SetActive(true);
+        LoadCommentsToView(data);
+
         shareButtonBg.color = Color.white;
         reportButtonBg.color = Color.white;
 
+        // Automatically updates the image thumbnail if data exists inside your asset arrays
+        if (data.images != null && data.images.Length > 0 && data.images[0].imageSprite != null)
+        {
+            fullPostArticleImageComponent.gameObject.SetActive(true);
+            fullPostArticleImageComponent.sprite = data.images[0].imageSprite;
+        }
+        else
+        {
+            fullPostArticleImageComponent.gameObject.SetActive(false); // Hide if no image assigned
+        }
+
+        //// ... your existing code setting text, titles, etc ...
+
+        //fullPostPopupPanel.gameObject.SetActive(true);
+        //LoadCommentsToView(data);
+
+        // Add this line inside your OpenFullPostMode method
+        helperUsedOnCurrentArticle = false;
+
+        // Locate this exact section inside your existing OpenFullPostMode method
         if (data.hasExternalLink)
         {
+            // 1. Force the parent button gameobject active instantly on screen
             linkClickableButton.SetActive(true);
             if (externalLinkButtonLabel != null)
             {
-                externalLinkButtonLabel.text = $"https://tellagram.com{data.articleID.ToLower()}";
+                //externalLinkButtonLabel.text = $"https://tellagram.com{data.articleID.ToLower()}";
+
+                // 2. Derive the unique domain path from your current open article metadata
+                string customDomain = $"https://www.{data.articleID.ToLower().Trim()}.org/feed-post";
+                //externalLinkButtonLabel.text = customDomain;
+
+                externalLinkButtonLabel.text = $"https://www.{data.articleID.ToLower().Trim()}.org";
+
             }
         }
         else
@@ -400,7 +516,37 @@ public class GameScrollManager : MonoBehaviour
 
         // Populate comments when full post opens
         LoadCommentsToView(data);
+
+        // --- PASTE THIS EXACT LINE AT THE ABSOLUTE BOTTOM OF THIS METHOD ---
+        RefreshThumbsVisualsFromArticleData();
     }
+
+    //public void ClickExternalLink()
+    //{
+    //    if (externalWebsitePopup != null && openArticleContext != null)
+    //    {
+    //        if (websiteContentBodyText != null)
+    //        {
+    //            websiteContentBodyText.text = $"[SECURE WEBSITE FEED]\n\nURL: https://tellagram.com\n\n{openArticleContext.bodyText}";
+    //        }
+    //        externalWebsitePopup.SetActive(true);
+    //    }
+    //}
+
+    //public void ClickExternalLink()
+    //{
+    //    if (externalWebsitePopup != null && openArticleContext != null)
+    //    {
+    //        if (websiteContentBodyText != null)
+    //        {
+    //            // Clean out raw systemic brackets/hyperlink strings from displaying inside the viewer
+    //            string cleanBody = openArticleContext.bodyText.Replace("[LINK]", "").Replace("[PUPPY]", "");
+
+    //            websiteContentBodyText.text = $"[SECURE BROWSER FEED]\n\n{cleanBody}";
+    //        }
+    //        externalWebsitePopup.SetActive(true);
+    //    }
+    //}
 
     public void ClickExternalLink()
     {
@@ -408,11 +554,40 @@ public class GameScrollManager : MonoBehaviour
         {
             if (websiteContentBodyText != null)
             {
-                websiteContentBodyText.text = $"[SECURE WEBSITE FEED]\n\nURL: https://tellagram.com\n\n{openArticleContext.bodyText}";
+                // Simply strip away systemic brackets text clean
+                string cleanBody = openArticleContext.bodyText.Replace("[LINK]", "").Replace("[PUPPY]", "");
+
+                // Outputs ONLY the raw copy text of the article context directly into the window frame
+                websiteContentBodyText.text = cleanBody;
+
+                // Wipe out raw code strings from displaying inside the reader window frame
+                //string cleanBody = openArticleContext.bodyText.Replace("[LINK]", "").Replace("[PUPPY]", "");
+
+                // Dynamic URL constructor string using your Article Asset IDs directly!
+                //string customGeneratedURL = $"www.{openArticleContext.articleID.ToLower().Trim()}.com/news/feed-post-01";
+
+                //// Compiles your link address string dynamically as the absolute first line of text visible inside your browser view
+                //websiteContentBodyText.text = $"🌐 BROWSER LINK: http://{customGeneratedURL}\n" +
+                //                              $"🔒 CONNECTION SECURE & ENCRYPTED\n" +
+                //                              $"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n" +
+                //                              $"{cleanBody}";
+            }
+
+            if (openArticleContext.images != null && openArticleContext.images.Length > 0 && openArticleContext.images[0].imageSprite != null)
+            {
+                fullPostPopupPanel.gameObject.SetActive(false); //turn it off
+
+                externalWebsiteImageComponent.gameObject.SetActive(true);
+                externalWebsiteImageComponent.sprite = openArticleContext.images[0].imageSprite;
+            }
+            else
+            {
+                externalWebsiteImageComponent.gameObject.SetActive(false);
             }
             externalWebsitePopup.SetActive(true);
         }
     }
+
 
     private void LoadCommentsToView(ArticlePageData data)
     {
@@ -440,13 +615,24 @@ public class GameScrollManager : MonoBehaviour
 
     public void UseHelperLifeline()
     {
-        if (helperUsesRemaining <= 0 || openArticleContext == null) return;
+        //if (helperUsesRemaining <= 0 || openArticleContext == null) return;
 
+        //helperUsesRemaining--;
+        //UpdateHelperUI();
+
+        //bool isLegit = openArticleContext.cheatSheet.approveAndPublish;
+
+        //if (isLegit) shareButtonBg.color = Color.green;
+        //else reportButtonBg.color = Color.red;
+
+        // Safety Gate: block usage if helper was already used on this article once
+        if (helperUsesRemaining <= 0 || openArticleContext == null || helperUsedOnCurrentArticle) return;
+
+        helperUsedOnCurrentArticle = true; // Lock it out immediately
         helperUsesRemaining--;
         UpdateHelperUI();
 
         bool isLegit = openArticleContext.cheatSheet.approveAndPublish;
-
         if (isLegit) shareButtonBg.color = Color.green;
         else reportButtonBg.color = Color.red;
     }
@@ -494,9 +680,18 @@ public class GameScrollManager : MonoBehaviour
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(doomScrollFeedContainer.GetComponent<RectTransform>());
 
+        //if (doomScrollFeedContainer.childCount == 0)
+        //{
+        //    BatteryTimeManager.Instance.EvaluateRunCompletion();
+        //}
+
+        // Inside CloseAndAnimateFeedShift() under GameScrollManager.cs
         if (doomScrollFeedContainer.childCount == 0)
         {
-            BatteryTimeManager.Instance.EvaluateRunCompletion();
+            if (BatteryTimeManager.Instance != null)
+            {
+                BatteryTimeManager.Instance.EvaluateRunCompletion();
+            }
         }
     }
 
@@ -505,7 +700,7 @@ public class GameScrollManager : MonoBehaviour
         if (grandmaAvatarDisplay == null) return;
         grandmaAvatarDisplay.sprite = moodSprite;
         reactionTimer = 1.5f;
-    }
+    }   
 
     private void UpdateScoreboardDisplay()
     {
@@ -517,5 +712,139 @@ public class GameScrollManager : MonoBehaviour
         if (helperUsesCounterText != null)
             helperUsesCounterText.text = $"x{helperUsesRemaining}";
     }
+
+
+    //thumbs up and down UI interactable aka likes and dislikes
+
+    [Header("Thumbs Interaction Custom Elements")]
+    public Image thumbsUpIconImage;   // Drag the Image component of your Thumbs Up button here
+    public Image thumbsDownIconImage; // Drag the Image component of your Thumbs Down button here
+
+    private bool isLiked = false;
+    private bool isDisliked = false;
+
+    //// Call this via the OnClick() event on your Thumbs Up UI Button component
+    //public void ToggleThumbsUpInteraction()
+    //{
+    //    isLiked = !isLiked;
+    //    if (isLiked)
+    //    {
+    //        thumbsUpIconImage.color = new Color(0.2f, 0.6f, 1f, 1f); // Vibrant Blue Highlight
+    //        isDisliked = false; // Turn off dislike state automatically
+    //        if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+    //    }
+    //    else
+    //    {
+    //        thumbsUpIconImage.color = Color.white; // Clear back to standard tint
+    //    }
+    //}
+
+    //// Call this via the OnClick() event on your Thumbs Down UI Button component
+    //public void ToggleThumbsDownInteraction()
+    //{
+    //    isDisliked = !isDisliked;
+    //    if (isDisliked)
+    //    {
+    //        thumbsDownIconImage.color = new Color(1f, 0.2f, 0.2f, 1f); // Vibrant Red Highlight
+    //        isLiked = false; // Turn off like state automatically
+    //        if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+    //    }
+    //    else
+    //    {
+    //        thumbsDownIconImage.color = Color.white; // Clear back to standard tint
+    //    }
+    //}
+
+    //// --- PASTE THIS EXACT RESET BLOCK INSIDE YOUR EXISTING OpenFullPostMode() METHOD ---
+    //// Place this at the bottom inside OpenFullPostMode to clear old highlights when swapping articles:
+    //private void ResetThumbsLayoutState()
+    //{
+    //    isLiked = false;
+    //    isDisliked = false;
+    //    if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+    //    if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+    //}
+
+    public void ToggleThumbsUpInteraction()
+    {
+        if (openArticleContext == null) return;
+
+        openArticleContext.playerLikedThisTemporaryState = !openArticleContext.playerLikedThisTemporaryState;
+
+        if (openArticleContext.playerLikedThisTemporaryState)
+        {
+            openArticleContext.playerDislikedThisTemporaryState = false; // Turn off dislike automatically
+        }
+
+        RefreshThumbsVisualsFromArticleData();
+    }
+
+    public void ToggleThumbsDownInteraction()
+    {
+        if (openArticleContext == null) return;
+
+        openArticleContext.playerDislikedThisTemporaryState = !openArticleContext.playerDislikedThisTemporaryState;
+
+        if (openArticleContext.playerDislikedThisTemporaryState)
+        {
+            openArticleContext.playerLikedThisTemporaryState = false; // Turn off like automatically
+        }
+
+        RefreshThumbsVisualsFromArticleData();
+    }
+
+    //// Call this inside your existing OpenFullPostMode method right at the bottom!
+    //public void RefreshThumbsVisualsFromArticleData()
+    //{
+    //    if (openArticleContext == null) return;
+
+    //    // Apply authentic tint highlights depending on the current stored data state of the article
+    //    if (openArticleContext.playerLikedThisTemporaryState)
+    //    {
+    //        if (thumbsUpIconImage != null) thumbsUpIconImage.color = new Color(0.2f, 0.6f, 1f, 1f); // Vibrant Blue
+    //        if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+    //    }
+    //    else if (openArticleContext.playerDislikedThisTemporaryState)
+    //    {
+    //        if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+    //        if (thumbsDownIconImage != null) thumbsDownIconImage.color = new Color(1f, 0.2f, 0.2f, 1f); // Vibrant Red
+    //    }
+    //    else
+    //    {
+    //        // Reset to clean default white states if nothing is currently selected
+    //        if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+    //        if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+    //    }
+    //}
+
+    public void RefreshThumbsVisualsFromArticleData()
+    {
+        // Safety check: if no article context is assigned, force a fallback state immediately
+        if (openArticleContext == null)
+        {
+            if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+            if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+            return;
+        }
+
+        // Explicitly check for verified True boolean flags saved inside the specific article
+        if (openArticleContext.playerLikedThisTemporaryState)
+        {
+            if (thumbsUpIconImage != null) thumbsUpIconImage.color = new Color(0.2f, 0.6f, 1f, 1f); // Blue
+            if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+        }
+        else if (openArticleContext.playerDislikedThisTemporaryState)
+        {
+            if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+            if (thumbsDownIconImage != null) thumbsDownIconImage.color = new Color(1f, 0.2f, 0.2f, 1f); // Red
+        }
+        else
+        {
+            // FORCE DEFAULT CLEAR IF BOTH CONTEXTS ARE FALSE FOR THIS ARTICLE
+            if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+            if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+        }
+    }
+
 }
 

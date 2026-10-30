@@ -84,6 +84,10 @@ public class ArticlePageData : ScriptableObject
     [Header("Verification Cheat Sheet")]
     public ArticleCheatSheet cheatSheet;
 
+    [HideInInspector] public bool playerLikedThisTemporaryState = false;
+    [HideInInspector] public bool playerDislikedThisTemporaryState = false;
+
+
     // Leave the rest of your original EmbeddedImage arrays exactly as they were...
 
     //    [Header("ID Configuration")]
