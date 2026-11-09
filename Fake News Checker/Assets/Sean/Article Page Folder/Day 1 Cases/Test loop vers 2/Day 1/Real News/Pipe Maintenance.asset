@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Pipe Maintenance
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: 
+  title: Pipe Maintenance
+  bodyText: 'Infrastructure teams report minor pipe leaks within the residential
+    areas following routine repairs. Municipal authorities assure residents that
+    water quality remains completely safe.
+
+    
+
+    Lead Plumber Piper Downe
+    estimates that the maintenance should be done within the day unless any major
+    issues arise.'
+  headliner: <b>Residential Water System Maintenance Undergoing in Main Street</b>
+  hasExternalLink: 1
+  customComments:
+  - You can come fix my pipes if ya know what i mean.
+  - IS THIS WHY MY SPRINKLERS HAVEN'T BEEN WATERING MY LAWN ?!
+  - Hopefully they fix it quickly, my supply is running low !
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -4567028490788205802, guid: d3788a5756fabbf4b90d50e2533643e9, type: 3}
+    insertAfterParagraphIndex: -1

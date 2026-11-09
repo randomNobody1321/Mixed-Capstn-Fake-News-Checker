@@ -9,7 +9,7 @@ public class BatteryTimeManager : MonoBehaviour
 
     [Header("Timer Properties")]
     private float totalTimeElapsed = 0f;
-    private float targetMaxRoundTime = 420f; // 7 total bars * 60 seconds = 7 Minutes total clock duration
+    private float targetMaxRoundTime = 420f; //420 seconds to 16 ; 7 total bars * 60 seconds = 7 Minutes total clock duration
     private bool trackingActive = false;
 
     [Header("Battery Segment UI Outputs")]
@@ -67,8 +67,11 @@ public class BatteryTimeManager : MonoBehaviour
 
         totalTimeElapsed += Time.deltaTime;
 
+        // Mathf.Clamp keeps the active bars safely between 0 and 7 so it never goes negative
+        int activeBarsRemaining = Mathf.Clamp(7 - Mathf.FloorToInt(totalTimeElapsed / 60f), 0, 7);
+
         // Calculate dynamic bar reduction intervals every 60 seconds
-        int activeBarsRemaining = 7 - Mathf.FloorToInt(totalTimeElapsed / 2f);
+        //int activeBarsRemaining = 7 - Mathf.FloorToInt(totalTimeElapsed / 2f);
         UpdateBatteryVisuals(activeBarsRemaining);
 
         if (totalTimeElapsed >= targetMaxRoundTime)
@@ -94,7 +97,7 @@ public class BatteryTimeManager : MonoBehaviour
         lastCachedScore = updatedScoreValue;
         if (liveFriendsScoreHUD != null)
         {
-            liveFriendsScoreHUD.text = $"{updatedScoreValue}";
+            liveFriendsScoreHUD.text = $"Reliability: {updatedScoreValue}";
         }
     }
 
@@ -150,39 +153,87 @@ public class BatteryTimeManager : MonoBehaviour
     public void EvaluateRunCompletion()
     {
         trackingActive = false;
-        Debug.Log("[BATTERY] Game match completed. Triggering summary screen overlay panels...");
+        Debug.Log("[BATTERY] Game match completed. Activating summary panels directly via Inspector slots...");
 
-        // 1. Hard-override lookup for every hidden or visible transform in the scene database
-        Transform[] allObjectsInScene = Resources.FindObjectsOfTypeAll<Transform>();
-
-        // 2. Force the parent monitor canvases to open first so children can render safely
-        foreach (Transform t in allObjectsInScene)
+        // 1. Activate the parent container layout if assigned
+        if (centerMonitorPopupUIContainer != null)
         {
-            if (t.name == "Center Monitor Pop up ui Canvas" || t.name == "Center Monitor Pop up UI Container")
+            centerMonitorPopupUIContainer.SetActive(true);
+
+            // Automatically grab and wake up the canvas layer sitting right above the container
+            Transform canvasCheck = centerMonitorPopupUIContainer.transform.parent;
+            if (canvasCheck != null)
             {
-                t.gameObject.SetActive(true);
+                canvasCheck.gameObject.SetActive(true);
             }
         }
 
-        // 3. Drive the performance scoreboard directly to the active screen layer
-        foreach (Transform t in allObjectsInScene)
+        // 2. Instantly activate the summary screen panel via its assigned slot
+        if (postGameSummaryCanvasView != null)
         {
-            if (t.name == "PostGameSummaryCanvasView")
+            postGameSummaryCanvasView.SetActive(true);
+            postGameSummaryCanvasView.transform.SetAsLastSibling(); // Pushes it to the front of the screen layout stack
+
+            // 3. Update the text objects safely via your direct Inspector field variable
+            if (summaryFriendTallyLabel != null)
             {
-                t.gameObject.SetActive(true);
-                t.SetAsLastSibling(); // Move to top of render layer stack
-
-                // Re-render score details
-                TMP_Text finalScoreLabel = t.GetComponentInChildren<TMP_Text>();
-                if (finalScoreLabel != null)
-                {
-                    finalScoreLabel.text = $"Total Friends Secured: {lastCachedScore}";
-                }
-
-                Debug.Log("[SUMMARY ENGINE] Hard override successful. Summary screen forced open.");
-                return;
+                summaryFriendTallyLabel.text = $"Total Friends Secured: {lastCachedScore}";
             }
+
+            Debug.Log("[SUMMARY ENGINE] Direct assignment override successful. Summary screen open.");
         }
+        else
+        {
+            Debug.LogError("[SUMMARY ENGINE] Critical Failure: PostGameSummaryCanvasView assignment missing in the Inspector slot!");
+        }
+
+
+        //trackingActive = false;
+        //Debug.Log("[BATTERY] Game match completed. Triggering summary screen overlay panels...");
+
+        //// 1. Hard-override lookup for every hidden or visible transform in the scene database
+        //Transform[] allObjectsInScene = Resources.FindObjectsOfTypeAll<Transform>();
+
+        //// 2. Force the parent monitor canvases to open first so children can render safely
+        //foreach (Transform t in allObjectsInScene)
+        //{
+        //    if (t.name == "Center Monitor Pop up ui Canvas" || t.name == "Center Monitor Pop up UI Container")
+        //    {
+        //        t.gameObject.SetActive(true);
+        //    }
+        //}
+
+        //// 3. Drive the performance scoreboard directly to the active screen layer
+        //foreach (Transform t in allObjectsInScene)
+        //{
+        //    if (t.name == "PostGameSummaryCanvasView")
+        //    {
+        //        t.gameObject.SetActive(true);
+        //        t.SetAsLastSibling(); // Move to top of render layer stack
+
+        //        // Re-render score details
+        //        TMP_Text finalScoreLabel = t.GetComponentInChildren<TMP_Text>();
+        //        if (finalScoreLabel != null)
+        //        {
+        //            finalScoreLabel.text = $"Total Friends Secured: {lastCachedScore}";
+        //        }
+
+        //        Debug.Log("[SUMMARY ENGINE] Hard override successful. Summary screen forced open.");
+        //        return;
+        //    }
+        //}
+
+        //===============
+
+
+
+
+
+
+
+
+
+
 
         //// Direct brute-force path: Force the parent canvas container object ON first
         //if (centerMonitorPopupUIContainer != null)

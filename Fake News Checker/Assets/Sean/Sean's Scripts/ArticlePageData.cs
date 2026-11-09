@@ -37,6 +37,8 @@ public class ArticleCheatSheet
     public bool falseTimeline;
     public bool uncitedClaims;
     public bool typos;
+
+    
 }
 
 //[CreateAssetMenu(fileName = "NewArticlePage", menuName = "Case System/Article Page")]
@@ -66,10 +68,21 @@ public class ArticleCheatSheet
 [CreateAssetMenu(fileName = "NewArticlePage", menuName = "Case System/Article Page")]
 public class ArticlePageData : ScriptableObject
 {
+    [HideInInspector] public bool helperWasUsedOnThisArticleState = false;
+
     [Header("ID Configuration")]
     public string articleID;
     public string title;
-    [TextArea(15, 30)] public string bodyText;
+    //[TextArea(15, 30)] public string bodyText;
+    [TextArea(5, 12)] public string bodyText;
+
+    //[Header("ID Configuration")]
+    //public string articleID;
+
+    // --- ADD THIS NEW LINE RIGHT HERE ---
+    [TextArea(2, 4)] public string headliner;
+
+    //[TextArea(5, 12)] public string bodyText;
 
     // --- ADD THESE TWO NEW FIELDS HERE ---
     [Header("New Feed Additions")]

@@ -48,4 +48,4 @@ MonoBehaviour:
   playerDislikedThisTemporaryState: 0
   images:
   - imageSprite: {fileID: 1480917699468073914, guid: 096189242e9116b44b60fc5ec3053613, type: 3}
-    insertAfterParagraphIndex: -1
+    insertAfterParagraphIndex: 1

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: The Oskars
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: 
+  title: The Oskars
+  bodyText: Red carpets are rolling out across the district as the prestigious Oskars
+    award ceremony makes its official debut at the New Manila Theatre tomorrow evening.
+    Local authorities are bracing for massive traffic bottlenecks, a wall-to-wall
+    fleet of stretch limousines, and an influx of glammed-up nominees all desperate
+    to take home the coveted golden statuette.
+  headliner: '<b>HOLLYWOOD MEETS METRO MANILA: THE OSKARS HIT NEW MANILA THEATRE
+    TOMORROW</b>'
+  hasExternalLink: 1
+  customComments:
+  - 'I hope Revengers : Armageddon wins an award !'
+  - "Can yall not do this tomorrow ? i can\u2019t attend."
+  - Which Channels will this be aired on ?
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: 4231581216037798140, guid: 7a5a1ab4abc848048b70eab1cd542f6b, type: 3}
+    insertAfterParagraphIndex: -1
