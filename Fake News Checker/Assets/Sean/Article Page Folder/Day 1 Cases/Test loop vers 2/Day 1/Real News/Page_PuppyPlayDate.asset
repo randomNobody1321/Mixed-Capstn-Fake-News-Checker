@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
   m_Name: Page_PuppyPlayDate
   m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
-  helperWasUsedOnThisArticleState: 0
+  helperWasUsedOnThisArticleState: 1
   articleID: www.newmanila.gov.ph/services/dogshelter/events
   title: 'Puppy Play Date '
   bodyText: "Need a shot of happiness? The New Manila City Dog Shelter is opening
@@ -47,5 +47,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: 1480917699468073914, guid: 096189242e9116b44b60fc5ec3053613, type: 3}
+  - imageSprite: {fileID: 999452244692333012, guid: bf433b8f590b65a42a8fd89896054b9d, type: 3}
     insertAfterParagraphIndex: 1

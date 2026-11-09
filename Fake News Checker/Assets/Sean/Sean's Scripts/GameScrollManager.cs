@@ -512,8 +512,9 @@ public class GameScrollManager : MonoBehaviour
         fullPostPopupPanel.gameObject.SetActive(true);
         LoadCommentsToView(data);
 
-        shareButtonBg.color = Color.white;
-        reportButtonBg.color = Color.white;
+        //commented out since they made share and report button background white I forgot to remove this earlier
+        shareButtonBg.color = Color.purple;
+        reportButtonBg.color = Color.purple;
 
         if (data.hasExternalLink)
         {
@@ -530,8 +531,8 @@ public class GameScrollManager : MonoBehaviour
 
         // --- NEW RE-RENDER LOGIC FOR PERSISTENT HIGHLIGHTS ---
         // Clear buttons to default white color first
-        if (shareButtonBg != null) shareButtonBg.color = Color.white;
-        if (reportButtonBg != null) reportButtonBg.color = Color.white;
+        //if (shareButtonBg != null) shareButtonBg.color = Color.white;
+        //if (reportButtonBg != null) reportButtonBg.color = Color.white;
 
         // Check if this specific article already had a helper charge spent on it previously
         if (data != null && data.helperWasUsedOnThisArticleState)
@@ -657,7 +658,7 @@ public class GameScrollManager : MonoBehaviour
                     // This manually creates an intentional 150-pixel margin gap at the top of the body paragraph box.
                     // This perfectly carves out a clean empty window space for your child image display to sit 
                     // right below the headliner without overlapping any sentences!
-                    websiteContentBodyText.margin = new Vector4(0f, 70f, 0f, 0f);
+                    websiteContentBodyText.margin = new Vector4(0f, 90f, 0f, 0f);
                 }
 
                 // Simply strip away systemic brackets text clean
@@ -689,12 +690,25 @@ public class GameScrollManager : MonoBehaviour
                     externalWebsiteImageComponent.gameObject.SetActive(true);
                     externalWebsiteImageComponent.sprite = openArticleContext.images[0].imageSprite;
 
-                    // Manually force your image coordinate to anchor safely inside the text's margin window gap
+                    // --- AUTOMATIC ANCHOR RE-ALIGNMENT ---
+                    // Instead of manual Y values, we lock the image to the top-center of the body text box.
+                    // As the body text moves dynamically based on the headliner length, the image moves with it!
                     RectTransform imageRect = externalWebsiteImageComponent.GetComponent<RectTransform>();
                     if (imageRect != null)
                     {
-                        //imageRect.anchoredPosition = new Vector2(0f, -40f); // Shifts it right into the carved out open space
+                        imageRect.anchorMin = new Vector2(0.5f, 1f); // Center-Top Anchor point
+                        imageRect.anchorMax = new Vector2(0.5f, 1f);
+                        imageRect.pivot = new Vector2(0.5f, 1f);     // Pivot point at the top edge of the sprite
+
+                        // Places it right inside the 90px margin window we carved out above
+                        imageRect.anchoredPosition = new Vector2(0f, -10f);
                     }
+                    //// Manually force your image coordinate to anchor safely inside the text's margin window gap
+                    //RectTransform imageRect = externalWebsiteImageComponent.GetComponent<RectTransform>();
+                    //if (imageRect != null)
+                    //{
+                    //    //imageRect.anchoredPosition = new Vector2(0f, -40f); // Shifts it right into the carved out open space
+                    //}
                 }
             }
             else
@@ -744,7 +758,7 @@ public class GameScrollManager : MonoBehaviour
                     // 2. FORCE CODE-DRIVEN MARGIN OFFSET
                     // This leaves your layout groups alone and manually pushes the text characters 
                     // 60 pixels to the right, safely clearing room for your profile icon!
-                    targetText.margin = new Vector4(60f, 0f, 0f, 0f);
+                    targetText.margin = new Vector4(95f, 0f, 0f, 0f);
                 }
             }
         }
@@ -755,7 +769,7 @@ public class GameScrollManager : MonoBehaviour
             if (targetText != null)
             {
                 targetText.text = "<i>No comments on this post.</i>";
-                targetText.margin = new Vector4(60f, 0f, 0f, 0f);
+                targetText.margin = new Vector4(95f, 0f, 0f, 0f);
             }
         }
 
