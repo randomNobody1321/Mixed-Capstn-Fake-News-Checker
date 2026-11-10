@@ -347,6 +347,12 @@ public class GameScrollManager : MonoBehaviour
     private bool canProcessVerdict = true;
     // Prevents button spamming as it helps prevent a bug that resets the players progress by closing AppWindowPanel
 
+    [Header("Helper System Expression Toggles")]
+    public Image helperIconDisplay;       // Drag the Image component of your Helper UI widget here
+    public Sprite helperNormalSprite;     // Your helper's default, passive expression artwork
+    public Sprite helperActionSprite;     // The special expression artwork displayed for 1.5 seconds
+
+
     public void LaunchApplicationFromDesktop()
     {
         if (appWindowPanelObject != null)
@@ -894,6 +900,12 @@ public class GameScrollManager : MonoBehaviour
         helperUsesRemaining--;
         UpdateHelperUI();
 
+        // Trigger the automatic 1.5-second image swap sequence
+        if (helperIconDisplay != null && helperActionSprite != null)
+        {
+            StartCoroutine(HelperExpressionRoutine());
+        }
+
         bool isLegit = openArticleContext.cheatSheet.approveAndPublish;
         if (isLegit && shareButtonBg != null) shareButtonBg.color = Color.green;
         else if (!isLegit && reportButtonBg != null) reportButtonBg.color = Color.red;
@@ -903,6 +915,23 @@ public class GameScrollManager : MonoBehaviour
         //if (isLegit) shareButtonBg.color = Color.green;
         //else reportButtonBg.color = Color.red;
 
+    }
+
+    /// <summary>
+    /// Swaps the helper's avatar look to its active action graphic, 
+    /// waits for exactly 1.5 seconds, and cleanly snaps it back to normal.
+    /// </summary>
+    private System.Collections.IEnumerator HelperExpressionRoutine()
+    {
+        helperIconDisplay.sprite = helperActionSprite;
+
+        // Wait safely in real-time execution for exactly 1.5 seconds
+        yield return new WaitForSeconds(1.5f);
+
+        if (helperIconDisplay != null && helperNormalSprite != null)
+        {
+            helperIconDisplay.sprite = helperNormalSprite;
+        }
     }
 
     public void ProcessPlayerVerdict(bool choseShare)
