@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
   m_Name: Page_PuppyPlayDate
   m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
-  helperWasUsedOnThisArticleState: 0
+  helperWasUsedOnThisArticleState: 1
   articleID: www.newmanila.gov.ph/services/dogshelter/events
   title: Puppy Play Date  !
   bodyText: "Need a shot of happiness? The New Manila City Dog Shelter is opening
@@ -29,7 +29,7 @@ MonoBehaviour:
   headliner: <b>The City Dog Shelter is hosting an all-day Puppy Play Date!</b>
   hasExternalLink: 1
   customComments:
-  - comment 1OMG PUPPIES !
+  - OMG PUPPIES !
   - I'll be there ! I love my doggies.
   - Do you sell cats too ?
   cheatSheet:
