@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Pageant Mistake
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: https://PopEntertainmentNews/Recents
+  title: Pageant Mistake
+  bodyText: "Riots almost broke out on live television tonight during the Miss Universe
+    broadcast after veteran television host Stephen Hardly accidentally crowned Miss
+    Wadiya as the new titleholder instead of the actual winner, Miss Agrabah. \r\nMore
+    about this story :  "
+  headliner: <b>Host Announces Wrong Winner In Historic Pageant</b>
+  hasExternalLink: 1
+  customComments:
+  - I knew it ! Miss Agrabah would never lose !
+  - That can't be right, the Admiral-General would never allow this to happen.
+  - But didn't they announce on the official page that Miss Wadiya DID win ?
+  - I watched this live ! This is just a lie !
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: 374210604363299459, guid: b03980956d8dd2344b27e178423943a2, type: 3}
+    insertAfterParagraphIndex: -1

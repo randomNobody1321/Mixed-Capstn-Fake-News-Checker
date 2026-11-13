@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Concert Floods !
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: https://NewManilaColosseum/Events
+  title: Concert Floods !
+  bodyText: "An unfortunate turn of events has struck the makeshift encampments outside
+    the New Manila Colosseum after a sudden torrential downpour flooded the surrounding
+    plaza just hours before November Boulevard\u2019s scheduled arrival. \r\n\r\n\r\nLink:
+    \r\n\r\nDespite waist-deep puddles, soaked sleeping bags, and repeated warnings
+    from city emergency responders urging crowd evacuation, thousands of die-hard
+    supporters remain steadfastly glued to their front-row positions. \r\n\r\nFan
+    club leaders were seen hoisting plastic tarps and using cooler lids to bail out
+    water while chanting band anthems in unison, refusing to abandon the campsite
+    they built yesterday"
+  headliner: <b>Massive Rainstorm Floods Colosseum Perimeter As November Boulevard
+    Arrives</b>
+  hasExternalLink: 1
+  customComments:
+  - THE RAIN WONT STOP US, IT WONT STOP ME !
+  - Damn, so not even floods can keep them away !
+  - IT'S ALL FOR THE MUSIC BABY YEAH !
+  - "I got an umbrella, ill be fine\u2026"
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: 7329171519971699087, guid: ddd9122d5ea888a4e908c87a867fe7a1, type: 3}
+    insertAfterParagraphIndex: -1

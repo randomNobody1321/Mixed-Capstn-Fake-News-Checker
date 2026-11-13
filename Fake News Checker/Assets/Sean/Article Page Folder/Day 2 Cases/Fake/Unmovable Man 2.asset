@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Unmovable Man 2
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: https://TheManWhoCantBeMoved/Stories
+  title: Unmovable Man
+  bodyText: "A local romantic, Noah has officially set up camp outside the white-columned
+    estate he painstakingly renovated, stubbornly declaring he won't be moved until
+    his long-lost love sees him on the news and comes running back. \r\n\r\nDespite
+    writing 365 daily letters that went entirely unanswered, the heartbroken hopeless
+    romantic remains convinced that standing in front of the house like a human lighthouse
+    is his best strategy for a reunion. \r\n\r\n\u201CCause if one day you wake up
+    and find that you're missing me, and your heart starts to wonder where on this
+    Earth I could be, thinking maybe you'll come back here to the place that we'd
+    meet. And you'll see me waiting for you on the corner of the street, so I'm not
+    moving.\r\n\r\nPeople talk about the guy that's waiting on a girl, there are
+    no holes in his shoes but a big hole in his world. Maybe I'll get famous as the
+    man who can't be moved, maybe you won't mean to, but you'll see me on the news.
+    You'll come running to the corner 'cause you'll know it's just for you, I'm the
+    man who can't be moved\u201D\r\n\r\n-Aristotle"
+  headliner: <b>Local Man Renovates House in Desperate Bid for Ex to Return</b>
+  hasExternalLink: 1
+  customComments:
+  - I am him, he is me, he is we.
+  - Honestly ? same.
+  - "She\u2019s engaged to me now noah, let it go\u2026"
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -417529692945901378, guid: c9d42ddfd077149468d23432bd818269, type: 3}
+    insertAfterParagraphIndex: -1

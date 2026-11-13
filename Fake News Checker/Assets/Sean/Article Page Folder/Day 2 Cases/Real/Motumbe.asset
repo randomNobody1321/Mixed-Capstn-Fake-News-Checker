@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Motumbe
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: 'https://NewManilaBotanicalGardens/Obituary '
+  title: Motumbe
+  bodyText: "A quiet afternoon at the New Manila Botanical Gardens ended in profound
+    sorrow yesterday following the tragic loss of Motumbe, a 17-year-old silverback
+    gorilla who was fatally shot by zoo response teams after a four-year-old boy
+    slipped into the primate habitat. \r\n\r\nMore about this story :  \r\n\r\nEmergency
+    officials stated that lethal action was taken out of immediate concern for the
+    child's life as the 450-pound animal dragged the boy through the enclosure's
+    moat, though eyewitnesses and heartbroken visitors questioned whether the gentle
+    giant was merely attempting to protect the frightened child. \r\n"
+  headliner: '<b>Beloved Silverback Fatally Shot After Child Falls Into Enclosure
+    !
+
+    >'
+  hasExternalLink: 1
+  customComments:
+  - THIS IS TOO MUCH FOR MY HEART TO BEAR !
+  - "I feel there is a shift in our timeline with this death\u2026"
+  - "I understand having to shoot him, but it doesn't make it any easier\u2026"
+  - "This doesn't feel real, it can't be real, I don't want it to be\u2026"
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -298591809935381512, guid: 9544f92755386f641bedbf59ebc4ef2d, type: 3}
+    insertAfterParagraphIndex: -1

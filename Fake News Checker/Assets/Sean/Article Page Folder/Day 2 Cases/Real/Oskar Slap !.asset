@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Oskar Slap !
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: https://OskarsUpdates/Recents
+  title: Oskar Slap !
+  bodyText: "The New Manila Theatre erupted into total confusion tonight during the
+    ongoing Oskars broadcast after top nominee Bill Smith stormed the stage and struck
+    host Chris Brock across the face following an unscripted joke about his wife.
+    \r\n\r\nMore about this story :  \r\n\r\nThe New Manila Theatre erupted into
+    total confusion tonight during the ongoing \"Oskars\" broadcast after top nominee
+    Bill Smith stormed the stage and struck host Chris Block across the face following
+    an unscripted joke about his wife. Shocked attendees initially assumed the sudden
+    confrontation was a rehearsed comedy bit until Smith returned to his front-row
+    seat and repeatedly shouted expletives at the presenter. "
+  headliner: <b>Top Actor Strikes Host Mid-Ceremony Over Audience Joke !</b>
+  hasExternalLink: 1
+  customComments:
+  - That's gonna leave a mark.
+  - I JUST saw that on TV earlier !
+  - NAH, NOT MY CHRIS, NOT MY BROCK.
+  - HARDER, YEAHHHHH, HARDER !
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: 7329171519971699087, guid: ddd9122d5ea888a4e908c87a867fe7a1, type: 3}
+    insertAfterParagraphIndex: -1

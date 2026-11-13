@@ -9,7 +9,7 @@ public class BatteryTimeManager : MonoBehaviour
 
     [Header("Timer Properties")]
     private float totalTimeElapsed = 0f;
-    private float targetMaxRoundTime = 420f; //420 seconds to 16 ; 7 total bars * 60 seconds = 7 Minutes total clock duration
+    private float targetMaxRoundTime = 70f; //420 seconds to 16 ; 7 total bars * 60 seconds = 7 Minutes total clock duration
     private bool trackingActive = false;
 
     [Header("Battery Segment UI Outputs")]
@@ -29,6 +29,10 @@ public class BatteryTimeManager : MonoBehaviour
 
     [Header("Parent Container Links")]
     public GameObject centerMonitorPopupUIContainer; // Drag the parent container here!
+
+    [Header("Script Links")]
+    public GameScrollManager gameScrollManager; // Drag 'GameObject' (with GameScrollManager) here in the Inspector!
+
 
     //private void Awake()
     //{
@@ -68,7 +72,7 @@ public class BatteryTimeManager : MonoBehaviour
         totalTimeElapsed += Time.deltaTime;
 
         // Mathf.Clamp keeps the active bars safely between 0 and 7 so it never goes negative
-        int activeBarsRemaining = Mathf.Clamp(7 - Mathf.FloorToInt(totalTimeElapsed / 60f), 0, 7);
+        int activeBarsRemaining = Mathf.Clamp(7 - Mathf.FloorToInt(totalTimeElapsed / 10f), 0, 7);
 
         // Calculate dynamic bar reduction intervals every 60 seconds
         //int activeBarsRemaining = 7 - Mathf.FloorToInt(totalTimeElapsed / 2f);
@@ -80,6 +84,12 @@ public class BatteryTimeManager : MonoBehaviour
             EvaluateRunCompletion();
         }
     }
+
+    public void SetTimerPaused(bool isPaused)
+    {
+        trackingActive = !isPaused;
+    }
+
 
     private void UpdateBatteryVisuals(int barsToKeepActive)
     {
@@ -152,15 +162,15 @@ public class BatteryTimeManager : MonoBehaviour
     // Open BatteryTimeManager.cs and completely replace your EvaluateRunCompletion method
     public void EvaluateRunCompletion()
     {
+
         trackingActive = false;
-        Debug.Log("[BATTERY] Game match completed. Activating summary panels directly via Inspector slots...");
+        Debug.Log("[BATTERY] Game match completed. Activating End-of-Day Summary...");
 
         // 1. Activate the parent container layout if assigned
         if (centerMonitorPopupUIContainer != null)
         {
             centerMonitorPopupUIContainer.SetActive(true);
 
-            // Automatically grab and wake up the canvas layer sitting right above the container
             Transform canvasCheck = centerMonitorPopupUIContainer.transform.parent;
             if (canvasCheck != null)
             {
@@ -168,25 +178,97 @@ public class BatteryTimeManager : MonoBehaviour
             }
         }
 
-        // 2. Instantly activate the summary screen panel via its assigned slot
-        if (postGameSummaryCanvasView != null)
+        // 2. Update the tally text on the summary panel if assigned
+        if (summaryFriendTallyLabel != null)
         {
-            postGameSummaryCanvasView.SetActive(true);
-            postGameSummaryCanvasView.transform.SetAsLastSibling(); // Pushes it to the front of the screen layout stack
+            summaryFriendTallyLabel.text = $"Total Friends Secured: {lastCachedScore}";
+        }
 
-            // 3. Update the text objects safely via your direct Inspector field variable
-            if (summaryFriendTallyLabel != null)
-            {
-                summaryFriendTallyLabel.text = $"Total Friends Secured: {lastCachedScore}";
-            }
+        // 3. Hand off ONLY to TriggerEndOfDaySummary (which opens postGameSummaryCanvasView)
+        GameScrollManager manager = gameScrollManager != null
+            ? gameScrollManager
+            : FindFirstObjectByType<GameScrollManager>();
 
-            Debug.Log("[SUMMARY ENGINE] Direct assignment override successful. Summary screen open.");
+        if (manager != null)
+        {
+            manager.TriggerEndOfDaySummary();
         }
         else
         {
-            Debug.LogError("[SUMMARY ENGINE] Critical Failure: PostGameSummaryCanvasView assignment missing in the Inspector slot!");
+            Debug.LogError("[BATTERY] Could not find GameScrollManager in the scene!");
         }
 
+        //trackingActive = false;
+        //Debug.Log("[BATTERY] Game match completed. Activating summary panels directly via Inspector slots...");
+
+        //// 1. Activate the parent container layout if assigned
+        //if (centerMonitorPopupUIContainer != null)
+        //{
+        //    centerMonitorPopupUIContainer.SetActive(true);
+
+        //    // Automatically grab and wake up the canvas layer sitting right above the container
+        //    Transform canvasCheck = centerMonitorPopupUIContainer.transform.parent;
+        //    if (canvasCheck != null)
+        //    {
+        //        canvasCheck.gameObject.SetActive(true);
+        //    }
+        //}
+
+        //// 2. Instantly activate the summary screen panel via its assigned slot
+        //if (postGameSummaryCanvasView != null)
+        //{
+        //    postGameSummaryCanvasView.SetActive(true);
+        //    postGameSummaryCanvasView.transform.SetAsLastSibling(); // Pushes it to the front of the screen layout stack
+
+        //    // 3. Update the text objects safely via your direct Inspector field variable
+        //    if (summaryFriendTallyLabel != null)
+        //    {
+        //        summaryFriendTallyLabel.text = $"Total Friends Secured: {lastCachedScore}";
+        //    }
+
+        //    Debug.Log("[SUMMARY ENGINE] Direct assignment override successful. Summary screen open.");
+        //}
+        //else
+        //{
+        //    Debug.LogError("[SUMMARY ENGINE] Critical Failure: PostGameSummaryCanvasView assignment missing in the Inspector slot!");
+        //}
+
+        //if (gameScrollManager != null)
+        //{
+        //    gameScrollManager.EvaluateAndTriggerEnding();
+        //}
+        //else
+        //{
+        //    // Fallback just in case the Inspector slot wasn't assigned
+        //    GameScrollManager foundManager = FindFirstObjectByType<GameScrollManager>();
+        //    if (foundManager != null)
+        //    {
+        //        foundManager.EvaluateAndTriggerEnding();
+        //    }
+        //    else
+        //    {
+        //        Debug.LogError("[BATTERY] Could not find GameScrollManager in the scene!");
+        //    }
+        //}
+
+        //// Update the tally text on the summary panel if assigned
+        //if (summaryFriendTallyLabel != null)
+        //{
+        //    summaryFriendTallyLabel.text = $"Total Friends Secured: {lastCachedScore}";
+        //}
+
+        //GameScrollManager manager = gameScrollManager != null
+        //    ? gameScrollManager
+        //    : FindFirstObjectByType<GameScrollManager>();
+
+        //if (manager != null)
+        //{
+        //    manager.TriggerEndOfDaySummary();
+        //}
+        //else
+        //{
+        //    Debug.LogError("[BATTERY] Could not find GameScrollManager in the scene!");
+        //}
 
         //trackingActive = false;
         //Debug.Log("[BATTERY] Game match completed. Triggering summary screen overlay panels...");

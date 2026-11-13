@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Ice Bucket Challenge
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: 
+  title: Ice Bucket Challenge
+  bodyText: 'Social media feeds across the globe are completely flooded today as
+    celebrities, politicians, and everyday citizens participate in the booming "Bucket
+    of Ice Challenge" to raise awareness and research funds for Brain Freeze treatment. '
+  headliner: <b>Millions Douse Themselves In Freezing Water To Help Cure "Brain-Freeze
+    Syndrome"</b>
+  hasExternalLink: 1
+  customComments:
+  - I actually like the feeling of Brain Freeze
+  - Give all of the worlds Brain Freeze to the guy above me
+  - I mean it's a nice sentiment yeah but the Brain Freeze ? really ?
+  - I just saw Miguel Jackstone do this challenge last week !
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -417529692945901378, guid: c9d42ddfd077149468d23432bd818269, type: 3}
+    insertAfterParagraphIndex: -1

@@ -28,6 +28,10 @@ public class ArticleCheatSheet
     public bool isFlawed;
     public bool approveAndPublish; // true = Approve, false = Reject
 
+    [Header("Display Overrides")]
+    [Tooltip("When checked, the external link popup hides the headline and body text and ONLY displays the image (e.g. for a 404 image).")]
+    public bool onlyDisplayImage;
+
     [Header("Hidden Error Tags")]
     public bool unverifiedAuthor;
     public bool falsifiedCredentials;
@@ -73,18 +77,16 @@ public class ArticlePageData : ScriptableObject
     [Header("ID Configuration")]
     public string articleID;
     public string title;
-    //[TextArea(15, 30)] public string bodyText;
-    [TextArea(5, 12)] public string bodyText;
 
-    //[Header("ID Configuration")]
-    //public string articleID;
-
-    // --- ADD THIS NEW LINE RIGHT HERE ---
     [TextArea(2, 4)] public string headliner;
 
-    //[TextArea(5, 12)] public string bodyText;
+    [Header("Body Text Separation")]
+    [Tooltip("Text shown ONLY inside the Full Post popup.")]
+    [TextArea(5, 12)] public string bodyText;
 
-    // --- ADD THESE TWO NEW FIELDS HERE ---
+    [Tooltip("Text shown ONLY inside the External Link website popup.")]
+    [TextArea(5, 12)] public string externalLinkBodyText;
+
     [Header("New Feed Additions")]
     [Tooltip("Check this if this specific post features an external website link simulation")]
     public bool hasExternalLink;
@@ -92,6 +94,26 @@ public class ArticlePageData : ScriptableObject
     [TextArea(3, 5)]
     [Tooltip("Add comments for this post here. Leave empty if this post has no comments.")]
     public List<string> customComments;
+
+    ////[TextArea(15, 30)] public string bodyText;
+    //[TextArea(5, 12)] public string bodyText;
+
+    ////[Header("ID Configuration")]
+    ////public string articleID;
+
+    //// --- ADD THIS NEW LINE RIGHT HERE ---
+    //[TextArea(2, 4)] public string headliner;
+
+    ////[TextArea(5, 12)] public string bodyText;
+
+    //// --- ADD THESE TWO NEW FIELDS HERE ---
+    //[Header("New Feed Additions")]
+    //[Tooltip("Check this if this specific post features an external website link simulation")]
+    //public bool hasExternalLink;
+
+    //[TextArea(3, 5)]
+    //[Tooltip("Add comments for this post here. Leave empty if this post has no comments.")]
+    //public List<string> customComments;
     // -------------------------------------
 
     [Header("Verification Cheat Sheet")]
