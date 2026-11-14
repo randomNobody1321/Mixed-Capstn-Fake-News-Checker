@@ -10,28 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
-  m_Name: The Moved Woman 1
+  m_Name: Activist Shot !
   m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
   helperWasUsedOnThisArticleState: 0
   articleID: 
-  title: The Moved Woman
-  headliner: <b>Engaged Society Heiress Faints After Spotting Ex-Boyfriend's House
-    On The News</b>
-  bodyText: 'In a stunning turn of events, high-society heiress Allison Milton reportedly
-    fainted inside her fitting room this morning after catching a glimpse of her
-    former flame, Noah, standing outside his fully restored white-columned estate
-    in an online news post. '
+  title: Activist Shot !
+  headliner: <b>Political Commentator Fatally While On Outdoor University Tour </b>
+  bodyText: 'Panic erupted across the Utah Valley University courtyard this afternoon
+    after prominent activist and Burning Point commentator Charlize Dirk was fatally
+    shot while speaking at an outdoor campus debate event. '
   externalLinkBodyText: 
   hasExternalLink: 1
   customComments:
-  - JUST GIVE US THE WINDS OF WINTER DAMN IT !
-  - "I grew up watching this, yeah it was bad\u2026"
-  - YOU KNOW NOTHING JOHNNY WINTERS !
-  - Deadass ?
+  - I sure do hope people honor his accomplishments and achievements
+  - Lets put his face on everything, lets call it Dirkification !
+  - "He didn't deserve to be shot, how unfortunate\u2026"
+  - including or not including gun violence ?
   cheatSheet:
     correctSector: 0
     isFlawed: 0
-    approveAndPublish: 1
+    approveAndPublish: 0
     onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
@@ -44,5 +42,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: -3315701691638421056, guid: 5a0b9306806b89942b088f4315631636, type: 3}
+  - imageSprite: {fileID: -5575272306135064228, guid: 7e78aad3b015bb44fb50916658fac8b7, type: 3}
     insertAfterParagraphIndex: -1

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Presidential Taunt
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: https://NUSA/Updates/quotes
+  title: Presidential Taunt
+  headliner: <b>Former President  Taunts Assassins At Rally, Dares Them To "Try Again"</b>
+  bodyText: "Refusing to tone down his trademark bravado just days after surviving
+    a second close call on his West Palm Beach golf course, former N.U.S.A. President
+    Ronald Dump took the stage at a packed campaign rally tonight and openly dared
+    his would-be assassins to take another shot. \r\n\r\nMore about this story :"
+  externalLinkBodyText: "\"Look, they tried once, they missed, totally missed, by
+    the way, terrible aim, folks, truly pathetic,\" \r\n\r\nDump told the roaring
+    crowd, waving a hand dismissively. \r\n\r\n\"Then they come to my golf course,
+    beautiful course, best greens in the country, everybody says so, and they fail
+    again! So I say to the losers and the haters: go ahead, try a third time! See
+    what happens! Nobody dodges better than Ronald Dump, believe me!\" \r\n"
+  hasExternalLink: 1
+  customComments:
+  - You guys do know the comments are monitored right ?
+  - Now why would you goad them like that ?
+  - I'm down to try again if yall are.
+  - "I mean if you insist i wont say no\u2026"
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -3985362444617061176, guid: 5bc55e27287930b4bbbd45e09049a4a2, type: 3}
+    insertAfterParagraphIndex: -1

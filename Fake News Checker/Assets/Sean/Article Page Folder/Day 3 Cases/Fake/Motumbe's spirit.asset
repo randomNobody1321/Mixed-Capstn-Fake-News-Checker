@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Motumbe's spirit
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: 
+  title: Motumbe's spirit
+  headliner: <b>GHOSTLY SIGHTINGS REPORTED AT NEW MANILA BOTANICAL GARDENS</b>
+  bodyText: 'Just days after the tragic shooting of beloved 17-year-old silverback
+    gorilla Motumbe, late-night joggers and security personnel near the New Manila
+    Botanical Gardens are reporting eerie, unexplained phenomena echoing from the
+    empty primate enclosure. '
+  externalLinkBodyText: 
+  hasExternalLink: 1
+  customComments:
+  - "HEEEEEEEEEEEE\u2019S BAAAAAAAAACK"
+  - I feel him, he is with us, not all is lost !
+  - I genuinely cant tell if yall are messing with us or not..
+  - This has to be a halloween post right ?
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 0
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -298591809935381512, guid: 9544f92755386f641bedbf59ebc4ef2d, type: 3}
+    insertAfterParagraphIndex: -1

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Burger Closure
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: 
+  title: Burger Closure
+  headliner: <b>Heavenly Burgers Announces Permanent Closure After Sales Tanked</b>
+  bodyText: 'Beloved local diner chain Heavenly Burgers has officially announced
+    it is shutting down all four of its New Manila locations for good, citing catastrophic
+    financial losses triggered by the viral fake news post promising a "Buy 1, Take
+    2" slider flash event. '
+  externalLinkBodyText: 
+  hasExternalLink: 1
+  customComments:
+  - "Dawg i was just there, there is no way\u2026"
+  - I work for one of the branches, i can guarantee this is fake
+  - So no more egg rolls ?
+  - THEY NEVER HAD ANY EGG ROLLS MAAAAAAAAAN !
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 0
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: 8099809724051708215, guid: 2a101d9885af9ed49970cf2ba2371a94, type: 3}
+    insertAfterParagraphIndex: -1
