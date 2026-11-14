@@ -38,7 +38,7 @@ MonoBehaviour:
   cheatSheet:
     correctSector: 0
     isFlawed: 0
-    approveAndPublish: 0
+    approveAndPublish: 1
     onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0

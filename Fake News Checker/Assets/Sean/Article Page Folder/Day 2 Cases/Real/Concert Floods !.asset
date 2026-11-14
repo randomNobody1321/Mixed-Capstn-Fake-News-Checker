@@ -48,5 +48,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: 3866918973111376225, guid: b7be58379ba7365488a880c0f1bbf772, type: 3}
+  - imageSprite: {fileID: -4876614519491423539, guid: 8c5c0eb9719cd0c42bd1071129460ac7, type: 3}
     insertAfterParagraphIndex: -1

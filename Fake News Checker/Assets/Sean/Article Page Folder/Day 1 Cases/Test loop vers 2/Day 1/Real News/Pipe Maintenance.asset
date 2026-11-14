@@ -15,16 +15,16 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: 
   title: Pipe Maintenance
+  headliner: <b>Residential Water System Maintenance Undergoing in Main Street</b>
   bodyText: 'Infrastructure teams report minor pipe leaks within the residential
     areas following routine repairs. Municipal authorities assure residents that
     water quality remains completely safe.
 
-    
 
-    Lead Plumber Piper Downe
-    estimates that the maintenance should be done within the day unless any major
-    issues arise.'
-  headliner: <b>Residential Water System Maintenance Undergoing in Main Street</b>
+
+    Lead Plumber Piper Downe estimates
+    that the maintenance should be done within the day unless any major issues arise.'
+  externalLinkBodyText: 
   hasExternalLink: 1
   customComments:
   - You can come fix my pipes if ya know what i mean.
@@ -33,7 +33,8 @@ MonoBehaviour:
   cheatSheet:
     correctSector: 0
     isFlawed: 0
-    approveAndPublish: 0
+    approveAndPublish: 1
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0
