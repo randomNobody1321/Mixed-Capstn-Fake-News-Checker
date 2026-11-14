@@ -15,11 +15,12 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: https://PopEntertainmentNews/Recents
   title: Pageant Mistake
+  headliner: <b>Host Announces Wrong Winner In Historic Pageant</b>
   bodyText: "Riots almost broke out on live television tonight during the Miss Universe
     broadcast after veteran television host Stephen Hardly accidentally crowned Miss
     Wadiya as the new titleholder instead of the actual winner, Miss Agrabah. \r\nMore
-    about this story :  "
-  headliner: <b>Host Announces Wrong Winner In Historic Pageant</b>
+    about this story :\r\n"
+  externalLinkBodyText: 
   hasExternalLink: 1
   customComments:
   - I knew it ! Miss Agrabah would never lose !
@@ -29,7 +30,8 @@ MonoBehaviour:
   cheatSheet:
     correctSector: 0
     isFlawed: 0
-    approveAndPublish: 1
+    approveAndPublish: 0
+    onlyDisplayImage: 1
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0

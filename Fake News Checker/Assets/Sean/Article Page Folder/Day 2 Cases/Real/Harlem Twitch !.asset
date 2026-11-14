@@ -15,10 +15,11 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: 
   title: Harlem Twitch !
+  headliner: <b>Indie Internet Creator Sparks Massive "Harlem Twitch" Dance</b>
   bodyText: "What began as an absurd  clip uploaded by eccentric internet prankster
     \u201CPapa Frankie\u201D, wearing his signature hot-pink morphsuit, has officially
     exploded into the world's most enjoyable viral trend: the \"Harlem Twitch."
-  headliner: <b>Indie Internet Creator Sparks Massive "Harlem Twitch" Dance</b>
+  externalLinkBodyText: 
   hasExternalLink: 1
   customComments:
   - Hey boss, that's a fun dance right there !
@@ -29,6 +30,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 1
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0
@@ -40,5 +42,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: 7329171519971699087, guid: ddd9122d5ea888a4e908c87a867fe7a1, type: 3}
+  - imageSprite: {fileID: -6168482374983085968, guid: 44581f66d0441a547af74d9ea895aa87, type: 3}
     insertAfterParagraphIndex: -1

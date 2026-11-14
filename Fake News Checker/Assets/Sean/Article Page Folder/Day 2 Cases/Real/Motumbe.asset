@@ -15,18 +15,19 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: 'https://NewManilaBotanicalGardens/Obituary '
   title: Motumbe
-  bodyText: "A quiet afternoon at the New Manila Botanical Gardens ended in profound
-    sorrow yesterday following the tragic loss of Motumbe, a 17-year-old silverback
-    gorilla who was fatally shot by zoo response teams after a four-year-old boy
-    slipped into the primate habitat. \r\n\r\nMore about this story :  \r\n\r\nEmergency
-    officials stated that lethal action was taken out of immediate concern for the
-    child's life as the 450-pound animal dragged the boy through the enclosure's
-    moat, though eyewitnesses and heartbroken visitors questioned whether the gentle
-    giant was merely attempting to protect the frightened child. \r\n"
   headliner: '<b>Beloved Silverback Fatally Shot After Child Falls Into Enclosure
     !
 
     >'
+  bodyText: "A quiet afternoon at the New Manila Botanical Gardens ended in profound
+    sorrow yesterday following the tragic loss of Motumbe, a 17-year-old silverback
+    gorilla who was fatally shot by zoo response teams after a four-year-old boy
+    slipped into the primate habitat. \r\n\r\nMore about this story :\r\n"
+  externalLinkBodyText: 'Emergency officials stated that lethal action was taken
+    out of immediate concern for the child''s life as the 450-pound animal dragged
+    the boy through the enclosure''s moat, though eyewitnesses and heartbroken visitors
+    questioned whether the gentle giant was merely attempting to protect the frightened
+    child. '
   hasExternalLink: 1
   customComments:
   - THIS IS TOO MUCH FOR MY HEART TO BEAR !
@@ -37,6 +38,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 1
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0

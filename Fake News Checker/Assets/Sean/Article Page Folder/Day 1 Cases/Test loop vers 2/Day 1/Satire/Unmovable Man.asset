@@ -15,6 +15,7 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: https://TheManWhoCantBeMoved/Stories
   title: Unmovable Man
+  headliner: <b>Local Man Renovates House in Desperate Bid for Ex to Return</b>
   bodyText: "A local romantic, Noah has officially set up camp outside the white-columned
     estate he painstakingly renovated, stubbornly declaring he won't be moved until
     his long-lost love sees him on the news and comes running back. \r\n\r\nDespite
@@ -29,7 +30,10 @@ MonoBehaviour:
     man who can't be moved, maybe you won't mean to, but you'll see me on the news.
     You'll come running to the corner 'cause you'll know it's just for you, I'm the
     man who can't be moved\u201D\r\n\r\n-Aristotle"
-  headliner: <b>Local Man Renovates House in Desperate Bid for Ex to Return</b>
+  externalLinkBodyText: "\u201CCause if one day you wake up and find that you're
+    missing me, and your heart starts to wonder where on this Earth I could be, thinking
+    maybe you'll come back here to the place that we'd meet. And you'll see me waiting
+    for you on the corner of the street, so I'm not moving.\r\n\r\n-Aristotle\r\n"
   hasExternalLink: 1
   customComments:
   - I am him, he is me, he is we.
@@ -39,6 +43,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 1
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0

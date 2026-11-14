@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: The Reunion
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: 
+  title: The Reunion
+  headliner: <b>Jazz Club Announces Expansion With New Sister Restaurant "Chicken
+    On A Stick"</b>
+  bodyText: 'Fresh off the packed grand opening of his vintage jazz lounge "Seb''s"
+    in central New Manila, the club''s passionate owner has stunned local foodies
+    and music fans alike by announcing a second, wildly different business venture:
+    a casual street-food joint called "Chicken on a Stick." '
+  externalLinkBodyText: 
+  hasExternalLink: 1
+  customComments:
+  - Now why would he call it that ?
+  - The name sounds stupid, the food is probably good though
+  - MIA I MISS YOU PLEASE GIVE US ANOTHER CHANCE PLEASE !
+  - I don't like jazz at all
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -1923994175756728024, guid: 06b5fd65a45df734f965d700e1574ec4, type: 3}
+    insertAfterParagraphIndex: -1

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Beautification
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: https://NewManila/Updates/Recents
+  title: Beautification
+  headliner: <b>Mayor Denies Street Art Cleanup, Blames Viral Reports On Political
+    Sabotage</b>
+  bodyText: "Attempting to defuse days of citywide protests, Mayor Johan \"Mang Danny\"
+    called an emergency press conference this afternoon to insist that not a single
+    historic mural has been painted over and that no \"beautification\" or jail ultimatum
+    ever existed. \r\n\r\nMore about this story :\r\n"
+  externalLinkBodyText: 'Holding up fresh photographs of New Manila''s iconic downtown
+    street art completely intact, the mayor claimed that the two viral news reports
+    detailing his supposed eradication drive and arrest threats were fabricated "hit
+    pieces" engineered by unfavorable political rivals to spark civil unrest. '
+  hasExternalLink: 1
+  customComments:
+  - Hey he once sold me bad copper too !
+  - He finally got what he deserved !
+  - And I'll gladly do it again !
+  - How long has he been doing this ?!
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -7491260280394278671, guid: 46ffd3660bf9b5843977b9b2f169a0e2, type: 3}
+    insertAfterParagraphIndex: -1

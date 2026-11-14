@@ -15,22 +15,32 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: https://NewManilaCityShelter/AboutUs
   title: Heavenly Burgers
-  bodyText: "Our Core Principle: All you need is one good one !\r\nIn an era of gimmicky
-    flash sales, bulk discount buckets, and \"Buy X, Get X\" promos, Seraphim Sliders
-    takes a deliberate, uncompromising stand. We do not, and will never, run multi-buy
-    discount deals.\r\nHeavenly Burger\u2019s founding philosophy rests on a fundamental
-    belief: One slider, built perfectly, served fresh to one customer at a time.\r\n\"The
-    moment a kitchen starts trying to pump out more than one burger for the price
-    of one, quality collapses. Buns get soggy, patties sit under warmers, line cooks
-    get burned out, and the customer receives an inferior product. We refuse to compromise
-    our integrity just to move volume. Every slider that leaves our line is a masterpiece
-    meant to be enjoyed fresh off the grill. We price our menu fairly for the premium
-    ingredients we use, and we treat every single burger, and every single customer,
-    with the same individual care.\"\r\n\u2014 Chef Leo Santos, Founder & Head Chef\r\nWe
-    don't do gimmicks, and we don't treat our food like commodity fast food. When
-    you sit at our counter, you are paying for uncompromised quality, craft, and
-    care in every bite."
   headliner: <b>Get Three Sliders for the Price of One this Weekend !</b>
+  bodyText: 'Clear your schedules and loosen your belts, burger lovers. Local favorite
+    Heavenly Burgers has officially announced a city-wide "Buy 1, Take 2" flash event
+    on every single item on their menu. The deal runs for exactly one hour next Saturday
+    across all four city locations.
+
+    
+
+    
+
+    More about this story :
+
+'
+  externalLinkBodyText: "Our Core Principle: All you need is one good one !\r\nIn
+    an era of gimmicky flash sales, bulk discount buckets, and \"Buy X, Get X\" promos,
+    Seraphim Sliders takes a deliberate, uncompromising stand. We do not, and will
+    never, run multi-buy discount deals.\r\nHeavenly Burger\u2019s founding philosophy
+    rests on a fundamental belief: One slider, built perfectly, served fresh to one
+    customer at a time.\r\n\"The moment a kitchen starts trying to pump out more
+    than one burger for the price of one, quality collapses. Buns get soggy, patties
+    sit under warmers, line cooks get burned out, and the customer receives an inferior
+    product. We refuse to compromise our integrity just to move volume. Every slider
+    that leaves our line is a masterpiece meant to be enjoyed fresh off the grill.
+    We price our menu fairly for the premium ingredients we use, and we treat every
+    single burger, and every single customer, with the same individual care.\"\r\n\u2014
+    Chef Leo Santos, Founder & Head Chef\r\n"
   hasExternalLink: 1
   customComments:
   - "Wait, I thought they didn\u2019t do these types of deals ?"
@@ -40,6 +50,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 0
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0

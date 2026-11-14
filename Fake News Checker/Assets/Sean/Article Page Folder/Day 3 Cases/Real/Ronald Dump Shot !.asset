@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Ronald Dump Shot !
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: https://NUSA/Updates/Recents
+  title: Ronald Dump Shot !
+  headliner: <b>Presidential Contender Survives Second Assassination Attempt On Life</b>
+  bodyText: "For the second time in just over two months, former N.U.S.A President
+    Ronald Dump has escaped an assassination plot, this time after protective agents
+    spotted a rifle barrel poking through the perimeter bushes of his West Palm Beach
+    golf resort while he played the fifth hole. \r\n\r\nMore about this story :\r\n"
+  externalLinkBodyText: "The close call follows the harrowing July rally shooting
+    in Butler, Pennsylvania, where a rooftop sniper opened fire mid-speech, grazing
+    Trump\u2019s upper right ear before he famously rose to his feet pumping his
+    fist in defiance. In this latest incident, forward-scouting security officers
+    immediately opened fire on the concealed suspect, forcing the gunman to drop
+    his scoped rifle and flee the scene in a black SUV before state troopers intercepted
+    him on a nearby highway."
+  hasExternalLink: 1
+  customComments:
+  - HAHAHAHAHAHAHAHAHAHAHAHA
+  - "A man was shot and ya\u2019ll are laughing ?"
+  - I don't like the guy, but violence ? really ?
+  - "Well, third time's the charm I guess\u2026"
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -3985362444617061176, guid: 5bc55e27287930b4bbbd45e09049a4a2, type: 3}
+    insertAfterParagraphIndex: -1

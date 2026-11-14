@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: President Arrested
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: https://NewManilaNews/Latest
+  title: President Arrested
+  headliner: <b>Former Strongman President Rodriguez D. Dirty Arrested At Airport</b>
+  bodyText: "Former President Rodriguez D. Dirty was taken into police custody immediately
+    upon landing at New Manila International Airport this morning and placed on a
+    chartered flight to The Hague to face crimes against humanity charges before
+    the World Criminal Tribunal \r\n\r\nMore about this story :\r\n"
+  externalLinkBodyText: The dramatic tarmac arrest executed via an international
+    police warrant stemming from his bloody, years-long anti-narcotics crackdown
+    caught the former leader's entourage off guard just minutes after returning from
+    an overseas rally.
+  hasExternalLink: 1
+  customComments:
+  - AND STAY THERE, TILL YOU ROT !
+  - But D. Dirty didn't do me dirty, why was he arrested ?
+  - And I bet his dirty deeds were done dirt cheap !
+  - '#BringHimHome'
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: 14178917980171484, guid: 3afde41dc75ab564e849f70b37f8f211, type: 3}
+    insertAfterParagraphIndex: -1

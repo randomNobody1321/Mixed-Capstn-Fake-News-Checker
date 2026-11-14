@@ -15,13 +15,14 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: 
   title: Commercial Space
+  headliner: <b>Mystery Megacorp Snags Three New Manila Warehouses, Sparking Announcement
+    Speculation</b>
   bodyText: Industrial real estate in New Manila is humming with speculation following
     the quiet acquisition of three prime, vacant warehouse properties adjacent to
     the city's main industrial zone. The transaction, executed by an undisclosed
     corporate entity, has sent waves of curiosity through local commercial circles
     as neighbors wonder who is moving in.
-  headliner: <b>Mystery Megacorp Snags Three New Manila Warehouses, Sparking Announcement
-    Speculation</b>
+  externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
   - 'Awww man, i was saving up to buy that one :(
@@ -33,6 +34,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 0
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0
@@ -44,5 +46,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: -87695173464060947, guid: 8cb2c90be70e3f249a3f82c87eb9fe23, type: 3}
+  - imageSprite: {fileID: 7698253521543340847, guid: 9bbac72f99a9dcc41a684ca591175bd2, type: 3}
     insertAfterParagraphIndex: -1

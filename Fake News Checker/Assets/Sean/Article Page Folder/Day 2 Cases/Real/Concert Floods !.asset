@@ -15,17 +15,17 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: https://NewManilaColosseum/Events
   title: Concert Floods !
-  bodyText: "An unfortunate turn of events has struck the makeshift encampments outside
-    the New Manila Colosseum after a sudden torrential downpour flooded the surrounding
-    plaza just hours before November Boulevard\u2019s scheduled arrival. \r\n\r\n\r\nLink:
-    \r\n\r\nDespite waist-deep puddles, soaked sleeping bags, and repeated warnings
-    from city emergency responders urging crowd evacuation, thousands of die-hard
-    supporters remain steadfastly glued to their front-row positions. \r\n\r\nFan
-    club leaders were seen hoisting plastic tarps and using cooler lids to bail out
-    water while chanting band anthems in unison, refusing to abandon the campsite
-    they built yesterday"
   headliner: <b>Massive Rainstorm Floods Colosseum Perimeter As November Boulevard
     Arrives</b>
+  bodyText: "An unfortunate turn of events has struck the makeshift encampments outside
+    the New Manila Colosseum after a sudden torrential downpour flooded the surrounding
+    plaza just hours before November Boulevard\u2019s scheduled arrival. \r\n\r\n\r\nLink:\r\n"
+  externalLinkBodyText: "Despite waist-deep puddles, soaked sleeping bags, and repeated
+    warnings from city emergency responders urging crowd evacuation, thousands of
+    die-hard supporters remain steadfastly glued to their front-row positions. \r\n\r\nFan
+    club leaders were seen hoisting plastic tarps and using cooler lids to bail out
+    water while chanting band anthems in unison, refusing to abandon the campsite
+    they built yesterday. \r\n"
   hasExternalLink: 1
   customComments:
   - THE RAIN WONT STOP US, IT WONT STOP ME !
@@ -36,6 +36,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 1
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0
@@ -47,5 +48,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: 7329171519971699087, guid: ddd9122d5ea888a4e908c87a867fe7a1, type: 3}
+  - imageSprite: {fileID: 3866918973111376225, guid: b7be58379ba7365488a880c0f1bbf772, type: 3}
     insertAfterParagraphIndex: -1

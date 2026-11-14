@@ -15,13 +15,14 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: 
   title: The Oskars
+  headliner: '<b>HOLLYWOOD MEETS METRO MANILA: THE OSKARS HIT NEW MANILA THEATRE
+    TOMORROW</b>'
   bodyText: Red carpets are rolling out across the district as the prestigious Oskars
     award ceremony makes its official debut at the New Manila Theatre tomorrow evening.
     Local authorities are bracing for massive traffic bottlenecks, a wall-to-wall
     fleet of stretch limousines, and an influx of glammed-up nominees all desperate
     to take home the coveted golden statuette.
-  headliner: '<b>HOLLYWOOD MEETS METRO MANILA: THE OSKARS HIT NEW MANILA THEATRE
-    TOMORROW</b>'
+  externalLinkBodyText: 
   hasExternalLink: 1
   customComments:
   - 'I hope Revengers : Armageddon wins an award !'
@@ -31,6 +32,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 0
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0
@@ -42,5 +44,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: 4231581216037798140, guid: 7a5a1ab4abc848048b70eab1cd542f6b, type: 3}
+  - imageSprite: {fileID: 827562018424835694, guid: fd4c886c593cba047b7b5d56eb4a29e9, type: 3}
     insertAfterParagraphIndex: -1

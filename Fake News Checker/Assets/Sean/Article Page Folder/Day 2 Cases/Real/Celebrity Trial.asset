@@ -15,12 +15,13 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: 
   title: Celebrity Trial
+  headliner: <b>Entertainment Icon Johnathan Dope Wins High-Profile Defamation Suit
+    Against Ex-Wife</b>
   bodyText: 'After six weeks of intense, televised testimony that captivated millions
     around the world, a Virginia jury has ruled largely in favor of actor Johnathan
     Dope in his multi-million dollar defamation lawsuit against his former spouse,
     Amber Bird. '
-  headliner: <b>Entertainment Icon Johnathan Dope Wins High-Profile Defamation Suit
-    Against Ex-Wife</b>
+  externalLinkBodyText: 
   hasExternalLink: 1
   customComments:
   - THERE GOES MY BOY JOHNNY !
@@ -31,6 +32,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 1
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0
@@ -42,5 +44,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: -5714911704350799123, guid: 9ce23766e8beb8148a69e220d6f221a9, type: 3}
+  - imageSprite: {fileID: 140433255743585067, guid: 390fe80e51d46024b88ff2987cd50889, type: 3}
     insertAfterParagraphIndex: -1

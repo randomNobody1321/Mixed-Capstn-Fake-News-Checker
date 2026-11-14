@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: War, Now.
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: https://NewManilaNews/Latest
+  title: War, Now.
+  headliner: <b>Wadiyan Forces Launch Massive Full-Scale Assault On Neighboring Agrabaht</b>
+  bodyText: "Shockwaves rattled the globe before sunrise this morning after Wadiyan
+    Admiral General  Aladeen ordered tanks, missiles, and tens of thousands of troops
+    across the border into neighboring Agrabah, declaring the launch of a \"special
+    military operation\". \r\n\r\nMore about this story :\r\n"
+  externalLinkBodyText: 'Following months of tense troop buildups dismissed by Wadiyan
+    diplomats as routine border drills, air-raid sirens wailed across the Agrabahnian
+    capital of Djinistan as ballistic missiles struck airfields and military depots
+    in the opening hours of the offensive. '
+  hasExternalLink: 1
+  customComments:
+  - I haven't even graduated yet and there's a war already !
+  - Agrabah has a right to exist !
+  - THEY'RE STILL AT IT ?! AFTER ALL THESE CENTURIES ?!
+  - "Something wicked this way comes\u2026"
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -1104133786651172462, guid: 9e5811f2684946344b9a78672e48fb38, type: 3}
+    insertAfterParagraphIndex: -1

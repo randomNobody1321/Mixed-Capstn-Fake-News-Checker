@@ -9,7 +9,7 @@ public class BatteryTimeManager : MonoBehaviour
 
     [Header("Timer Properties")]
     private float totalTimeElapsed = 0f;
-    private float targetMaxRoundTime = 70f; //420 seconds to 16 ; 7 total bars * 60 seconds = 7 Minutes total clock duration
+    private float targetMaxRoundTime = 420f; //420 seconds to 16 ; 7 total bars * 60 seconds = 7 Minutes total clock duration
     private bool trackingActive = false;
 
     [Header("Battery Segment UI Outputs")]
@@ -72,7 +72,7 @@ public class BatteryTimeManager : MonoBehaviour
         totalTimeElapsed += Time.deltaTime;
 
         // Mathf.Clamp keeps the active bars safely between 0 and 7 so it never goes negative
-        int activeBarsRemaining = Mathf.Clamp(7 - Mathf.FloorToInt(totalTimeElapsed / 10f), 0, 7);
+        int activeBarsRemaining = Mathf.Clamp(7 - Mathf.FloorToInt(totalTimeElapsed / 60f), 0, 7);
 
         // Calculate dynamic bar reduction intervals every 60 seconds
         //int activeBarsRemaining = 7 - Mathf.FloorToInt(totalTimeElapsed / 2f);

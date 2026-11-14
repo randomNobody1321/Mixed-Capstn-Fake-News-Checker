@@ -15,14 +15,15 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: 
   title: Beautification
+  headliner: "<b>Mayor \"Mang Danny\" Sparks Outrage With \u201CBeautification\u201D
+    On City's Historic Street Art</b>"
   bodyText: "In a controversial move to \"beautify\" the city, Mayor Johan \"Mang
     Danny\" has officially launched a sweeping cleanup initiative aimed at erasing
     all graffiti and public street art across New Manila. \r\n\r\nThe announcement
     has triggered an immediate backlash from community groups, art historians, and
     locals, who argue that destroying culturally significant masterpieces in the
     name of cleanliness is a tragic blow to the city's soul. "
-  headliner: "<b>Mayor \"Mang Danny\" Sparks Outrage With \u201CBeautification\u201D
-    On City's Historic Street Art</b>"
+  externalLinkBodyText: 
   hasExternalLink: 1
   customComments:
   - OH HELL NAH ! NOT MY ART !
@@ -32,6 +33,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 0
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0

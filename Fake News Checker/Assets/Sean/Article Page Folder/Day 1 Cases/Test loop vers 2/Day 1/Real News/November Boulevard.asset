@@ -15,20 +15,21 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: https://NewManilaColosseum/Events
   title: November Boulevard
+  headliner: <b>November Boulevard Lands in New Manila for an upcoming concert !</b>
   bodyText: "Global pop sensation November Boulevard is officially scheduled to touch
     down in New Manila tomorrow ahead of their highly anticipated concert, triggering
     a burst in activity  among the local fanbase.\r\n\r\n Eager supporters from various
     fan clubs have already pitched tents and established makeshift encampments along
     the perimeter of the Colosseum, braving the elements to secure front-row spots.
-    \r\n\r\n Eager supporters from various fan clubs have already pitched tents and
-    established makeshift encampments along the perimeter of the Colosseum, braving
-    the elements to secure front-row spots. \r\n\r\nLocal businesses are reportedly
-    bracing for unprecedented foot traffic and sound levels, while nearby street
-    vendors have already begun selling unofficial merchandise at an alarming rate.
-    Security personnel urge non-ticket holders to avoid the immediate area, though
-    fans insist that no amount of crowd control will prevent them from welcoming
-    their favorite band to town. "
-  headliner: <b>November Boulevard Lands in New Manila for an upcoming concert !</b>
+    \r\n"
+  externalLinkBodyText: " Eager supporters from various fan clubs have already pitched
+    tents and established makeshift encampments along the perimeter of the Colosseum,
+    braving the elements to secure front-row spots. \r\n\r\nLocal businesses are
+    reportedly bracing for unprecedented foot traffic and sound levels, while nearby
+    street vendors have already begun selling unofficial merchandise at an alarming
+    rate. Security personnel urge non-ticket holders to avoid the immediate area,
+    though fans insist that no amount of crowd control will prevent them from welcoming
+    their favorite band to town. \r\n"
   hasExternalLink: 1
   customComments:
   - I LOVED YOUR COLLAB IT TOIRA DE LA MOREY !
@@ -38,6 +39,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 0
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0

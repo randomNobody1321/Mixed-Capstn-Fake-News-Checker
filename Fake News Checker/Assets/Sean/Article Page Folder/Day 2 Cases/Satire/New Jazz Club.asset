@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: New Jazz Club
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: 
+  title: New Jazz Club
+  headliner: <b>New Long-Awaited Vintage Nightclub "Seb's" Now In New Manila</b>
+  bodyText: Music lovers and night owls gathered in central New Manila yesterday
+    evening for the grand opening of "Seb's" a brand-new live music venue dedicated
+    entirely to classic, unadulterated jazz.
+  externalLinkBodyText: 
+  hasExternalLink: 1
+  customComments:
+  - "What do y'all mean y'all don't like jazz? \r\n"
+  - 'I love seeing what other people are passionate about !
+
+'
+  - What is this ? some sort of La La Land ?
+  - Doesn't seem like a waste of a wonderful night at all !
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 1
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -5751075667902135728, guid: 71d02a40554fb66439d8287db78f44a9, type: 3}
+    insertAfterParagraphIndex: -1

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: Fatale Finale
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: https://WoToR/Announcements
+  title: Fatale Finale
+  headliner: "<b>Disastrous Finale Of \u201CWar Of The Roses\u201D Sparks  Mass Online
+    Meltdown</b>"
+  bodyText: "The long-awaited series finale of the blockbuster fantasy drama War
+    Of The Roses triggered an unprecedented wave of global fury last night, as millions
+    of loyal viewers took to social media to denounce the episode\u2019s rushed character
+    arcs and baffling plot twists. \r\nMore about this story : \r\n"
+  externalLinkBodyText: 'Just wait for the next book dawg, chill out lmao.
+
+    Jorge
+    P.P Martinez
+
+'
+  hasExternalLink: 1
+  customComments:
+  - 'JUST GIVE US THE WINDS OF WINTER DAMN IT !
+
+'
+  - "I grew up watching this, yeah it was bad\u2026"
+  - YOU KNOW NOTHING JOHNNY WINTERS !
+  - Deadass ?
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 0
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -3949471388408081579, guid: 4c1c7c07f1500134fb5d4ad8e55358a8, type: 3}
+    insertAfterParagraphIndex: 1

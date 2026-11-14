@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
+  m_Name: El Doo Doo Craze
+  m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
+  helperWasUsedOnThisArticleState: 0
+  articleID: 
+  title: El Doo Doo Craze
+  headliner: <b>Massive Queues And Scalper Wars Erupt At Flagship Pop-Store </b>
+  bodyText: 'An uproar broke out outside New Manila''s flagship Pop-Store early this
+    morning as hundreds of frantic collectors and resellers camped out for the emergency
+    restock of "El Doo Doo" the furry, sharp-toothed plush monster that has taken
+    global fashion by storm. '
+  externalLinkBodyText: 
+  hasExternalLink: 1
+  customComments:
+  - Yo gimme one
+  - EL DOO DOO FOR SALE, PM FOR MORE DETAILS !
+  - I just walked by the store earlier, absolute ghost town that is
+  - I no likey.
+  cheatSheet:
+    correctSector: 0
+    isFlawed: 0
+    approveAndPublish: 0
+    onlyDisplayImage: 0
+    unverifiedAuthor: 0
+    falsifiedCredentials: 0
+    imageManipulation: 0
+    outOfContextMedia: 0
+    inaccurateStats: 0
+    falseTimeline: 0
+    uncitedClaims: 0
+    typos: 0
+  playerLikedThisTemporaryState: 0
+  playerDislikedThisTemporaryState: 0
+  images:
+  - imageSprite: {fileID: -1779261892035315526, guid: 24e9e0bbe8ba5914884a92a97f6d632f, type: 3}
+    insertAfterParagraphIndex: -1

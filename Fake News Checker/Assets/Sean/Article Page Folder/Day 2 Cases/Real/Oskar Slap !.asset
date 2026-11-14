@@ -15,16 +15,17 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: https://OskarsUpdates/Recents
   title: Oskar Slap !
+  headliner: <b>Top Actor Strikes Host Mid-Ceremony Over Audience Joke !</b>
   bodyText: "The New Manila Theatre erupted into total confusion tonight during the
     ongoing Oskars broadcast after top nominee Bill Smith stormed the stage and struck
     host Chris Brock across the face following an unscripted joke about his wife.
-    \r\n\r\nMore about this story :  \r\n\r\nThe New Manila Theatre erupted into
-    total confusion tonight during the ongoing \"Oskars\" broadcast after top nominee
-    Bill Smith stormed the stage and struck host Chris Block across the face following
-    an unscripted joke about his wife. Shocked attendees initially assumed the sudden
-    confrontation was a rehearsed comedy bit until Smith returned to his front-row
-    seat and repeatedly shouted expletives at the presenter. "
-  headliner: <b>Top Actor Strikes Host Mid-Ceremony Over Audience Joke !</b>
+    \r\n\r\nMore about this story :\r\n"
+  externalLinkBodyText: 'The New Manila Theatre erupted into total confusion tonight
+    during the ongoing "Oskars" broadcast after top nominee Bill Smith stormed the
+    stage and struck host Chris Block across the face following an unscripted joke
+    about his wife. Shocked attendees initially assumed the sudden confrontation
+    was a rehearsed comedy bit until Smith returned to his front-row seat and repeatedly
+    shouted expletives at the presenter. '
   hasExternalLink: 1
   customComments:
   - That's gonna leave a mark.
@@ -35,6 +36,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 1
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0
