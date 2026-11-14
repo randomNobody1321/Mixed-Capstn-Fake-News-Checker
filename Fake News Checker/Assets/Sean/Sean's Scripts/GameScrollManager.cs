@@ -1566,20 +1566,57 @@ public class GameScrollManager : MonoBehaviour
         helperUsesRemaining = 3;
         UpdateHelperUI();
 
+        // Clear existing rows cleanly
+        for (int i = doomScrollFeedContainer.childCount - 1; i >= 0; i--)
+        {
+            Destroy(doomScrollFeedContainer.GetChild(i).gameObject);
+        }
+
         foreach (Transform child in doomScrollFeedContainer) Destroy(child.gameObject);
 
         List<ArticlePageData> activePool = (dayNumber == 1) ? day1ArticlesPool :
                                            (dayNumber == 2) ? day2ArticlesPool : day3ArticlesPool;
 
-        foreach (var article in activePool)
+        if (activePool == null || activePool.Count == 0)
         {
+            Debug.LogWarning($"[FEED SHUFFLE] Active pool for Day {dayNumber} is empty!");
+            return;
+        }
+        // 1. Copy into a new list so your Inspector pools (day1/2/3ArticlesPool) stay untouched
+        List<ArticlePageData> shuffledArticles = new List<ArticlePageData>(activePool);
+
+        // 2. Fisher-Yates shuffle to randomize top-to-bottom order
+        for (int i = shuffledArticles.Count - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+            ArticlePageData temp = shuffledArticles[i];
+            shuffledArticles[i] = shuffledArticles[randomIndex];
+            shuffledArticles[randomIndex] = temp;
+        }
+        Debug.Log($"[FEED SHUFFLE] Day {dayNumber} first post is now: {shuffledArticles[0].title}");
+
+        // 2. Instantiate and explicitly enforce sibling order
+        for (int i = 0; i < shuffledArticles.Count; i++)
+        {
+            ArticlePageData article = shuffledArticles[i];
             GameObject row = Instantiate(postListItemPrefab, doomScrollFeedContainer);
+            row.transform.SetAsLastSibling();
             row.GetComponentInChildren<TMP_Text>().text = article.title;
 
             Button btn = row.GetComponent<Button>();
             btn.onClick.AddListener(() => OpenFullPostMode(article, row));
         }
 
+        //// 3. Spawn feed rows using the randomized list
+        //foreach (var article in activePool)
+        //{
+        //    GameObject row = Instantiate(postListItemPrefab, doomScrollFeedContainer);
+        //    row.GetComponentInChildren<TMP_Text>().text = article.title;
+
+        //    Button btn = row.GetComponent<Button>();
+        //    btn.onClick.AddListener(() => OpenFullPostMode(article, row));
+        //}
+        Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(doomScrollFeedContainer.GetComponent<RectTransform>());
     }
 
