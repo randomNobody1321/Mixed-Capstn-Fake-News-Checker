@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
   m_Name: Pipe Maintenance
   m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
-  helperWasUsedOnThisArticleState: 0
+  helperWasUsedOnThisArticleState: 1
   articleID: 
   title: Pipe Maintenance
   headliner: <b>Residential Water System Maintenance Undergoing in Main Street</b>
@@ -25,7 +25,7 @@ MonoBehaviour:
     Lead Plumber Piper Downe estimates
     that the maintenance should be done within the day unless any major issues arise.'
   externalLinkBodyText: 
-  hasExternalLink: 1
+  hasExternalLink: 0
   customComments:
   - You can come fix my pipes if ya know what i mean.
   - IS THIS WHY MY SPRINKLERS HAVEN'T BEEN WATERING MY LAWN ?!

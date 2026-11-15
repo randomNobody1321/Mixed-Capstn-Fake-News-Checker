@@ -15,14 +15,15 @@ MonoBehaviour:
   helperWasUsedOnThisArticleState: 0
   articleID: 
   title: Thief Arrested
+  headliner: <b>Thief Arrested for Using Stolen Credit Cards to pay for Meals</b>
   bodyText: "Apprehended thief, identified as Karl Jackson, turned a routine police
     dragnet outside a neighborhood eatery into an impromptu Shakespearean tragedy
     after being taken into custody mid-dinner. \r\n\r\nShouting at officers while
     being shoved toward a squad car, the patron demanded to know his alleged crime,
     in which he asked, \"What is the charge? Eating a meal? A succulent Chinese meal?\"
     as confused bystanders watched."
-  headliner: <b>Thief Arrested for Using Stolen Credit Cards to pay for Meals</b>
-  hasExternalLink: 1
+  externalLinkBodyText: 
+  hasExternalLink: 0
   customComments:
   - He is innocent ! It was the eggrolls that did it !
   - Wait he stole my credit card too ?!
@@ -31,6 +32,7 @@ MonoBehaviour:
     correctSector: 0
     isFlawed: 0
     approveAndPublish: 1
+    onlyDisplayImage: 0
     unverifiedAuthor: 0
     falsifiedCredentials: 0
     imageManipulation: 0

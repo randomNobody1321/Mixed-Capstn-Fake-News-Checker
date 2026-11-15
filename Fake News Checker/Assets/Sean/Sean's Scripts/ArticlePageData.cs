@@ -84,6 +84,9 @@ public class ArticlePageData : ScriptableObject
     [Tooltip("Text shown ONLY inside the Full Post popup.")]
     [TextArea(5, 12)] public string bodyText;
 
+    [Tooltip("Text shown inside the Full Post popup right before the clickable external URL button.")]
+    [TextArea(2, 5)] public string textBeforeUrl;
+
     [Tooltip("Text shown ONLY inside the External Link website popup.")]
     [TextArea(5, 12)] public string externalLinkBodyText;
 

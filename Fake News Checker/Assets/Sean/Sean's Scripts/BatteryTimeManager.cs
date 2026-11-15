@@ -17,6 +17,11 @@ public class BatteryTimeManager : MonoBehaviour
     public Color highPowerColor = Color.green;
     public Color deadPowerColor = Color.clear;
 
+    [Header("Battery Sprite UI Outputs")]
+    public Image batteryDisplayImage;    // Single Image component on the battery UI
+    [Tooltip("Element 0 = 0 bars (Empty), Element 1 = 1 bar ... Element 7 = 7 bars (Full)")]
+    public Sprite[] batteryStateSprites; // Size = 8
+
     [Header("Persistent HUD Hooks")]
     public TMP_Text liveFriendsScoreHUD;
 
@@ -33,6 +38,8 @@ public class BatteryTimeManager : MonoBehaviour
     [Header("Script Links")]
     public GameScrollManager gameScrollManager; // Drag 'GameObject' (with GameScrollManager) here in the Inspector!
 
+    private int lastLoggedSecond = -1;
+
 
     //private void Awake()
     //{
@@ -41,6 +48,14 @@ public class BatteryTimeManager : MonoBehaviour
 
 
     //}
+
+    private void Start()
+    {
+        if (!trackingActive)
+        {
+            LaunchTimerEngine();
+        }
+    }
 
     // --- CHANGE YOUR AWAKE METHOD TO LOOK EXACTLY LIKE THIS ---
     private void OnEnable()
@@ -57,10 +72,21 @@ public class BatteryTimeManager : MonoBehaviour
         }
     }
 
+    // Add this helper method anywhere inside BatteryTimeManager
+    public string GetFormattedRemainingTime()
+    {
+        float remaining = Mathf.Max(0f, targetMaxRoundTime - totalTimeElapsed);
+        int hours = Mathf.FloorToInt(remaining / 3600f);
+        int minutes = Mathf.FloorToInt((remaining % 3600f) / 60f);
+        int seconds = Mathf.FloorToInt(remaining % 60f);
+        return $"{hours:00}:{minutes:00}:{seconds:00}";
+    }
+
 
     public void LaunchTimerEngine()
     {
         totalTimeElapsed = 0f;
+        lastLoggedSecond = -1;
         trackingActive = true;
         UpdateBatteryVisuals(7);
     }
@@ -71,11 +97,16 @@ public class BatteryTimeManager : MonoBehaviour
 
         totalTimeElapsed += Time.deltaTime;
 
-        // Mathf.Clamp keeps the active bars safely between 0 and 7 so it never goes negative
-        int activeBarsRemaining = Mathf.Clamp(7 - Mathf.FloorToInt(totalTimeElapsed / 60f), 0, 7);
 
-        // Calculate dynamic bar reduction intervals every 60 seconds
-        //int activeBarsRemaining = 7 - Mathf.FloorToInt(totalTimeElapsed / 2f);
+        int currentWholeSecond = Mathf.FloorToInt(totalTimeElapsed);
+        if (currentWholeSecond != lastLoggedSecond)
+        {
+            lastLoggedSecond = currentWholeSecond;
+            int activeBarsPreview = Mathf.Clamp(7 - Mathf.FloorToInt(totalTimeElapsed / 60f), 0, 7);
+            Debug.Log($"[BATTERY TIMER] Elapsed: {currentWholeSecond}s / {targetMaxRoundTime}s | Bars: {activeBarsPreview}/7");
+        }
+
+        int activeBarsRemaining = Mathf.Clamp(7 - Mathf.FloorToInt(totalTimeElapsed / 60f), 0, 7);
         UpdateBatteryVisuals(activeBarsRemaining);
 
         if (totalTimeElapsed >= targetMaxRoundTime)
@@ -83,6 +114,19 @@ public class BatteryTimeManager : MonoBehaviour
             trackingActive = false;
             EvaluateRunCompletion();
         }
+        //// Mathf.Clamp keeps the active bars safely between 0 and 7 so it never goes negative
+        //int activeBarsRemaining = Mathf.Clamp(7 - Mathf.FloorToInt(totalTimeElapsed / 2f), 0, 7);
+
+
+        //// Calculate dynamic bar reduction intervals every 60 seconds
+        ////int activeBarsRemaining = 7 - Mathf.FloorToInt(totalTimeElapsed / 2f);
+        //UpdateBatteryVisuals(activeBarsRemaining);
+
+        //if (totalTimeElapsed >= targetMaxRoundTime)
+        //{
+        //    trackingActive = false;
+        //    EvaluateRunCompletion();
+        //}
     }
 
     public void SetTimerPaused(bool isPaused)
@@ -90,17 +134,28 @@ public class BatteryTimeManager : MonoBehaviour
         trackingActive = !isPaused;
     }
 
-
-    private void UpdateBatteryVisuals(int barsToKeepActive)
+    private void UpdateBatteryVisuals(int barsRemaining)
     {
-        for (int i = 0; i < batteryBars.Length; i++)
+        if (batteryDisplayImage == null || batteryStateSprites == null || batteryStateSprites.Length < 8)
+            return;
+
+        int spriteIndex = Mathf.Clamp(barsRemaining, 0, 7);
+        if (batteryStateSprites[spriteIndex] != null)
         {
-            if (i < barsToKeepActive)
-                batteryBars[i].color = highPowerColor;
-            else
-                batteryBars[i].color = deadPowerColor; // Empties visual slot
+            batteryDisplayImage.sprite = batteryStateSprites[spriteIndex];
         }
     }
+
+    //private void UpdateBatteryVisuals(int barsToKeepActive)
+    //{
+    //    for (int i = 0; i < batteryBars.Length; i++)
+    //    {
+    //        if (i < barsToKeepActive)
+    //            batteryBars[i].color = highPowerColor;
+    //        else
+    //            batteryBars[i].color = deadPowerColor; // Empties visual slot
+    //    }
+    //}
 
     public void UpdateFriendsScoreUI(int updatedScoreValue)
     {

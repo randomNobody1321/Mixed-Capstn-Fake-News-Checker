@@ -1394,6 +1394,7 @@ public class GameScrollManager : MonoBehaviour
     [Header("Full Post Display Nodes")]
     public TMP_Text fullPostTitleText;
     public TMP_Text fullPostContentBody;
+    public TMP_Text fullPostTextBeforeUrl; // Drag the new TMP_Text object placed above LinkClickableButton here
     public GameObject linkClickableButton;    // External link button wrapper object
     public TMP_Text fullPostHeadlinerText;
 
@@ -1410,6 +1411,10 @@ public class GameScrollManager : MonoBehaviour
     [Header("Direct Verdict Buttons")]
     public Image shareButtonBg;  // Background box graphic that glows
     public Image reportButtonBg; // Background box graphic that glows
+    public Sprite shareUpSprite;
+    public Sprite shareDownSprite;
+    public Sprite reportUpSprite;
+    public Sprite reportDownSprite;
 
     [Header("Helper System")]
     public TMP_Text helperUsesCounterText;
@@ -1445,9 +1450,28 @@ public class GameScrollManager : MonoBehaviour
 
     [Header("Next Day Transition Targets")]
     public GameObject postGameSummaryCanvasView; // Drag PostGameSummaryCanvasView here
+    public GameObject day3SummaryCanvasView;    // Drag 'day 3 summary' GameObject here
     public GameObject badEndingCanvasView;
     public GameObject neutralEndingCanvasView;
     public GameObject goodEndingCanvasView;
+
+    [Header("End-of-Day Summary UI Hooks (Days 1 & 2)")]
+    public TMP_Text dayResultsHeaderText;        // e.g., "DAY 1 RESULTS"
+    public Image reliabilityMeterImage;          // Child Image under "RELIABILITY :"
+    public TMP_Text friendsTallyText;            // e.g., "FRIENDS : 15"
+    public GameObject topicsAddedHeaderObject;   // Parent "TOPICS ADDED :" GameObject
+    public TMP_Text topicsAddedDetailText;       // Child TMP_Text under "TOPICS ADDED :"
+    public TMP_Text timeLeftText;                // e.g., "TIME LEFT : 00:00:00"
+
+    [Header("Day 3 Summary UI Hooks")]
+    public TMP_Text day3ResultsHeaderText;       // "DAY 3 RESULTS"
+    public Image day3ReliabilityMeterImage;      // Child Image under "RELIABILITY :" on Day 3
+    public TMP_Text day3FriendsTallyText;        // e.g., "FRIENDS : 15"
+    public TMP_Text day3TimeLeftText;            // e.g., "TIME LEFT : 00:00:00"
+
+    [Header("Reliability Meter Sprites (5 Tiers)")]
+    [Tooltip("Element 0 = 1 Bar (0-37), Element 1 = 2 Bars (38-75), Element 2 = 3 Bars (76-150), Element 3 = 4 Bars (151-188), Element 4 = 5 Bars (189-227+)")]
+    public Sprite[] reliabilityBarSprites;       // Size = 5
 
     [Header("Game Over Screens")]
     public GameObject GameOverCanvasView; // this is for when the player has 0 reliability; Drag your GameOver screen panel here!
@@ -1466,6 +1490,8 @@ public class GameScrollManager : MonoBehaviour
     public GameObject captchaPanelObject;     // Drag your 'CaptchaPanel' canvas wrapper here
     public TMP_Text captchaInstructionLabel;  // Displays "Are you a robot?" text strings
     public Image[] captchaNumPadButtonBgs;    // Element 0=Key1, 1=Key2 ... up to Element 8=Key9
+    public Sprite[] numPadUpSprites;       // Size = 9 (Element 0=Key1 Up ... Element 8=Key9 Up)
+    public Sprite[] numPadDownSprites;     // Size = 9 (Element 0=Key1 Down ... Element 8=Key9 Down)
     public Color captchaDefaultColor = Color.white;
     public Color captchaHighlightColor = new Color(0.5f, 1f, 0.5f, 1f); // Light Green
     public Color captchaFailureColor = new Color(1f, 0.3f, 0.3f, 1f);   // Red Flash
@@ -1633,6 +1659,17 @@ public class GameScrollManager : MonoBehaviour
         if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
         if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
 
+        if (shareButtonBg != null)
+        {
+            //shareButtonBg.color = Color.purple;
+            if (shareUpSprite != null) shareButtonBg.sprite = shareUpSprite;
+        }
+        if (reportButtonBg != null)
+        {
+            //reportButtonBg.color = Color.purple;
+            if (reportUpSprite != null) reportButtonBg.sprite = reportUpSprite;
+        }
+
         fullPostTitleText.text = data.title;
         fullPostContentBody.text = data.bodyText;
 
@@ -1642,6 +1679,13 @@ public class GameScrollManager : MonoBehaviour
         //commented out since they made share and report button background white I forgot to remove this earlier
         //shareButtonBg.color = Color.purple;
         //reportButtonBg.color = Color.purple;
+
+        if (fullPostTextBeforeUrl != null)
+        {
+            bool hasBeforeUrlText = !string.IsNullOrWhiteSpace(data.textBeforeUrl);
+            fullPostTextBeforeUrl.gameObject.SetActive(hasBeforeUrlText);
+            fullPostTextBeforeUrl.text = hasBeforeUrlText ? data.textBeforeUrl : "";
+        }
 
         if (data.hasExternalLink)
         {
@@ -1656,8 +1700,8 @@ public class GameScrollManager : MonoBehaviour
         if (appWindowPanelObject != null) appWindowPanelObject.SetActive(false);
         if (fullPostPopupPanel != null) fullPostPopupPanel.gameObject.SetActive(true);
 
-        if (shareButtonBg != null) shareButtonBg.color = Color.purple;
-        if (reportButtonBg != null) reportButtonBg.color = Color.purple;
+        //if (shareButtonBg != null) shareButtonBg.color = Color.purple;
+        //if (reportButtonBg != null) reportButtonBg.color = Color.purple;
 
         if (data != null && data.helperWasUsedOnThisArticleState)
         {
@@ -1748,9 +1792,16 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         isPlayingCaptchaSequence = false; // Guarantees input is never stuck locked!
 
         // Reset all button colors to default in case a previous coroutine was interrupted mid-flash
-        foreach (Image bg in captchaNumPadButtonBgs)
+        for (int i = 0; i < captchaNumPadButtonBgs.Length; i++)
         {
-            if (bg != null) bg.color = captchaDefaultColor;
+            if (captchaNumPadButtonBgs[i] != null)
+            {
+                captchaNumPadButtonBgs[i].color = captchaDefaultColor;
+                if (numPadUpSprites != null && i < numPadUpSprites.Length && numPadUpSprites[i] != null)
+                {
+                    captchaNumPadButtonBgs[i].sprite = numPadUpSprites[i];
+                }
+            }
         }
 
         StartCoroutine(PlaySequencePatternRoutine(currentBaseSequenceLength));
@@ -1798,7 +1849,7 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         // Prevent registering extra inputs while a failure animation is playing
         if (playerInputPattern.Count >= currentGeneratedPattern.Count) return;
 
-
+        int tappedIndex = keyedValue - 1;
         playerInputPattern.Add(keyedValue);
         int currentInputIndex = playerInputPattern.Count - 1;
 
@@ -1812,6 +1863,7 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         // Immediate sequence check
         if (playerInputPattern[currentInputIndex] != currentGeneratedPattern[currentInputIndex])
         {
+            StartCoroutine(FlashPlayerSelectedButtonRoutine(tappedIndex));
             // Failure Loop Penalty
             StartCoroutine(FlashCaptchaFailureRoutine());
             return;
@@ -1827,15 +1879,43 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
             //currentBaseSequenceLength++; // Increases baseline sequence length for subsequent captchas
             //commented out due to no sense in increasing idfficulty for right input
             playerInputPattern.Clear();
+
+            StartCoroutine(CompleteCaptchaAfterTapRoutine());
+
             if (captchaPanelObject != null) captchaPanelObject.SetActive(false);
             ForceBypassOpenExternalWebsite();
         }
+    }
+
+    private IEnumerator CompleteCaptchaAfterTapRoutine()
+    {
+        yield return new WaitForSeconds(0.25f);
+        if (captchaPanelObject != null) captchaPanelObject.SetActive(false);
+        ForceBypassOpenExternalWebsite();
     }
 
     private IEnumerator FlashPlayerSelectedButtonRoutine(int buttonIndex)
     {
         if (buttonIndex >= 0 && buttonIndex < captchaNumPadButtonBgs.Length && captchaNumPadButtonBgs[buttonIndex] != null)
         {
+            Image btnImage = captchaNumPadButtonBgs[buttonIndex];
+
+            if (numPadDownSprites != null && buttonIndex < numPadDownSprites.Length && numPadDownSprites[buttonIndex] != null)
+            {
+                btnImage.sprite = numPadDownSprites[buttonIndex];
+            }
+
+            if (!isPlayingCaptchaSequence) btnImage.color = captchaPlayerTapColor;
+
+            yield return new WaitForSeconds(0.25f);
+
+            if (numPadUpSprites != null && buttonIndex < numPadUpSprites.Length && numPadUpSprites[buttonIndex] != null)
+            {
+                btnImage.sprite = numPadUpSprites[buttonIndex];
+            }
+
+            if (!isPlayingCaptchaSequence) btnImage.color = captchaDefaultColor;
+
             captchaNumPadButtonBgs[buttonIndex].color = captchaPlayerTapColor;
             yield return new WaitForSeconds(0.25f);
 
@@ -2123,6 +2203,19 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
     {
         if (!canProcessVerdict || openArticleContext == null) return;
         canProcessVerdict = false;
+
+        // Swap pressed verdict button to Down-State sprite
+        if (choseShare)
+        {
+            if (shareButtonBg != null && shareDownSprite != null)
+                shareButtonBg.sprite = shareDownSprite;
+        }
+        else
+        {
+            if (reportButtonBg != null && reportDownSprite != null)
+                reportButtonBg.sprite = reportDownSprite;
+        }
+
         // Emergency Escape Hatch: Shuts off the captcha loop if active
         if (captchaPanelObject != null && captchaPanelObject.activeSelf)
         {
@@ -2333,7 +2426,7 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
             if (badEndingCanvasView != null) badEndingCanvasView.SetActive(true);
             else Debug.LogError("[END GAME] GameOverCanvasView (Bad Ending) slot is empty in Inspector!");
         }
-        else if (currentFriendScore <= 5) // Neutral Ending: 51 to 100
+        else if (currentFriendScore <= 10) // Neutral Ending: 51 to 100
         {
             Debug.Log("[END GAME] Triggering NEUTRAL ENDING (51 - 100)");
             if (neutralEndingCanvasView != null) neutralEndingCanvasView.SetActive(true);
@@ -2398,6 +2491,7 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
     private void HideAllGameplayAndEndingPanels()
     {
         if (postGameSummaryCanvasView != null) postGameSummaryCanvasView.SetActive(false);
+        if (day3SummaryCanvasView != null) day3SummaryCanvasView.SetActive(false);
         if (fullPostPopupPanel != null) fullPostPopupPanel.gameObject.SetActive(false);
         if (appWindowPanelObject != null) appWindowPanelObject.SetActive(false);
         if (externalWebsitePopup != null) externalWebsitePopup.SetActive(false);
@@ -2410,6 +2504,17 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         if (goodEndingCanvasView != null) goodEndingCanvasView.SetActive(false);
     }
 
+    private Sprite GetReliabilityTierSprite(int score)
+    {
+        if (reliabilityBarSprites == null || reliabilityBarSprites.Length < 5) return null;
+
+        if (score <= 37) return reliabilityBarSprites[0];       // 1 bar: 0-37
+        if (score <= 75 && score >= 38) return reliabilityBarSprites[1];       // 2 bars: 38-75
+        if (score <= 150 && score >= 76) return reliabilityBarSprites[2];      // 3 bars: 76-150
+        if (score <= 188 &&score >= 151) return reliabilityBarSprites[3];      // 4 bars: 151-188
+        return reliabilityBarSprites[4];                        // 5 bars: 189-227+
+    }
+
     // 4TH RESULT: Called when a day finishes (Days 1, 2, or 3) while reliability > 0
     public void TriggerEndOfDaySummary()
     {
@@ -2418,6 +2523,14 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         {
             EvaluateAndTriggerEnding();
             return;
+        }
+
+        string formattedTime = "00:00:00";
+        if (BatteryTimeManager.Instance != null)
+        {
+            BatteryTimeManager.Instance.SetTimerPaused(true);
+            BatteryTimeManager.Instance.UpdateFriendsScoreUI(currentFriendScore);
+            formattedTime = BatteryTimeManager.Instance.GetFormattedRemainingTime();
         }
 
         Debug.Log($"[DAY COMPLETE] Showing End-of-Day Summary. Score: {currentFriendScore}");
@@ -2429,15 +2542,76 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
 
         HideAllGameplayAndEndingPanels();
 
-        if (postGameSummaryCanvasView != null)
+        Sprite tierSprite = GetReliabilityTierSprite(currentFriendScore);
+
+        if (currentDay >= 3)
         {
-            postGameSummaryCanvasView.SetActive(true);
-            postGameSummaryCanvasView.transform.SetAsLastSibling();
+            // Activate Day 3 Summary panel (no Topics Added section)
+            if (day3SummaryCanvasView != null)
+            {
+                if (day3SummaryCanvasView.transform.parent != null)
+                    day3SummaryCanvasView.transform.parent.gameObject.SetActive(true);
+
+                day3SummaryCanvasView.SetActive(true);
+                day3SummaryCanvasView.transform.SetAsLastSibling();
+            }
+
+            if (day3ResultsHeaderText != null)
+                day3ResultsHeaderText.text = $"DAY {currentDay} RESULTS";
+
+            if (day3ReliabilityMeterImage != null && tierSprite != null)
+                day3ReliabilityMeterImage.sprite = tierSprite;
+
+            if (day3FriendsTallyText != null)
+                day3FriendsTallyText.text = $"FRIENDS : {currentFriendScore}";
+
+            if (day3TimeLeftText != null)
+                day3TimeLeftText.text = $"TIME LEFT : {formattedTime}";
         }
         else
         {
-            Debug.LogError("[DAY COMPLETE] postGameSummaryCanvasView is missing in Inspector!");
+            // Activate Day 1 & Day 2 PostGameSummaryCanvasView
+            if (postGameSummaryCanvasView != null)
+            {
+                if (postGameSummaryCanvasView.transform.parent != null)
+                    postGameSummaryCanvasView.transform.parent.gameObject.SetActive(true);
+
+                postGameSummaryCanvasView.SetActive(true);
+                postGameSummaryCanvasView.transform.SetAsLastSibling();
+            }
+
+            if (dayResultsHeaderText != null)
+                dayResultsHeaderText.text = $"DAY {currentDay} RESULTS";
+
+            if (reliabilityMeterImage != null && tierSprite != null)
+                reliabilityMeterImage.sprite = tierSprite;
+
+            if (friendsTallyText != null)
+                friendsTallyText.text = $"FRIENDS : {currentFriendScore}";
+
+            if (topicsAddedHeaderObject != null)
+                topicsAddedHeaderObject.SetActive(true);
+
+            if (topicsAddedDetailText != null)
+            {
+                if (currentDay == 1)
+                    topicsAddedDetailText.text = "ENTERTAINMENT AND POP CULTURE NEWS";
+                else if (currentDay == 2)
+                    topicsAddedDetailText.text = "POLITICAL NEWS";
+            }
+
+            if (timeLeftText != null)
+                timeLeftText.text = $"TIME LEFT : {formattedTime}";
         }
+        //if (postGameSummaryCanvasView != null)
+        //{
+        //    postGameSummaryCanvasView.SetActive(true);
+        //    postGameSummaryCanvasView.transform.SetAsLastSibling();
+        //}
+        //else
+        //{
+        //    Debug.LogError("[DAY COMPLETE] postGameSummaryCanvasView is missing in Inspector!");
+        //}
     }
 
     // WIRE THIS TO YOUR "NEXT DAY / CONTINUE" BUTTON ON postGameSummaryCanvasView
