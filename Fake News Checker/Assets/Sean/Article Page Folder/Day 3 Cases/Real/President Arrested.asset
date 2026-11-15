@@ -19,7 +19,8 @@ MonoBehaviour:
   bodyText: "Former President Rodriguez D. Dirty was taken into police custody immediately
     upon landing at New Manila International Airport this morning and placed on a
     chartered flight to The Hague to face crimes against humanity charges before
-    the World Criminal Tribunal \r\n\r\nMore about this story :\r\n"
+    the World Criminal Tribunal \r"
+  textBeforeUrl: 'More about this story :'
   externalLinkBodyText: The dramatic tarmac arrest executed via an international
     police warrant stemming from his bloody, years-long anti-narcotics crackdown
     caught the former leader's entourage off guard just minutes after returning from

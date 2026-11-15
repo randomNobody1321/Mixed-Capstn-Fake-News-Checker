@@ -16,10 +16,11 @@ MonoBehaviour:
   articleID: https://NUSA/Updates/Recents
   title: Ronald Dump Shot !
   headliner: <b>Presidential Contender Survives Second Assassination Attempt On Life</b>
-  bodyText: "For the second time in just over two months, former N.U.S.A President
+  bodyText: 'For the second time in just over two months, former N.U.S.A President
     Ronald Dump has escaped an assassination plot, this time after protective agents
     spotted a rifle barrel poking through the perimeter bushes of his West Palm Beach
-    golf resort while he played the fifth hole. \r\n\r\nMore about this story :\r\n"
+    golf resort while he played the fifth hole. '
+  textBeforeUrl: 'More about this story :'
   externalLinkBodyText: "The close call follows the harrowing July rally shooting
     in Butler, Pennsylvania, where a rooftop sniper opened fire mid-speech, grazing
     Trump\u2019s upper right ear before he famously rose to his feet pumping his

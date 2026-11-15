@@ -16,10 +16,10 @@ MonoBehaviour:
   articleID: https://OskarsUpdates/Recents
   title: Oskar Slap !
   headliner: <b>Top Actor Strikes Host Mid-Ceremony Over Audience Joke !</b>
-  bodyText: "The New Manila Theatre erupted into total confusion tonight during the
+  bodyText: 'The New Manila Theatre erupted into total confusion tonight during the
     ongoing Oskars broadcast after top nominee Bill Smith stormed the stage and struck
-    host Chris Brock across the face following an unscripted joke about his wife.
-    \r\n\r\nMore about this story :\r\n"
+    host Chris Brock across the face following an unscripted joke about his wife. '
+  textBeforeUrl: 'More about this story :'
   externalLinkBodyText: 'The New Manila Theatre erupted into total confusion tonight
     during the ongoing "Oskars" broadcast after top nominee Bill Smith stormed the
     stage and struck host Chris Block across the face following an unscripted joke

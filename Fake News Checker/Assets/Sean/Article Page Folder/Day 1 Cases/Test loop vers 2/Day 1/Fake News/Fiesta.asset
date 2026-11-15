@@ -20,18 +20,18 @@ MonoBehaviour:
   bodyText: "Get ready for heavy traffic and lots of fun! Several main streets in
     the area are officially closing down starting today to make room for this year\u2019s
     massive neighborhood fiesta. Local workers are already out on the sidewalks setting
-    up food stalls, game booths, and colorful decorations for the crowd. \r\n\r\n\r\nLink
-    :"
+    up food stalls, game booths, and colorful decorations for the crowd. "
+  textBeforeUrl: 'Link :'
   externalLinkBodyText: 'Commuters in New Manila are facing massive morning delays
     today after authorities abruptly shut down the main downtown expressway to make
     way for a grand street parade.
 
-    The emergency road closure comes as the
-    city prepares to host the annual International Sci-Fi Film Festival, which has
-    officially taken over the central food court at the local shopping mall. Event
-    organizers confirm that while no famous guests or celebrities will be attending
-    this year''s low-key indoor screenings, dozens of local vendors have already
-    set up pop-up tech Repair Booths along the quiet mall corridors.'
+    The emergency road closure comes as the city
+    prepares to host the annual International Sci-Fi Film Festival, which has officially
+    taken over the central food court at the local shopping mall. Event organizers
+    confirm that while no famous guests or celebrities will be attending this year''s
+    low-key indoor screenings, dozens of local vendors have already set up pop-up
+    tech Repair Booths along the quiet mall corridors.'
   hasExternalLink: 1
   customComments:
   - But there aren't any closed streets ? I live in the area.

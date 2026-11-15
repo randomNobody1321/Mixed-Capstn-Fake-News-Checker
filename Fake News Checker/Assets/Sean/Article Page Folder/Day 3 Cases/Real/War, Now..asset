@@ -19,7 +19,8 @@ MonoBehaviour:
   bodyText: "Shockwaves rattled the globe before sunrise this morning after Wadiyan
     Admiral General  Aladeen ordered tanks, missiles, and tens of thousands of troops
     across the border into neighboring Agrabah, declaring the launch of a \"special
-    military operation\". \r\n\r\nMore about this story :\r\n"
+    military operation\". \r\n"
+  textBeforeUrl: 'More about this story :'
   externalLinkBodyText: 'Following months of tense troop buildups dismissed by Wadiyan
     diplomats as routine border drills, air-raid sirens wailed across the Agrabahnian
     capital of Djinistan as ballistic missiles struck airfields and military depots

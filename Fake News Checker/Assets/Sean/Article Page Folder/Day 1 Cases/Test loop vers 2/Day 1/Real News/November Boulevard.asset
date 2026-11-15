@@ -20,9 +20,8 @@ MonoBehaviour:
     down in New Manila tomorrow ahead of their highly anticipated concert, triggering
     a burst in activity  among the local fanbase.\r\n\r\n Eager supporters from various
     fan clubs have already pitched tents and established makeshift encampments along
-    the perimeter of the Colosseum, braving the elements to secure front-row spots.
-    \r\n"
-  textBeforeUrl: ssssssssssssssssssssssssss
+    the perimeter of the Colosseum, braving the elements to secure front-row spots. "
+  textBeforeUrl: 
   externalLinkBodyText: " Eager supporters from various fan clubs have already pitched
     tents and established makeshift encampments along the perimeter of the Colosseum,
     braving the elements to secure front-row spots. \r\n\r\nLocal businesses are
@@ -52,5 +51,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: 3866918973111376225, guid: b7be58379ba7365488a880c0f1bbf772, type: 3}
+  - imageSprite: {fileID: -4876614519491423539, guid: 8c5c0eb9719cd0c42bd1071129460ac7, type: 3}
     insertAfterParagraphIndex: 1

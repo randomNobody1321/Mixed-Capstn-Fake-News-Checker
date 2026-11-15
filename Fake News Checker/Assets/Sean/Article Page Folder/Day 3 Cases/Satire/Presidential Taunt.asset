@@ -16,10 +16,11 @@ MonoBehaviour:
   articleID: https://NUSA/Updates/quotes
   title: Presidential Taunt
   headliner: <b>Former President  Taunts Assassins At Rally, Dares Them To "Try Again"</b>
-  bodyText: "Refusing to tone down his trademark bravado just days after surviving
+  bodyText: 'Refusing to tone down his trademark bravado just days after surviving
     a second close call on his West Palm Beach golf course, former N.U.S.A. President
     Ronald Dump took the stage at a packed campaign rally tonight and openly dared
-    his would-be assassins to take another shot. \r\n\r\nMore about this story :"
+    his would-be assassins to take another shot. '
+  textBeforeUrl: 'More about this story :'
   externalLinkBodyText: "\"Look, they tried once, they missed, totally missed, by
     the way, terrible aim, folks, truly pathetic,\" \r\n\r\nDump told the roaring
     crowd, waving a hand dismissively. \r\n\r\n\"Then they come to my golf course,

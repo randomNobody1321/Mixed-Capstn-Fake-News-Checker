@@ -16,16 +16,11 @@ MonoBehaviour:
   articleID: https://NewManilaCityShelter/AboutUs
   title: Heavenly Burgers
   headliner: <b>Get Three Sliders for the Price of One this Weekend !</b>
-  bodyText: 'Clear your schedules and loosen your belts, burger lovers. Local favorite
+  bodyText: Clear your schedules and loosen your belts, burger lovers. Local favorite
     Heavenly Burgers has officially announced a city-wide "Buy 1, Take 2" flash event
     on every single item on their menu. The deal runs for exactly one hour next Saturday
     across all four city locations.
-
-    
-
-    
-
-    More about this story :
+  textBeforeUrl: 'More about this story :
 
 '
   externalLinkBodyText: "Our Core Principle: All you need is one good one !\r\nIn

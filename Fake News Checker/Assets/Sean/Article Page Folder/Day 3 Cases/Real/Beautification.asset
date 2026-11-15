@@ -20,7 +20,8 @@ MonoBehaviour:
   bodyText: "Attempting to defuse days of citywide protests, Mayor Johan \"Mang Danny\"
     called an emergency press conference this afternoon to insist that not a single
     historic mural has been painted over and that no \"beautification\" or jail ultimatum
-    ever existed. \r\n\r\nMore about this story :\r\n"
+    ever existed. \r\n"
+  textBeforeUrl: 'More about this story :'
   externalLinkBodyText: 'Holding up fresh photographs of New Manila''s iconic downtown
     street art completely intact, the mayor claimed that the two viral news reports
     detailing his supposed eradication drive and arrest threats were fabricated "hit

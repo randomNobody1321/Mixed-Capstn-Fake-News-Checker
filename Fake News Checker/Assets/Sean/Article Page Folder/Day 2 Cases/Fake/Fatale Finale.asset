@@ -20,7 +20,8 @@ MonoBehaviour:
   bodyText: "The long-awaited series finale of the blockbuster fantasy drama War
     Of The Roses triggered an unprecedented wave of global fury last night, as millions
     of loyal viewers took to social media to denounce the episode\u2019s rushed character
-    arcs and baffling plot twists. \r\nMore about this story : \r\n"
+    arcs and baffling plot twists. "
+  textBeforeUrl: 'More about this story : '
   externalLinkBodyText: 'Just wait for the next book dawg, chill out lmao.
 
     Jorge

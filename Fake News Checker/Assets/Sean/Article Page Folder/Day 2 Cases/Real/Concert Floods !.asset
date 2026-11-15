@@ -19,7 +19,8 @@ MonoBehaviour:
     Arrives</b>
   bodyText: "An unfortunate turn of events has struck the makeshift encampments outside
     the New Manila Colosseum after a sudden torrential downpour flooded the surrounding
-    plaza just hours before November Boulevard\u2019s scheduled arrival. \r\n\r\n\r\nLink:\r\n"
+    plaza just hours before November Boulevard\u2019s scheduled arrival. "
+  textBeforeUrl: 'Link:'
   externalLinkBodyText: "Despite waist-deep puddles, soaked sleeping bags, and repeated
     warnings from city emergency responders urging crowd evacuation, thousands of
     die-hard supporters remain steadfastly glued to their front-row positions. \r\n\r\nFan

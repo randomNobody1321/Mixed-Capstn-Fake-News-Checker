@@ -20,7 +20,8 @@ MonoBehaviour:
     departing New Manila International Airport on private jets this morning, the
     city's entertainment district is slowly returning to normal, except for the deafening
     online chatter surrounding Bill Smith's jaw-dropping onstage slap of host Chris
-    Brock. \r\n\r\nMore about this story :\r\n"
+    Brock. \r"
+  textBeforeUrl: 'More about this story :'
   externalLinkBodyText: 'Although Smith went on to claim the Best Actor trophy later
     that evening before quietly slipping out of the New Manila Theatre, social media
     feeds across the city remain flooded with slow-motion replays, memes, and heated

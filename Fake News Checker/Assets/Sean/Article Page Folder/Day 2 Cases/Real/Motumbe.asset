@@ -19,10 +19,11 @@ MonoBehaviour:
     !
 
     >'
-  bodyText: "A quiet afternoon at the New Manila Botanical Gardens ended in profound
+  bodyText: 'A quiet afternoon at the New Manila Botanical Gardens ended in profound
     sorrow yesterday following the tragic loss of Motumbe, a 17-year-old silverback
     gorilla who was fatally shot by zoo response teams after a four-year-old boy
-    slipped into the primate habitat. \r\n\r\nMore about this story :\r\n"
+    slipped into the primate habitat. '
+  textBeforeUrl: 'More about this story :'
   externalLinkBodyText: 'Emergency officials stated that lethal action was taken
     out of immediate concern for the child''s life as the 450-pound animal dragged
     the boy through the enclosure''s moat, though eyewitnesses and heartbroken visitors

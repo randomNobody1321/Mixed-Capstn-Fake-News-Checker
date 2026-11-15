@@ -1381,6 +1381,7 @@ public class GameScrollManager : MonoBehaviour
 
     [Header("Grandma Profile Hooks")]
     public Image grandmaAvatarDisplay;
+    public Image grandmaReliabilityMeterImage; // Drag the Reliability Bar Image inside GrandmaProfilePanel here
     public Sprite neutralFaceSprite;
     public Sprite happyFaceSprite;
     public Sprite sadFaceSprite;
@@ -1555,20 +1556,67 @@ public class GameScrollManager : MonoBehaviour
                 BatteryTimeManager.Instance.LaunchTimerEngine();
             }
 
-            // Open onboarding on Day 1 (this automatically pauses the battery timer until closed)
-            if (onboardingPanelObject != null)
+            if (appWindowPanelObject != null)
             {
-                onboardingPanelObject.SetActive(true);
+                //if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(false);
+                //if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(false);
+
+                InitializeDayLoadout(1);
+
+                if (onboardingPanelObject != null)
+                {
+                    appWindowPanelObject.SetActive(true);
+                    if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
+                    if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
+
+                    onboardingPanelObject.SetActive(true);
+                    onboardingPanelObject.transform.SetAsLastSibling();
+                }
+                else
+                {
+                    if (BatteryTimeManager.Instance != null)
+                    {
+                        BatteryTimeManager.Instance.LaunchTimerEngine();
+                    }
+                    appWindowPanelObject.SetActive(true);
+                    if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
+                    if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
+                }
+
+                //if (onboardingPanelObject != null)
+                //{
+                //    // Show AppWindowPanel in the background; Onboarding's OnEnable() locks interaction
+                //    appWindowPanelObject.SetActive(true);
+                //    onboardingPanelObject.SetActive(true);
+                //    onboardingPanelObject.transform.SetAsLastSibling();
+                //}
+                //else
+                //{
+                //    if (BatteryTimeManager.Instance != null)
+                //    {
+                //        BatteryTimeManager.Instance.LaunchTimerEngine();
+                //    }
+                //    appWindowPanelObject.SetActive(true);
+                //    if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
+                //    if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
+                //}
             }
-            else
-            {
+        
+
+            //// Open onboarding on Day 1 (this automatically pauses the battery timer until closed)
+            //if (onboardingPanelObject != null)
+            //{
+            //    onboardingPanelObject.SetActive(true);
+            //}
+            //else
+            //{
 
 
-                // Fallback in case no onboarding panel is assigned
-                appWindowPanelObject.SetActive(true);
-                if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
-                if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
-            }
+            //    // Fallback in case no onboarding panel is assigned
+            //    appWindowPanelObject.SetActive(true);
+            //    if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
+            //    if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
+            //}
         }
     }
 
@@ -2287,11 +2335,20 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         {
             BatteryTimeManager.Instance.UpdateFriendsScoreUI(currentFriendScore);
         }
+
+        if (grandmaReliabilityMeterImage != null)
+        {
+            Sprite tierSprite = GetReliabilityTierSprite(currentFriendScore);
+            if (tierSprite != null)
+            {
+                grandmaReliabilityMeterImage.sprite = tierSprite;
+            }
+        }
     }
     private void UpdateHelperUI()
     {
         if (helperUsesCounterText != null)
-            helperUsesCounterText.text = $"Counter: {helperUsesRemaining}";
+            helperUsesCounterText.text = $"Uses: {helperUsesRemaining}";
     }
     public void ToggleThumbsUpInteraction()
     {
@@ -2508,11 +2565,16 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
     {
         if (reliabilityBarSprites == null || reliabilityBarSprites.Length < 5) return null;
 
-        if (score <= 37) return reliabilityBarSprites[0];       // 1 bar: 0-37
-        if (score <= 75 && score >= 38) return reliabilityBarSprites[1];       // 2 bars: 38-75
-        if (score <= 150 && score >= 76) return reliabilityBarSprites[2];      // 3 bars: 76-150
-        if (score <= 188 &&score >= 151) return reliabilityBarSprites[3];      // 4 bars: 151-188
+        if (score <= 5) return reliabilityBarSprites[0];       // 1 bar: 0-37
+        if (score <= 15 && score >= 6) return reliabilityBarSprites[1];       // 2 bars: 38-75
+        if (score <= 25 && score >= 16) return reliabilityBarSprites[2];      // 3 bars: 76-150
+        if (score <= 36 && score >= 26) return reliabilityBarSprites[3];      // 4 bars: 151-188
         return reliabilityBarSprites[4];                        // 5 bars: 189-227+
+        //if (score <= 37) return reliabilityBarSprites[0];       // 1 bar: 0-37
+        //if (score <= 75 && score >= 38) return reliabilityBarSprites[1];       // 2 bars: 38-75
+        //if (score <= 150 && score >= 76) return reliabilityBarSprites[2];      // 3 bars: 76-150
+        //if (score <= 188 &&score >= 151) return reliabilityBarSprites[3];      // 4 bars: 151-188
+        //return reliabilityBarSprites[4];                        // 5 bars: 189-227+
     }
 
     // 4TH RESULT: Called when a day finishes (Days 1, 2, or 3) while reliability > 0

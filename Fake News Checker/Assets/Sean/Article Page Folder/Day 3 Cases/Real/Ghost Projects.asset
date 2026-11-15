@@ -19,7 +19,8 @@ MonoBehaviour:
   bodyText: "Pure unfiltered anger has erupted across New Manila after state auditors
     exposed a sweeping multi-billion-peso corruption scheme involving hundreds of
     \"completed\" flood-control river walls and drainage dikes that do not actually
-    exist. \r\n\r\n\r\nMore about this story : \r\n"
+    exist. \r"
+  textBeforeUrl: 'More about this story : '
   externalLinkBodyText: 'The scandal exploded into public view after severe monsoon
     rains submerged low-lying districts despite government officials boasting that
     thousands of flood-mitigation structures had already been built and fully paid

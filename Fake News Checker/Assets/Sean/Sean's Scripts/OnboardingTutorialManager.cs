@@ -20,6 +20,8 @@ public class OnboardingTutorialManager : MonoBehaviour
     public GameObject appWindowPanelObject; // Drag your 'AppWindowPanel' here
     public GameObject grandmaProfilePanelObject; // Drag 'GrandmaProfilePanel' here
     public GameObject helperLifelineWidgetObject; // Drag 'HelperLifelineWidget' here
+    public GameObject batteryHudObject;          // Drag your Battery UI parent GameObject here
+    public Button helperActionButton;            // Drag 'HelperActionButton' here (ensures sub-canvas button is locked)
 
     [Header("Presentation Slides")]
     public List<TutorialSlide> slides = new List<TutorialSlide>();
@@ -33,6 +35,38 @@ public class OnboardingTutorialManager : MonoBehaviour
         {
             BatteryTimeManager.Instance.SetTimerPaused(true);
         }
+        if (batteryHudObject != null)
+        {
+            batteryHudObject.SetActive(false);
+        }
+
+        // 2. Keep AppWindowPanel hidden, show FullPostModePopup in the background, and block clicks on it
+        //if (appWindowPanelObject != null) appWindowPanelObject.SetActive(false);
+
+        // 2. Show AppWindowPanel behind Onboarding, but block all clicks/scrolling on it
+        if (appWindowPanelObject != null)
+        {
+            appWindowPanelObject.SetActive(true);
+            SetPanelInteractable(appWindowPanelObject, false);
+        }
+
+        if (grandmaProfilePanelObject != null)
+        {
+            grandmaProfilePanelObject.SetActive(true);
+            SetPanelInteractable(grandmaProfilePanelObject, false);
+        }
+
+        if (helperLifelineWidgetObject != null)
+        {
+            helperLifelineWidgetObject.SetActive(true);
+            SetPanelInteractable(helperLifelineWidgetObject, false);
+        }
+
+        // Explicitly disable HelperActionButton in case its sub-Canvas overrides parent CanvasGroup
+        if (helperActionButton != null)
+        {
+            helperActionButton.interactable = false;
+        }
 
         currentSlideIndex = 0;
         ShowCurrentSlide();
@@ -40,21 +74,71 @@ public class OnboardingTutorialManager : MonoBehaviour
 
     private void OnDisable()
     {
-        // Resume the battery timer automatically when Onboarding is closed / SetActive(false)
+        // 1. Re-enable battery UI and launch a fresh 7-bar timer
+        if (batteryHudObject != null)
+        {
+            batteryHudObject.SetActive(true);
+        }
         if (BatteryTimeManager.Instance != null)
         {
-            BatteryTimeManager.Instance.SetTimerPaused(false);
+            BatteryTimeManager.Instance.LaunchTimerEngine();
         }
 
-        // Turn on AppWindowPanel once Onboarding closes
+        // 2. Re-enable interaction on AppWindowPanel and show HUD widgets
         if (appWindowPanelObject != null)
         {
-            //appWindowPanelObject.SetActive(true);
-            // Turn on AppWindowPanel, Grandma, and Helper once Onboarding closes
-            if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
-            if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
-            if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
+            appWindowPanelObject.SetActive(true);
+            SetPanelInteractable(appWindowPanelObject, true);
         }
+
+        if (grandmaProfilePanelObject != null)
+        {
+            grandmaProfilePanelObject.SetActive(true);
+            SetPanelInteractable(grandmaProfilePanelObject, true);
+        }
+
+        if (helperLifelineWidgetObject != null)
+        {
+            helperLifelineWidgetObject.SetActive(true);
+            SetPanelInteractable(helperLifelineWidgetObject, true);
+        }
+
+        if (helperActionButton != null)
+        {
+            helperActionButton.interactable = true;
+        }
+
+        if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
+        if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
+
+        //// Resume the battery timer automatically when Onboarding is closed / SetActive(false)
+        //if (BatteryTimeManager.Instance != null)
+        //{
+        //    BatteryTimeManager.Instance.SetTimerPaused(false);
+        //}
+        //// Turn on AppWindowPanel once Onboarding closes
+        //if (appWindowPanelObject != null)
+        //{
+        //    //appWindowPanelObject.SetActive(true);
+        //    // Turn on AppWindowPanel, Grandma, and Helper once Onboarding closes
+        //    if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
+        //    if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
+        //    if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
+        //}
+    }
+
+    private void SetPanelInteractable(GameObject targetPanel, bool isInteractable)
+    {
+        if (targetPanel == null) return;
+
+        CanvasGroup cg = targetPanel.GetComponent<CanvasGroup>();
+        if (cg == null)
+        {
+            cg = targetPanel.AddComponent<CanvasGroup>();
+        }
+
+        cg.interactable = isInteractable;
+        cg.blocksRaycasts = isInteractable;
     }
 
     // Wire this to your bottom-right "Next" button's OnClick() event
