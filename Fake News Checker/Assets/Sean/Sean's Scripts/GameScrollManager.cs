@@ -2476,22 +2476,22 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         if (goodEndingCanvasView != null) goodEndingCanvasView.SetActive(false);
 
         // 2. Check reliability score thresholds and activate the matching ending canvas
-        if (currentFriendScore <= 2) // Bad Ending: 0 to 50
+        if (currentFriendScore <= 75) // Bad Ending: 0 to 75
         {
-            Debug.Log("[END GAME] Triggering BAD ENDING (0 - 50)");
+            Debug.Log("[END GAME] Triggering BAD ENDING (0 - 75)");
             //if (GameOverCanvasView != null) GameOverCanvasView.SetActive(true);
             if (badEndingCanvasView != null) badEndingCanvasView.SetActive(true);
             else Debug.LogError("[END GAME] GameOverCanvasView (Bad Ending) slot is empty in Inspector!");
         }
-        else if (currentFriendScore <= 10) // Neutral Ending: 51 to 100
+        else if (currentFriendScore <= 150) // Neutral Ending: 51 to 150
         {
-            Debug.Log("[END GAME] Triggering NEUTRAL ENDING (51 - 100)");
+            Debug.Log("[END GAME] Triggering NEUTRAL ENDING (51 - 150)");
             if (neutralEndingCanvasView != null) neutralEndingCanvasView.SetActive(true);
             else Debug.LogError("[END GAME] neutralEndingCanvasView slot is empty in Inspector!");
         }
-        else // Good Ending: 101 to 152+
+        else // Good Ending: 151 to 227+
         {
-            Debug.Log("[END GAME] Triggering GOOD ENDING (101 - 152)");
+            Debug.Log("[END GAME] Triggering GOOD ENDING (151 - 127)");
             if (goodEndingCanvasView != null) goodEndingCanvasView.SetActive(true);
             else Debug.LogError("[END GAME] goodEndingCanvasView slot is empty in Inspector!");
         }
@@ -2565,16 +2565,17 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
     {
         if (reliabilityBarSprites == null || reliabilityBarSprites.Length < 5) return null;
 
-        if (score <= 5) return reliabilityBarSprites[0];       // 1 bar: 0-37
-        if (score <= 15 && score >= 6) return reliabilityBarSprites[1];       // 2 bars: 38-75
-        if (score <= 25 && score >= 16) return reliabilityBarSprites[2];      // 3 bars: 76-150
-        if (score <= 36 && score >= 26) return reliabilityBarSprites[3];      // 4 bars: 151-188
-        return reliabilityBarSprites[4];                        // 5 bars: 189-227+
-        //if (score <= 37) return reliabilityBarSprites[0];       // 1 bar: 0-37
-        //if (score <= 75 && score >= 38) return reliabilityBarSprites[1];       // 2 bars: 38-75
-        //if (score <= 150 && score >= 76) return reliabilityBarSprites[2];      // 3 bars: 76-150
-        //if (score <= 188 &&score >= 151) return reliabilityBarSprites[3];      // 4 bars: 151-188
+        //if (score <= 5) return reliabilityBarSprites[0];       // 1 bar: 0-37
+        //if (score <= 15 && score >= 6) return reliabilityBarSprites[1];       // 2 bars: 38-75
+        //if (score <= 25 && score >= 16) return reliabilityBarSprites[2];      // 3 bars: 76-150
+        //if (score <= 36 && score >= 26) return reliabilityBarSprites[3];      // 4 bars: 151-188
         //return reliabilityBarSprites[4];                        // 5 bars: 189-227+
+
+        if (score <= 37) return reliabilityBarSprites[0];       // 1 bar: 0-37
+        if (score <= 75 && score >= 38) return reliabilityBarSprites[1];       // 2 bars: 38-75
+        if (score <= 150 && score >= 76) return reliabilityBarSprites[2];      // 3 bars: 76-150
+        if (score <= 188 && score >= 151) return reliabilityBarSprites[3];      // 4 bars: 151-188
+        return reliabilityBarSprites[4];                        // 5 bars: 189-227+
     }
 
     // 4TH RESULT: Called when a day finishes (Days 1, 2, or 3) while reliability > 0
