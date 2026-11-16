@@ -20,6 +20,7 @@ MonoBehaviour:
     Stephen Hardly has rapidly escalated into a full-blown geopolitical crisis, with
     online commentators and political analysts speculating that the Miss Universe
     crown mix-up could reignite armed conflict between rival nations Wadiya and Agrabah. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -43,5 +44,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: 5931686434854856505, guid: a5911fbc9fc34ec4eb53ba944cd06b5c, type: 3}
+  - imageSprite: {fileID: 8418792827717123542, guid: fee3432cf005231488a4233724935b87, type: 3}
     insertAfterParagraphIndex: -1

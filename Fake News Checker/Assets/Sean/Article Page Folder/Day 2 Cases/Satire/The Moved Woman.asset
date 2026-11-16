@@ -21,6 +21,7 @@ MonoBehaviour:
     fainted inside her fitting room this morning after catching a glimpse of her
     former flame, Noah, standing outside his fully restored white-columned estate
     in an online news post. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -44,5 +45,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: -3315701691638421056, guid: 5a0b9306806b89942b088f4315631636, type: 3}
+  - imageSprite: {fileID: -2374681119287292777, guid: 15e5a11ac94dc4f439d74a19d14f6f8b, type: 3}
     insertAfterParagraphIndex: -1

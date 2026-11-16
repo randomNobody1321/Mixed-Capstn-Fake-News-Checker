@@ -19,6 +19,7 @@ MonoBehaviour:
   bodyText: Music lovers and night owls gathered in central New Manila yesterday
     evening for the grand opening of "Seb's" a brand-new live music venue dedicated
     entirely to classic, unadulterated jazz.
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -44,5 +45,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: -5751075667902135728, guid: 71d02a40554fb66439d8287db78f44a9, type: 3}
+  - imageSprite: {fileID: 6841792158927400926, guid: 54e4597b87eb89845ba85a2e95ed610a, type: 3}
     insertAfterParagraphIndex: -1

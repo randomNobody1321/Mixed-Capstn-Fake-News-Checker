@@ -19,6 +19,7 @@ MonoBehaviour:
   bodyText: 'Municipal infrastructure crews have officially wrapped up maintenance
     along Main Street ahead of schedule, sealing the minor residential leaks and
     restoring full water pressure to all affected households. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -42,5 +43,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: -4567028490788205802, guid: d3788a5756fabbf4b90d50e2533643e9, type: 3}
+  - imageSprite: {fileID: 4536015807284659308, guid: 6bee5cd8451efaf48b4e47900a215962, type: 3}
     insertAfterParagraphIndex: -1

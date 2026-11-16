@@ -21,6 +21,7 @@ MonoBehaviour:
     in central New Manila, the club''s passionate owner has stunned local foodies
     and music fans alike by announcing a second, wildly different business venture:
     a casual street-food joint called "Chicken on a Stick." '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -44,5 +45,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: -5751075667902135728, guid: 71d02a40554fb66439d8287db78f44a9, type: 3}
+  - imageSprite: {fileID: 6841792158927400926, guid: 54e4597b87eb89845ba85a2e95ed610a, type: 3}
     insertAfterParagraphIndex: -1

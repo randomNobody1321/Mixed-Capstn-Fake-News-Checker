@@ -42,7 +42,7 @@ MonoBehaviour:
     isFlawed: 0
     approveAndPublish: 0
     onlyDisplayImage: 0
-    unverifiedAuthor: 0
+    unverifiedAuthor: 1
     falsifiedCredentials: 0
     imageManipulation: 0
     outOfContextMedia: 0
@@ -53,5 +53,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: -3168297702832608218, guid: aae71af810c957c44b2b3c0b3b7e08a1, type: 3}
+  - imageSprite: {fileID: -4825904316522818498, guid: 37b6ea49427f8ce4a8625ff7bfe6faf6, type: 3}
     insertAfterParagraphIndex: -1

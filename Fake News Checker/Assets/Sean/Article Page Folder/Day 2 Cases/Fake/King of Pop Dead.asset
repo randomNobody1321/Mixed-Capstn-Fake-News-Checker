@@ -19,6 +19,7 @@ MonoBehaviour:
   bodyText: 'Entertainment capitals across the globe fell into mourning today following
     the sudden passing of global pop icon Miguel Jackstone, who collapsed at his
     rented mansion shortly before his massive sold-out return series. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -42,5 +43,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: 569159762630099854, guid: 2fde12df6bf1e3f42bc518c1d34d5dd7, type: 3}
+  - imageSprite: {fileID: 4844979645553766367, guid: 0065fd9ac443eb44ea365a8dbae55379, type: 3}
     insertAfterParagraphIndex: -1

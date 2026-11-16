@@ -20,6 +20,7 @@ MonoBehaviour:
     nightmare during Global pop sensation November Boulevard\u2019s headlining set,
     after the venue's \"Kiss Cam\" Jumbotron inadvertently exposed a scandalous secret
     to 50,000 cheering fans. "
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -43,5 +44,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: -6318352825158254578, guid: e1058dc75c606dc4f85c175ca587d90e, type: 3}
+  - imageSprite: {fileID: 5961982405068145023, guid: 1f7212cdba609744f99eee471c41fc79, type: 3}
     insertAfterParagraphIndex: -1

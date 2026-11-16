@@ -20,6 +20,7 @@ MonoBehaviour:
     accidentally exposed their secret affair to 50,000 cheering fans, both concertgoers
     at the center of the scandal have officially been served divorce papers by their
     respective spouses. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -43,5 +44,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: -6318352825158254578, guid: e1058dc75c606dc4f85c175ca587d90e, type: 3}
+  - imageSprite: {fileID: 5961982405068145023, guid: 1f7212cdba609744f99eee471c41fc79, type: 3}
     insertAfterParagraphIndex: -1

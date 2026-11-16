@@ -22,6 +22,7 @@ MonoBehaviour:
     being shoved toward a squad car, the patron demanded to know his alleged crime,
     in which he asked, \"What is the charge? Eating a meal? A succulent Chinese meal?\"
     as confused bystanders watched."
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -44,5 +45,5 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: 7861596084559302045, guid: d556aa71f7c782743befb562fae5a23a, type: 3}
+  - imageSprite: {fileID: -8030835215644163416, guid: b989de8216e1fe446b0b060713ee1620, type: 3}
     insertAfterParagraphIndex: -1

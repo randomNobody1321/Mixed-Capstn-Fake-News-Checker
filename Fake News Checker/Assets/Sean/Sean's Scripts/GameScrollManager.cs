@@ -1483,6 +1483,10 @@ public class GameScrollManager : MonoBehaviour
     [Header("Thumbs Interaction Custom Elements")]
     public Image thumbsUpIconImage;   // Drag the Image component of your Thumbs Up button here
     public Image thumbsDownIconImage; // Drag the Image component of your Thumbs Down button here
+    public Sprite thumbsUpUnpressedSprite;
+    public Sprite thumbsUpPressedSprite;
+    public Sprite thumbsDownUnpressedSprite;
+    public Sprite thumbsDownPressedSprite;
 
     [Header("Onboarding Tutorial")]
     public GameObject onboardingPanelObject; // Drag your Onboarding GameObject here
@@ -1707,16 +1711,24 @@ public class GameScrollManager : MonoBehaviour
         if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
         if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
 
-        if (shareButtonBg != null)
+        if (shareButtonBg != null && shareUpSprite != null)
         {
-            //shareButtonBg.color = Color.purple;
-            if (shareUpSprite != null) shareButtonBg.sprite = shareUpSprite;
+            shareButtonBg.sprite = shareUpSprite;
         }
-        if (reportButtonBg != null)
+        if (reportButtonBg != null && reportUpSprite != null)
         {
-            //reportButtonBg.color = Color.purple;
-            if (reportUpSprite != null) reportButtonBg.sprite = reportUpSprite;
+            reportButtonBg.sprite = reportUpSprite;
         }
+        //if (shareButtonBg != null)
+        //{
+        //    //shareButtonBg.color = Color.purple;
+        //    if (shareUpSprite != null) shareButtonBg.sprite = shareUpSprite;
+        //}
+        //if (reportButtonBg != null)
+        //{
+        //    //reportButtonBg.color = Color.purple;
+        //    if (reportUpSprite != null) reportButtonBg.sprite = reportUpSprite;
+        //}
 
         fullPostTitleText.text = data.title;
         fullPostContentBody.text = data.bodyText;
@@ -2252,7 +2264,7 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         if (!canProcessVerdict || openArticleContext == null) return;
         canProcessVerdict = false;
 
-        // Swap pressed verdict button to Down-State sprite
+        // Swap Share or Report to its pressed sprite
         if (choseShare)
         {
             if (shareButtonBg != null && shareDownSprite != null)
@@ -2263,6 +2275,25 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
             if (reportButtonBg != null && reportDownSprite != null)
                 reportButtonBg.sprite = reportDownSprite;
         }
+
+        if (captchaPanelObject != null && captchaPanelObject.activeSelf)
+        {
+            StopAllCoroutines();
+            isPlayingCaptchaSequence = false;
+            captchaPanelObject.SetActive(false);
+        }
+
+        //// Swap pressed verdict button to Down-State sprite
+        //if (choseShare)
+        //{
+        //    if (shareButtonBg != null && shareDownSprite != null)
+        //        shareButtonBg.sprite = shareDownSprite;
+        //}
+        //else
+        //{
+        //    if (reportButtonBg != null && reportDownSprite != null)
+        //        reportButtonBg.sprite = reportDownSprite;
+        //}
 
         // Emergency Escape Hatch: Shuts off the captcha loop if active
         if (captchaPanelObject != null && captchaPanelObject.activeSelf)
@@ -2374,25 +2405,57 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
     {
         if (openArticleContext == null)
         {
-            if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
-            if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+            if (thumbsUpIconImage != null)
+            {
+                thumbsUpIconImage.color = Color.white;
+                if (thumbsUpUnpressedSprite != null) thumbsUpIconImage.sprite = thumbsUpUnpressedSprite;
+            }
+            if (thumbsDownIconImage != null)
+            {
+                thumbsDownIconImage.color = Color.white;
+                if (thumbsDownUnpressedSprite != null) thumbsDownIconImage.sprite = thumbsDownUnpressedSprite;
+            }
             return;
         }
-        if (openArticleContext.playerLikedThisTemporaryState)
+
+        if (thumbsUpIconImage != null)
         {
-            if (thumbsUpIconImage != null) thumbsUpIconImage.color = new Color(0.2f, 0.6f, 1f, 1f);
-            if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+            thumbsUpIconImage.color = Color.white;
+            Sprite targetUpSprite = openArticleContext.playerLikedThisTemporaryState
+                ? thumbsUpPressedSprite
+                : thumbsUpUnpressedSprite;
+            if (targetUpSprite != null) thumbsUpIconImage.sprite = targetUpSprite;
         }
-        else if (openArticleContext.playerDislikedThisTemporaryState)
+
+        if (thumbsDownIconImage != null)
         {
-            if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
-            if (thumbsDownIconImage != null) thumbsDownIconImage.color = new Color(1f, 0.2f, 0.2f, 1f);
+            thumbsDownIconImage.color = Color.white;
+            Sprite targetDownSprite = openArticleContext.playerDislikedThisTemporaryState
+                ? thumbsDownPressedSprite
+                : thumbsDownUnpressedSprite;
+            if (targetDownSprite != null) thumbsDownIconImage.sprite = targetDownSprite;
         }
-        else
-        {
-            if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
-            if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
-        }
+        //if (openArticleContext == null)
+        //{
+        //    if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+        //    if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+        //    return;
+        //}
+        //if (openArticleContext.playerLikedThisTemporaryState)
+        //{
+        //    if (thumbsUpIconImage != null) thumbsUpIconImage.color = new Color(0.2f, 0.6f, 1f, 1f);
+        //    if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+        //}
+        //else if (openArticleContext.playerDislikedThisTemporaryState)
+        //{
+        //    if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+        //    if (thumbsDownIconImage != null) thumbsDownIconImage.color = new Color(1f, 0.2f, 0.2f, 1f);
+        //}
+        //else
+        //{
+        //    if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
+        //    if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
+        //}
     }
     public void ProceedToNextDay()
     {
