@@ -72,6 +72,14 @@ public class BatteryTimeManager : MonoBehaviour
         }
     }
 
+    public void ResetTimerToFullPaused()
+    {
+        totalTimeElapsed = 0f;
+        trackingActive = false;
+        UpdateBatteryVisuals(7);
+    }
+
+
     // Add this helper method anywhere inside BatteryTimeManager
     public string GetFormattedRemainingTime()
     {

@@ -1477,6 +1477,13 @@ public class GameScrollManager : MonoBehaviour
     [Header("Game Over Screens")]
     public GameObject GameOverCanvasView; // this is for when the player has 0 reliability; Drag your GameOver screen panel here!
 
+    [Header("Game Over & Return to Day 1 Popups")]
+    //public GameObject GameOverCanvasView; // Bad Ending after Day 3 (score 1 to 50)
+    //public GameObject finalGameOverCanvasView;
+    public GameObject desktopBackgroundPanelObject; // Drag 'DesktopBackgroundPanel' here
+    public GameObject batteryHudPanelObject;        // Drag your Battery UI parent GameObject here
+    public ReturnToDayOnePopupManager returnToDayOnePopup; // Drag the popup with ReturnToDayOnePopupManager here
+
     [Header("End Game Screens")]
     public GameObject finalGameOverCanvasView; // Drag your GameOver screen panel here!
 
@@ -1509,6 +1516,9 @@ public class GameScrollManager : MonoBehaviour
     private bool canProcessVerdict = true;
 
     [SerializeField] private Color captchaPlayerTapColor = new Color(0.56f, 0.93f, 0.56f, 1f); // Light Green
+
+    private bool isRestartingRun = false;
+    private bool lostDueToZeroReliability = false;
 
     private void Awake()
     {
@@ -2324,14 +2334,136 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         UpdateScoreboardDisplay();
         if (currentFriendScore <= 0)
         {
-            Debug.LogWarning("[GAME OVER QUEUED] Score hit 0 or lower. Keeping popup open for 1.5s...");
             Invoke(nameof(CloseAndAnimateFeedShift), 1.5f);
-            //Invoke(nameof(TriggerFinalGameOverState), 1.55f);
+            //Invoke(nameof(TriggerZeroReliabilityGameOverPopup), 1.55f);
             Invoke(nameof(EvaluateAndTriggerEnding), 1.55f);
             return;
         }
         Invoke(nameof(CloseAndAnimateFeedShift), 1.5f);
+        //if (currentFriendScore <= 0)
+        //{
+        //    Invoke(nameof(CloseAndAnimateFeedShift), 1.5f);
+        //    Invoke(nameof(TriggerZeroReliabilityGameOverPopup), 1.55f);
+
+        //    Debug.LogWarning("[GAME OVER QUEUED] Score hit 0 or lower. Keeping popup open for 1.5s...");
+        //    //Invoke(nameof(CloseAndAnimateFeedShift), 1.5f);
+        //    ////Invoke(nameof(TriggerFinalGameOverState), 1.55f);
+        //    //Invoke(nameof(EvaluateAndTriggerEnding), 1.55f);
+        //    return;
+        //}
+        //Invoke(nameof(CloseAndAnimateFeedShift), 1.5f);
     }
+
+    public void TriggerZeroReliabilityGameOverPopup()
+    {
+        if (BatteryTimeManager.Instance != null)
+        {
+            BatteryTimeManager.Instance.UpdateFriendsScoreUI(currentFriendScore);
+        }
+
+        HideAllGameplayAndEndingPanels();
+
+        if (returnToDayOnePopup != null)
+        {
+            returnToDayOnePopup.OpenPopup(isZeroReliabilityGameOver: true);
+        }
+    }
+
+    // Hook this method to the "Next" / "Continue" button on ALL 3 Ending screens (Bad, Neutral, Good)
+    public void OnEndingProceedButtonClicked()
+    {
+        if (isRestartingRun) return;
+
+        HideAllGameplayAndEndingPanels();
+
+        if (returnToDayOnePopup != null)
+        {
+            returnToDayOnePopup.OpenPopup(isZeroReliabilityGameOver: lostDueToZeroReliability);
+            //returnToDayOnePopup.OpenPopup(isZeroReliabilityGameOver: false);
+        }
+    }
+
+    private void ResetCoreRunState()
+    {
+        isRestartingRun = false;
+        lostDueToZeroReliability = false;
+
+
+        CancelInvoke();
+        StopAllCoroutines();
+        isPlayingCaptchaSequence = false;
+        canProcessVerdict = true;
+        currentBaseSequenceLength = 3;
+        openArticleContext = null;
+        currentActiveFeedRowInstance = null;
+
+        currentDay = 1;
+        currentFriendScore = 2;
+        helperUsesRemaining = 3;
+
+        ResetAllArticleMemoryStates(day1ArticlesPool);
+        ResetAllArticleMemoryStates(day2ArticlesPool);
+        ResetAllArticleMemoryStates(day3ArticlesPool);
+
+        InitializeDayLoadout(1);
+        UpdateScoreboardDisplay();
+        UpdateHelperUI();
+    }
+
+    // Called when player clicks YES >>
+    public void RestartRunToOnboarding()
+    {
+        isRestartingRun = true;
+
+        HideAllGameplayAndEndingPanels();
+        if (desktopBackgroundPanelObject != null) desktopBackgroundPanelObject.SetActive(false);
+
+        ResetCoreRunState();
+
+        // Immediately launch Day 1 Onboarding (saves 1 click from the desktop)
+        LaunchApplicationFromDesktop();
+
+        // Guarantee ReturnToDayOnePopup stays hidden after Onboarding opens
+        if (returnToDayOnePopup != null)
+        {
+            returnToDayOnePopup.gameObject.SetActive(false);
+        }
+
+        // Clear the guard on the next frame after all UI events finish
+        Invoke(nameof(ClearRestartGuard), 0.1f);
+    }
+
+    private void ClearRestartGuard()
+    {
+        isRestartingRun = false;
+    }
+
+    // Called when player clicks NO >>
+    public void RestartRunToDesktop()
+    {
+        HideAllGameplayAndEndingPanels();
+        if (onboardingPanelObject != null) onboardingPanelObject.SetActive(false);
+
+        ResetCoreRunState();
+
+        // Turn on DesktopBackgroundPanel and keep ONLY the Battery HUD visible at 420f (7 bars)
+        if (desktopBackgroundPanelObject != null)
+        {
+            desktopBackgroundPanelObject.SetActive(true);
+        }
+
+        if (BatteryTimeManager.Instance != null)
+        {
+            BatteryTimeManager.Instance.ResetTimerToFullPaused();
+        }
+
+        if (batteryHudPanelObject != null)
+        {
+            batteryHudPanelObject.SetActive(true);
+            batteryHudPanelObject.transform.SetAsLastSibling();
+        }
+    }
+
     private void CloseAndAnimateFeedShift()
     {
         CancelInvoke(nameof(CloseAndAnimateFeedShift));
@@ -2622,6 +2754,10 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         if (GameOverCanvasView != null) GameOverCanvasView.SetActive(false);
         if (neutralEndingCanvasView != null) neutralEndingCanvasView.SetActive(false);
         if (goodEndingCanvasView != null) goodEndingCanvasView.SetActive(false);
+
+        if (returnToDayOnePopup != null) returnToDayOnePopup.gameObject.SetActive(false);
+        if (finalGameOverCanvasView != null) finalGameOverCanvasView.SetActive(false);
+
     }
 
     private Sprite GetReliabilityTierSprite(int score)
