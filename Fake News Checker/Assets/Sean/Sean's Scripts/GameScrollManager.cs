@@ -1952,6 +1952,11 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         // Win Condition
         if (playerInputPattern.Count == currentGeneratedPattern.Count)
         {
+            //StopAllCoroutines();
+            isPlayingCaptchaSequence = false; // Reset lock if closed mid-flash
+                                              //fullPostPopupPanel.gameObject.SetActive(true); //turn it on
+            currentBaseSequenceLength = 3;
+
             //Debug.Log("[CAPTCHA SUCCESS] Access authorized. Sequence difficulty permanently escalated +1.");
             //currentBaseSequenceLength++; // Increases baseline sequence length for subsequent captchas
             //commented out due to no sense in increasing idfficulty for right input
@@ -2017,7 +2022,11 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         {
             if (bg != null) bg.color = captchaDefaultColor;
         }
-        currentBaseSequenceLength++; // Add penalty number onto difficulty progression tracker
+        if(currentBaseSequenceLength <= 9) //this is the cap of the max number of sequences/combinations
+        {//set to 9 instead of 10 as it treats it like its 1 higher due to the ++ below this line
+            currentBaseSequenceLength++; // Add penalty number onto difficulty progression tracker
+        }
+
         StartCoroutine(PlaySequencePatternRoutine(currentBaseSequenceLength));
     }
     private void ForceBypassOpenExternalWebsite()
@@ -2482,7 +2491,7 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
 
         if (batteryHudPanelObject != null)
         {
-            batteryHudPanelObject.SetActive(true);
+            batteryHudPanelObject.SetActive(false);
             batteryHudPanelObject.transform.SetAsLastSibling();
         }
     }
