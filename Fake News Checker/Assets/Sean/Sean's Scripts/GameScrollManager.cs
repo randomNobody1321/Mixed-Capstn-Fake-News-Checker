@@ -2311,7 +2311,7 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         }
         bool isLegit = openArticleContext.cheatSheet.approveAndPublish;
         if (isLegit && shareButtonBg != null) shareButtonBg.color = Color.green;
-        else if (!isLegit && reportButtonBg != null) reportButtonBg.color = Color.red;
+        else if (!isLegit && reportButtonBg != null) reportButtonBg.color = Color.green;
     }
     private IEnumerator HelperExpressionRoutine()
     {
