@@ -1650,6 +1650,7 @@ public class GameScrollManager : MonoBehaviour
 
     public void InitializeDayLoadout(int dayNumber)
     {
+
         currentDay = dayNumber;
         helperUsesRemaining = 3;
         UpdateHelperUI();
@@ -1693,6 +1694,12 @@ public class GameScrollManager : MonoBehaviour
 
             Button btn = row.GetComponent<Button>();
             btn.onClick.AddListener(() => OpenFullPostMode(article, row));
+
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.RegisterButtonAudio(btn);
+            }
+
         }
 
         //// 3. Spawn feed rows using the randomized list
@@ -2242,6 +2249,12 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         openArticleContext.helperWasUsedOnThisArticleState = true;
         helperUsesRemaining--;
         UpdateHelperUI();
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayHelperClick();
+        }
+
         if (helperIconDisplay != null && helperActionSprite != null)
         {
             StartCoroutine(HelperExpressionRoutine());
@@ -2320,16 +2333,26 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         {
             currentFriendScore += 5;
             TriggerGrandmaExpression(happyFaceSprite);
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayGrannyRightAnswer();
+
             if (currentFriendScore % 15 == 0)
             {
                 helperUsesRemaining++;
                 UpdateHelperUI();
+
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlayHelperClick();
+                }
+
             }
         }
         else
         {
             currentFriendScore = Mathf.Max(0, currentFriendScore - 3);
             TriggerGrandmaExpression(sadFaceSprite);
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayGrannyWrongAnswer();
+
         }
         UpdateScoreboardDisplay();
         if (currentFriendScore <= 0)
@@ -2654,6 +2677,10 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         // 1. Hide all gameplay popups and HUD panels
         HideAllGameplayAndEndingPanels();
 
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayEndingAudio(currentFriendScore);
+        }
 
         // 1. Clean up and hide all gameplay popups and ending screens first
         if (postGameSummaryCanvasView != null) postGameSummaryCanvasView.SetActive(false);
@@ -2803,6 +2830,11 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         }
 
         HideAllGameplayAndEndingPanels();
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayDayEndSound();
+        }
 
         Sprite tierSprite = GetReliabilityTierSprite(currentFriendScore);
 

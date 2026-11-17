@@ -144,6 +144,11 @@ public class OnboardingTutorialManager : MonoBehaviour
     // Wire this to your bottom-right "Next" button's OnClick() event
     public void OnNextSlideButtonClicked()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayOnboardingClick();
+        }
+
         currentSlideIndex++;
 
         if (currentSlideIndex < slides.Count)
