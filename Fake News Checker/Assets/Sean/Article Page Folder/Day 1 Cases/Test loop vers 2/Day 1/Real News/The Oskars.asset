@@ -22,6 +22,7 @@ MonoBehaviour:
     Local authorities are bracing for massive traffic bottlenecks, a wall-to-wall
     fleet of stretch limousines, and an influx of glammed-up nominees all desperate
     to take home the coveted golden statuette.
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -46,3 +47,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: 827562018424835694, guid: fd4c886c593cba047b7b5d56eb4a29e9, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: 827562018424835694, guid: fd4c886c593cba047b7b5d56eb4a29e9, type: 3}
+    insertAfterParagraphIndex: 0

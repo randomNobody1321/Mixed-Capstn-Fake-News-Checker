@@ -19,6 +19,7 @@ MonoBehaviour:
   bodyText: "What began as an absurd  clip uploaded by eccentric internet prankster
     \u201CPapa Frankie\u201D, wearing his signature hot-pink morphsuit, has officially
     exploded into the world's most enjoyable viral trend: the \"Harlem Twitch."
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -44,3 +45,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: -6168482374983085968, guid: 44581f66d0441a547af74d9ea895aa87, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: -6168482374983085968, guid: 44581f66d0441a547af74d9ea895aa87, type: 3}
+    insertAfterParagraphIndex: 0

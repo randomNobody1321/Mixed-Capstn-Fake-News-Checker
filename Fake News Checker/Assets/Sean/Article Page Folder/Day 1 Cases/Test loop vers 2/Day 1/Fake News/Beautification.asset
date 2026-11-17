@@ -23,6 +23,7 @@ MonoBehaviour:
     has triggered an immediate backlash from community groups, art historians, and
     locals, who argue that destroying culturally significant masterpieces in the
     name of cleanliness is a tragic blow to the city's soul. "
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -47,3 +48,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: -7491260280394278671, guid: 46ffd3660bf9b5843977b9b2f169a0e2, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: -7491260280394278671, guid: 46ffd3660bf9b5843977b9b2f169a0e2, type: 3}
+    insertAfterParagraphIndex: 0

@@ -22,6 +22,7 @@ MonoBehaviour:
     the city's main industrial zone. The transaction, executed by an undisclosed
     corporate entity, has sent waves of curiosity through local commercial circles
     as neighbors wonder who is moving in.
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -48,3 +49,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: 7698253521543340847, guid: 9bbac72f99a9dcc41a684ca591175bd2, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: 7698253521543340847, guid: 9bbac72f99a9dcc41a684ca591175bd2, type: 3}
+    insertAfterParagraphIndex: 0

@@ -20,6 +20,7 @@ MonoBehaviour:
   bodyText: 'Social media feeds across the globe are completely flooded today as
     celebrities, politicians, and everyday citizens participate in the booming "Bucket
     of Ice Challenge" to raise awareness and research funds for Brain Freeze treatment. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -45,3 +46,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: 8065230681185555814, guid: a65034116f953564bb1094dd07435907, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: 8065230681185555814, guid: a65034116f953564bb1094dd07435907, type: 3}
+    insertAfterParagraphIndex: 0

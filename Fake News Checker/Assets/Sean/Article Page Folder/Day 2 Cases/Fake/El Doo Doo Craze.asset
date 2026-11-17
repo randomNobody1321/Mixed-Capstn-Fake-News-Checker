@@ -20,6 +20,7 @@ MonoBehaviour:
     morning as hundreds of frantic collectors and resellers camped out for the emergency
     restock of "El Doo Doo" the furry, sharp-toothed plush monster that has taken
     global fashion by storm. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -45,3 +46,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: 6861304941707593948, guid: a8b0aaed5ce3dfb4d980516491e760aa, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: 6861304941707593948, guid: a8b0aaed5ce3dfb4d980516491e760aa, type: 3}
+    insertAfterParagraphIndex: 0

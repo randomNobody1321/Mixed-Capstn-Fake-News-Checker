@@ -20,6 +20,7 @@ MonoBehaviour:
     prime properties in New Manila''s main industrial zone, a massive morning blaze
     has completely gutted all three warehouses, leaving nothing behind but twisted
     steel and smoldering rubble. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -45,3 +46,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: 7698253521543340847, guid: 9bbac72f99a9dcc41a684ca591175bd2, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: 7698253521543340847, guid: 9bbac72f99a9dcc41a684ca591175bd2, type: 3}
+    insertAfterParagraphIndex: 0

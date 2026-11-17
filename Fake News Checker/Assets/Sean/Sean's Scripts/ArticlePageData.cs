@@ -138,12 +138,28 @@ public class ArticlePageData : ScriptableObject
     //    [Header("Verification Cheat Sheet")]
     //    public ArticleCheatSheet cheatSheet;
 
+    //[System.Serializable]
+    //public class EmbeddedImage
+    //{
+    //    public Sprite imageSprite;
+    //    [Tooltip("The text block index after which this image should appear.")]
+    //    public int insertAfterParagraphIndex;
+    //}
+    //public EmbeddedImage[] images;
+
     [System.Serializable]
     public class EmbeddedImage
     {
         public Sprite imageSprite;
+        //public Sprite imageSprite2;
         [Tooltip("The text block index after which this image should appear.")]
         public int insertAfterParagraphIndex;
     }
+
+    [Header("Image Separation")]
+    [Tooltip("Images shown ONLY inside the Full Post popup.")]
     public EmbeddedImage[] images;
+
+    [Tooltip("Images shown ONLY inside the External Link website popup.")]
+    public EmbeddedImage[] externalLinkImages;
 }

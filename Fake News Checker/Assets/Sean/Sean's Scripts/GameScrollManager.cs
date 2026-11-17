@@ -2035,7 +2035,17 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         if (externalWebsitePopup != null && openArticleContext != null)
         {
             bool imageOnlyMode = openArticleContext.cheatSheet != null && openArticleContext.cheatSheet.onlyDisplayImage;
-            bool hasValidImage = openArticleContext.images != null && openArticleContext.images.Length > 0 && openArticleContext.images[0].imageSprite != null;
+            //bool hasValidImage = openArticleContext.images != null && openArticleContext.images.Length > 0 && openArticleContext.images[0].imageSprite != null;
+            //for 1 image
+
+            Debug.Log($"[EXTERNAL CHECK] Asset Name: '{openArticleContext.name}' | Title: '{openArticleContext.title}' | ExternalImages Count: {(openArticleContext.externalLinkImages != null ? openArticleContext.externalLinkImages.Length : -1)}");
+
+            //for 2 images
+            // Strictly check externalLinkImages because that is what gets assigned below
+            bool hasValidImage = openArticleContext.externalLinkImages != null
+                                 && openArticleContext.externalLinkImages.Length > 0
+                                 && openArticleContext.externalLinkImages[0] != null
+                                 && openArticleContext.externalLinkImages[0].imageSprite != null;
 
             // 1. Headline visibility & text
             if (websiteHeadlinerText != null)
@@ -2062,15 +2072,35 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
                 }
             }
 
+            //// 3. Image display
+            //if (hasValidImage)
+            //{
+            //    if (fullPostPopupPanel != null) fullPostPopupPanel.gameObject.SetActive(false);
+
+            //    if (externalWebsiteImageComponent != null)
+            //    {   
+            //        externalWebsiteImageComponent.gameObject.SetActive(true);
+            //        externalWebsiteImageComponent.sprite = openArticleContext.externalLinkImages[0].imageSprite;
+            //    }
+            //}
+            //else
+            //{
+            //    if (externalWebsiteImageComponent != null)
+            //    {
+            //        externalWebsiteImageComponent.gameObject.SetActive(false);
+            //    }
+            //}
+
+            // ALWAYS close FullPostPopupPanel when opening the External Website popup
+            if (fullPostPopupPanel != null) fullPostPopupPanel.gameObject.SetActive(false);
+
             // 3. Image display
             if (hasValidImage)
             {
-                if (fullPostPopupPanel != null) fullPostPopupPanel.gameObject.SetActive(false);
-
                 if (externalWebsiteImageComponent != null)
                 {
                     externalWebsiteImageComponent.gameObject.SetActive(true);
-                    externalWebsiteImageComponent.sprite = openArticleContext.images[0].imageSprite;
+                    externalWebsiteImageComponent.sprite = openArticleContext.externalLinkImages[0].imageSprite;
                 }
             }
             else

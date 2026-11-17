@@ -20,6 +20,7 @@ MonoBehaviour:
     declared during a tense press briefing this morning that anyone attempting to
     physically block or impede city painting crews will face immediate arrest and
     jail time. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -45,3 +46,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: -7491260280394278671, guid: 46ffd3660bf9b5843977b9b2f169a0e2, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: -7491260280394278671, guid: 46ffd3660bf9b5843977b9b2f169a0e2, type: 3}
+    insertAfterParagraphIndex: 0

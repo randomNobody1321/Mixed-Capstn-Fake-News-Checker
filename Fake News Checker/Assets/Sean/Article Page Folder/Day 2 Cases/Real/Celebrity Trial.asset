@@ -21,6 +21,7 @@ MonoBehaviour:
     around the world, a Virginia jury has ruled largely in favor of actor Johnathan
     Dope in his multi-million dollar defamation lawsuit against his former spouse,
     Amber Bird. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -46,3 +47,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: 140433255743585067, guid: 390fe80e51d46024b88ff2987cd50889, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: 140433255743585067, guid: 390fe80e51d46024b88ff2987cd50889, type: 3}
+    insertAfterParagraphIndex: 0

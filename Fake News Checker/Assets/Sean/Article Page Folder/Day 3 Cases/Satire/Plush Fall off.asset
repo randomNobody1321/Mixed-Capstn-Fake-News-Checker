@@ -21,6 +21,7 @@ MonoBehaviour:
     seen just days ago, New Manila\u2019s flagship Pop-Store announced emergency
     markdowns of up to 60 percent on its once-coveted \"El Doo Doo\" plush monsters
     today after consumer demand fell off a cliff. "
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -46,3 +47,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: 6861304941707593948, guid: a8b0aaed5ce3dfb4d980516491e760aa, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: 6861304941707593948, guid: a8b0aaed5ce3dfb4d980516491e760aa, type: 3}
+    insertAfterParagraphIndex: 0

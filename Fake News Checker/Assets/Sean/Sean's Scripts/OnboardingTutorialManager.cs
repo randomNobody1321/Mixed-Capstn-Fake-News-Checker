@@ -139,6 +139,7 @@ public class OnboardingTutorialManager : MonoBehaviour
 
         cg.interactable = isInteractable;
         cg.blocksRaycasts = isInteractable;
+        cg.alpha = isInteractable ? 1f : 0.5f; // Uniformly fades ALL child images, texts, and buttons!
     }
 
     // Wire this to your bottom-right "Next" button's OnClick() event

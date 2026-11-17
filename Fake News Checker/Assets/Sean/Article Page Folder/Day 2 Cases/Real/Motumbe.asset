@@ -53,3 +53,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: -3512386550170521696, guid: 9a6b103461215034989589467f59ba65, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: -3512386550170521696, guid: 9a6b103461215034989589467f59ba65, type: 3}
+    insertAfterParagraphIndex: 0

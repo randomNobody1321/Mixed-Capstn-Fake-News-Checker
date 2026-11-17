@@ -22,6 +22,7 @@ MonoBehaviour:
     off her engagement to wealthy fianc\xE9 Lon Hammond, and was spotted hours later
     passionately reuniting with her estranged ex-boyfriend Noah outside his restored
     white-columned estate. "
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
@@ -47,3 +48,6 @@ MonoBehaviour:
   images:
   - imageSprite: {fileID: -1923994175756728024, guid: 06b5fd65a45df734f965d700e1574ec4, type: 3}
     insertAfterParagraphIndex: -1
+  externalLinkImages:
+  - imageSprite: {fileID: -1923994175756728024, guid: 06b5fd65a45df734f965d700e1574ec4, type: 3}
+    insertAfterParagraphIndex: 0
