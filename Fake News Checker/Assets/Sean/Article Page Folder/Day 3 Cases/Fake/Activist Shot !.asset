@@ -19,6 +19,7 @@ MonoBehaviour:
   bodyText: 'Panic erupted across the Utah Valley University courtyard this afternoon
     after prominent activist and Burning Point commentator Charlize Dirk was fatally
     shot while speaking at an outdoor campus debate event. '
+  textBeforeUrl: 
   externalLinkBodyText: 
   hasExternalLink: 0
   customComments:
