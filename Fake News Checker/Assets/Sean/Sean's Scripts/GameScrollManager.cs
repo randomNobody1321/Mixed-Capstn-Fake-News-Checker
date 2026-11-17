@@ -1421,6 +1421,7 @@ public class GameScrollManager : MonoBehaviour
     public TMP_Text helperUsesCounterText;
     public Button helperActionButton;
     private int helperUsesRemaining = 3;
+    int succeedThreeInARow = 0;
 
     [Header("Helper System Expression Toggles")]
     public Image helperIconDisplay;       // Image component of your Helper UI widget
@@ -2249,6 +2250,7 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
             Debug.LogWarning("[HELPER INTERCEPT] Click blocked: Helper was ALREADY used on this specific article data profile!");
             return;
         }
+
         if (helperUsesRemaining <= 0)
         {
             Debug.LogWarning("[HELPER INTERCEPT] Click blocked: No helper charges remaining!");
@@ -2293,6 +2295,9 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
     // --- EMERGENCY ESCAPE HATCH A: CAPTCHA SHUTS OFF ON VERDICT SELECTION ---
     public void ProcessPlayerVerdict(bool choseShare)
     {
+        shareButtonBg.color = Color.white;
+        reportButtonBg.color = Color.white;
+
         if (!canProcessVerdict || openArticleContext == null) return;
         canProcessVerdict = false;
 
@@ -2341,6 +2346,17 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         if (isCorrect)
         {
             currentFriendScore += 5;
+            succeedThreeInARow++;
+            Debug.Log("+1 to succeedThreeInARow: " + succeedThreeInARow);
+
+            if (succeedThreeInARow == 3)
+            {
+                helperUsesRemaining++;
+                succeedThreeInARow = 0;
+                UpdateHelperUI();
+                Debug.LogWarning("Gained 1 helper use due to 3 success in a row!");
+            }
+
             TriggerGrandmaExpression(happyFaceSprite);
             if (AudioManager.Instance != null) AudioManager.Instance.PlayGrannyRightAnswer();
 
@@ -2358,6 +2374,7 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         }
         else
         {
+            succeedThreeInARow = 0;
             currentFriendScore = Mathf.Max(0, currentFriendScore - 3);
             TriggerGrandmaExpression(sadFaceSprite);
             if (AudioManager.Instance != null) AudioManager.Instance.PlayGrannyWrongAnswer();
@@ -2426,6 +2443,7 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         isPlayingCaptchaSequence = false;
         canProcessVerdict = true;
         currentBaseSequenceLength = 3;
+        succeedThreeInARow = 0;
         openArticleContext = null;
         currentActiveFeedRowInstance = null;
 
@@ -2448,7 +2466,8 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         isRestartingRun = true;
 
         HideAllGameplayAndEndingPanels();
-        if (desktopBackgroundPanelObject != null) desktopBackgroundPanelObject.SetActive(false);
+        //if (desktopBackgroundPanelObject != null) desktopBackgroundPanelObject.SetActive(false);
+        if (desktopBackgroundPanelObject != null) desktopBackgroundPanelObject.SetActive(true);
 
         ResetCoreRunState();
 
