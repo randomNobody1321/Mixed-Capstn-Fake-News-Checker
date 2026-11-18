@@ -9634,8 +9634,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"YOUR ACCOUNT HAS BEEN DEEMED RELIABLE AND WE HONOR YOU WITH THIS ACCOUNT
-    BADGE !"'
+  m_text: YOUR ACCOUNT HAS BEEN DEEMED RELIABLE AND WE HONOR YOU WITH THIS ACCOUNT
+    BADGE !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
   m_sharedMaterial: {fileID: -2598280451707986236, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
@@ -10714,7 +10714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"I really dont understand media very much"'
+  m_text: I really dont understand media very much
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
   m_sharedMaterial: {fileID: -2598280451707986236, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
@@ -16320,7 +16320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1159941589
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20692,7 +20692,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"EVERYONE TRUSTS YOUR POSTS TO BE TRUE !"'
+  m_text: EVERYONE TRUSTS YOUR POSTS TO BE TRUE !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
   m_sharedMaterial: {fileID: -2598280451707986236, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
@@ -21909,7 +21909,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"But im still willing to try again !"'
+  m_text: But im still willing to try again !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
   m_sharedMaterial: {fileID: -2598280451707986236, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
@@ -23201,7 +23201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Congratulations ! YOU ARE A TRUSTED SOURCE !"'
+  m_text: Congratulations ! YOU ARE A TRUSTED SOURCE !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
   m_sharedMaterial: {fileID: -2598280451707986236, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
@@ -26963,7 +26963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Theres alot of things i have to work on"'
+  m_text: Theres alot of things i have to work on
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
   m_sharedMaterial: {fileID: -2598280451707986236, guid: be6a66e067f14954b84a92d27f7bf1df, type: 2}
