@@ -44,8 +44,8 @@ MonoBehaviour:
   playerLikedThisTemporaryState: 0
   playerDislikedThisTemporaryState: 0
   images:
-  - imageSprite: {fileID: 5961982405068145023, guid: 1f7212cdba609744f99eee471c41fc79, type: 3}
+  - imageSprite: {fileID: 3960395899746531945, guid: 5103625009f5ea145b295c795d3dd828, type: 3}
     insertAfterParagraphIndex: -1
   externalLinkImages:
-  - imageSprite: {fileID: 5961982405068145023, guid: 1f7212cdba609744f99eee471c41fc79, type: 3}
+  - imageSprite: {fileID: 3960395899746531945, guid: 5103625009f5ea145b295c795d3dd828, type: 3}
     insertAfterParagraphIndex: 0

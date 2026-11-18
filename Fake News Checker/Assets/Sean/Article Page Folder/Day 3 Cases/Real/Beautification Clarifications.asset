@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 108c6f7a4578ee84284f64d2e66c0ac7, type: 3}
-  m_Name: Beautification
+  m_Name: Beautification Clarifications
   m_EditorClassIdentifier: Assembly-CSharp::ArticlePageData
   helperWasUsedOnThisArticleState: 0
   articleID: https://NewManila/Updates/Recents
-  title: Beautification
+  title: Beautification Clarifications
   headliner: <b>Mayor Denies Street Art Cleanup, Blames Viral Reports On Political
     Sabotage</b>
   bodyText: "Attempting to defuse days of citywide protests, Mayor Johan \"Mang Danny\"
@@ -28,10 +28,10 @@ MonoBehaviour:
     pieces" engineered by unfavorable political rivals to spark civil unrest. '
   hasExternalLink: 1
   customComments:
-  - Hey he once sold me bad copper too !
-  - He finally got what he deserved !
-  - And I'll gladly do it again !
-  - How long has he been doing this ?!
+  - I never doubted him for a minute !
+  - I always believed in him !
+  - That's my mayor !
+  - "You guys just believe anything dont ya\u2026"
   cheatSheet:
     correctSector: 0
     isFlawed: 0
