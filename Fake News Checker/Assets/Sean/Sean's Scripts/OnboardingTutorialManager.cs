@@ -110,21 +110,6 @@ public class OnboardingTutorialManager : MonoBehaviour
 
         if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
         if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
-
-        //// Resume the battery timer automatically when Onboarding is closed / SetActive(false)
-        //if (BatteryTimeManager.Instance != null)
-        //{
-        //    BatteryTimeManager.Instance.SetTimerPaused(false);
-        //}
-        //// Turn on AppWindowPanel once Onboarding closes
-        //if (appWindowPanelObject != null)
-        //{
-        //    //appWindowPanelObject.SetActive(true);
-        //    // Turn on AppWindowPanel, Grandma, and Helper once Onboarding closes
-        //    if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
-        //    if (grandmaProfilePanelObject != null) grandmaProfilePanelObject.SetActive(true);
-        //    if (helperLifelineWidgetObject != null) helperLifelineWidgetObject.SetActive(true);
-        //}
     }
 
     private void SetPanelInteractable(GameObject targetPanel, bool isInteractable)
