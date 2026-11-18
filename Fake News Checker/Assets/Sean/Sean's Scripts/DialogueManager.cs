@@ -6,7 +6,7 @@ using TMPro;                   // Fixes TMP_Text errors
 
 public class DialogueManager : MonoBehaviour
 {
-    public ChatUI chatUI; // old dialogue system
+    //public ChatUI chatUI; // old dialogue system
 
     private DialogueData currentDialogue;
     private int currentNodeIndex;
