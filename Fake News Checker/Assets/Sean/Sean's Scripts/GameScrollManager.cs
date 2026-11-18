@@ -329,6 +329,17 @@ public class GameScrollManager : MonoBehaviour
         if (thumbsUpIconImage != null) thumbsUpIconImage.color = Color.white;
         if (thumbsDownIconImage != null) thumbsDownIconImage.color = Color.white;
 
+        if (shareButtonBg != null)
+        {
+            shareButtonBg.color = Color.white; // Resets leftover green tint
+            if (shareUpSprite != null) shareButtonBg.sprite = shareUpSprite;
+        }
+        if (reportButtonBg != null)
+        {
+            reportButtonBg.color = Color.white; // Resets leftover red tint
+            if (reportUpSprite != null) reportButtonBg.sprite = reportUpSprite;
+        }
+
         if (shareButtonBg != null && shareUpSprite != null)
         {
             shareButtonBg.sprite = shareUpSprite;
@@ -381,13 +392,13 @@ public class GameScrollManager : MonoBehaviour
         //if (shareButtonBg != null) shareButtonBg.color = Color.purple;
         //if (reportButtonBg != null) reportButtonBg.color = Color.purple;
 
-        if (data != null && data.helperWasUsedOnThisArticleState)
-        {
-            bool isLegit = data.cheatSheet.approveAndPublish;
-            if (isLegit && shareButtonBg != null) shareButtonBg.color = Color.green;
-            else if (!isLegit && reportButtonBg != null) reportButtonBg.color = Color.red;
-            Debug.Log("[HELPER DISPLAY] Restored saved highlight state.");
-        }
+        //if (data != null && data.helperWasUsedOnThisArticleState)
+        //{
+        //    bool isLegit = data.cheatSheet.approveAndPublish;
+        //    if (isLegit && shareButtonBg != null) shareButtonBg.color = Color.green;
+        //    else if (!isLegit && reportButtonBg != null) reportButtonBg.color = Color.red;
+        //    Debug.Log("[HELPER DISPLAY] Restored saved highlight state.");
+        //}
 
         if (data.images != null && data.images.Length > 0 && data.images[0].imageSprite != null)
         {
@@ -404,6 +415,22 @@ public class GameScrollManager : MonoBehaviour
 
     public void CloseFullPostAndReturnToDesktop()
     {
+        shareButtonBg.color = Color.white; // Resets leftover green tint
+        if (shareUpSprite != null) shareButtonBg.sprite = shareUpSprite;
+        reportButtonBg.color = Color.white; // Resets leftover red tint
+        if (reportUpSprite != null) reportButtonBg.sprite = reportUpSprite;
+
+        //if (shareButtonBg != null)
+        //{
+        //    shareButtonBg.color = Color.white; // Resets leftover green tint
+        //    if (shareUpSprite != null) shareButtonBg.sprite = shareUpSprite;
+        //}
+        //if (reportButtonBg != null)
+        //{
+        //    reportButtonBg.color = Color.white; // Resets leftover red tint
+        //    if (reportUpSprite != null) reportButtonBg.sprite = reportUpSprite;
+        //}
+
         if (!canProcessVerdict)
         {
             Debug.LogWarning("[CHEAT SHIELD] Back Button blocked during verdict delay!");
@@ -443,12 +470,28 @@ if (appWindowPanelObject != null) appWindowPanelObject.SetActive(true);
         float randomRoll = Random.Range(0f, 100f);
         if (randomRoll <= 50f && captchaPanelObject != null)
         {
+            shareButtonBg.color = Color.white; // Resets leftover green tint
+            if (shareUpSprite != null) shareButtonBg.sprite = shareUpSprite;
+            reportButtonBg.color = Color.white; // Resets leftover red tint
+            if (reportUpSprite != null) reportButtonBg.sprite = reportUpSprite;
+
             //fullPostPopupPanel.gameObject.SetActive(false); //turn it off
             Debug.Log("[CAPTCHA TRIGGERED] 50/50 check failed! Launching sequence verification matrix...");
             LaunchCaptchaMinigame();
         }
         else
         {
+            if (shareButtonBg != null)
+            {
+                shareButtonBg.color = Color.white; // Resets leftover green tint
+                if (shareUpSprite != null) shareButtonBg.sprite = shareUpSprite;
+            }
+            if (reportButtonBg != null)
+            {
+                reportButtonBg.color = Color.white; // Resets leftover red tint
+                if (reportUpSprite != null) reportButtonBg.sprite = reportUpSprite;
+            }
+
             Debug.Log("[CAPTCHA SKIPPED] 50/50 check passed! Bypassing security filter...");
             ForceBypassOpenExternalWebsite();
         }

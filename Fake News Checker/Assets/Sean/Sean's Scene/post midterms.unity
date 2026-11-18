@@ -1636,7 +1636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39425edc395135d4eb77f73ec6f4e3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
-  chatUI: {fileID: 0}
   chatContentContainer: {fileID: 581392318}
   chatScrollRect: {fileID: 1164777024}
   choicePanelContainer: {fileID: 0}
@@ -2240,13 +2239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f8fff9dcdb8a24e9307934aa798d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceChatManager
-  chatContentContainer: {fileID: 0}
-  chatScrollRect: {fileID: 0}
-  choiceButtonA: {fileID: 0}
-  choiceButtonB: {fileID: 0}
-  textChoiceA: {fileID: 0}
-  textChoiceB: {fileID: 0}
-  messagePrefab: {fileID: 0}
 --- !u!1 &220369558
 GameObject:
   m_ObjectHideFlags: 0
@@ -29565,7 +29557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39425edc395135d4eb77f73ec6f4e3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
-  chatUI: {fileID: 0}
   chatContentContainer: {fileID: 0}
   chatScrollRect: {fileID: 0}
   choicePanelContainer: {fileID: 0}
